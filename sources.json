@@ -1,0 +1,590 @@
+{
+  "sources": [
+    {
+      "name": "Ahmed Eid – دورة تعلم Linux كاملة باللغة العربية للجميع في 6 ساعات ونصف",
+      "instructor": "أحمد عيد – TechShots",
+      "url": "https://www.youtube.com/watch?v=8f2Zsb89uoM",
+      "status": "مدمج جزئيًا في Linux",
+      "used": "أول ثلاثة فصول فقط: Operating Systems، Virtualization، Setup Linux VM. أُدرجت بأوقاتها الفعلية من 00:00:11 إلى 01:49:20.",
+      "notUsed": "من 01:49:20 فصاعدًا: File System، CLI، Commands، Package Management، Vim، Users، Permissions، Pipes/Redirects. هذه الموضوعات مشروحة ضمن دورة الطناني، لذلك لم نكررها.",
+      "reason": "وجود أحمد عيد مهم لتأسيس فهم OS/Kernel/Virtualization. لم نحذف المحاضر؛ اخترنا القسم الذي يضيف أساسًا غير مكرر."
+    },
+    {
+      "name": "Linux Administration Course 2024 – 72 Videos",
+      "instructor": "محمد الطناني – TananyAcademy",
+      "url": "https://www.youtube.com/playlist?list=PLsWFuR2EEv1uIV2vzqAhSa8gI6IG9dMpc",
+      "status": "مدمج بالكامل في Linux",
+      "used": "جميع الفيديوهات 01–72 بترتيبها الأصلي، مع العناوين والمدد وروابط index المباشرة.",
+      "notUsed": "لا يوجد فيديو مستبعد من الدورة الأساسية.",
+      "reason": "هو عمود Linux Administration في المنهج، ويغطي Debian وRocky Linux والإدارة والخدمات والتخزين وBash والمهام وخدمات الشبكة."
+    },
+    {
+      "name": "Linux Course in CyberSecurity – 28 Videos",
+      "instructor": "عبدالله النعيمي – Abdallah Al-Nuaimy",
+      "url": "https://www.youtube.com/playlist?list=PLtlmgvQV7sDtKQUPF6i6rNA3mIiieeuWp",
+      "status": "مدمج انتقائيًا في Linux + مرجع SOC",
+      "used": "#14 External Package Sources؛ #15 IP/Ports؛ #16 Connectivity Tests؛ #17 Port/Service Scanning؛ #21 System Monitoring؛ #23 System Logs؛ #24 Troubleshooting؛ #27 Final Challenge.",
+      "notUsed": "#01–13 أساسيات وتثبيت وأوامر وصلاحيات مغطاة بأحمد/الطناني؛ #18 Shell Scripting مغطى بالطناني وBash الإضافي؛ #19 Scheduling مغطى بالطناني 64–65؛ #20 Process Management مغطى بالطناني 32–33؛ #22 Services مغطى بالطناني 34؛ #25 Linux in Penetration Testing محفوظ في SOC/المعرفة الهجومية؛ #26 Shell مكرر؛ #28 خاتمة لا تضيف مهارة.",
+      "reason": "اختيرت الفيديوهات التي تضيف Network Diagnostics وMonitoring وLogs وTroubleshooting، ووُضعت في مكانها التعليمي بين محاضرات الطناني."
+    },
+    {
+      "name": "Security Jordan – Linux from Zero to Pro in 20 Hours (Part 1)",
+      "instructor": "Security Jordan",
+      "url": "https://www.youtube.com/watch?v=JBGnzEtimmg",
+      "status": "مستبعد من Linux النشط بسبب التكرار؛ محفوظ في سجل المصادر",
+      "used": "تمت مراجعة فهرس الفيديو المعلن: Kali/Virtualization، file types، filesystem، shell/TTY، commands، users/groups، shadow/password aging، permissions، searching، redirection، vim، compression، links، processes، scheduling.",
+      "notUsed": "لم نضف الفيديو كاملًا لأن هذه المحاور مغطاة في أحمد عيد والطناني وعبدالله بصورة كافية. لا تعِد 20 ساعة لتعلم نفس المهارات.",
+      "reason": "محتوى مفيد لكن تكراره مرتفع. لو احتجت Kali installation لاحقًا، استخدمه كمرجع مستقل وليس كمتطلب Linux."
+    },
+    {
+      "name": "Security Jordan – تعلم Kali Linux من الصفر (Linux Part 2)",
+      "instructor": "Security Jordan",
+      "url": "https://www.youtube.com/watch?v=qjqiPF0QBJ0",
+      "status": "مدمج جزئيًا في Linux + مرجع SOC",
+      "used": "Linux Authentication 02:14:05؛ AWK/SED/CUT/TR 03:15:40؛ Bandit walkthrough يبدأ 08:11:49 (معمل 0–34 مدمج).",
+      "notUsed": "Boot Process وServices وNetwork Management وSSH وSystem Logs وPackage Management مغطاة بالطناني وعبدالله. فصل Bash عند 05:20:15 لم نستخدمه لأنه يعيد أساسيات Bash التي يغطيها الطناني؛ أخذنا بدلًا منه مقاطع المشاريع وShebang وInput وArrays وFunctions من كورس Security Jordan Bash المنفصل. System Logs تطبق من الطناني 37–38 وعبدالله #23.",
+      "reason": "أضفنا المصادقة الأمنية ومعالجة النصوص واللاب؛ لم نعد شرح إدارة الخدمات والسجلات مرة أخرى."
+    },
+    {
+      "name": "Bash Scripting Course Tutorial Arabic (Level 0) – video shared at playlist index 29",
+      "instructor": "اسم المحاضر لم يتم تثبيته من بيانات الرابط المرسلة",
+      "url": "https://www.youtube.com/watch?v=SWDrATjXYlo&list=PLBdyyeW_Z41DykncH9zzMk8T7Rm5UlZXd&index=29",
+      "status": "الفيديو الذي أرسلته مستبعد كتكرار؛ بقية القائمة غير مكتملة البيانات",
+      "used": "الفيديو المحدد الذي وصلنا رابطه هو While Loop Part 1.",
+      "notUsed": "لم نفهرس باقي القائمة لأن الرابط الذي شاركته يحدد فيديو #29 فقط، ولم تتوفر عناوين/مدد بقية الفيديوهات في بيانات موثوقة. لا نخترع محتوى أو أرقامًا.",
+      "reason": "موضوع While Loop مغطى في الطناني #61–62 وفي مقطع Loops من Security Jordan Bash Full Course. تكرار الفيديو نفسه غير مطلوب."
+    },
+    {
+      "name": "Security Jordan – Bash Scripting Full Course (under 3 hours)",
+      "instructor": "Security Jordan",
+      "url": "https://www.youtube.com/watch?v=M5-MCMrC0sI",
+      "status": "مدمج انتقائيًا في Linux",
+      "used": "أول Script، Shebang، تشغيل السكربت، User Input، Operators، System Information Project، Ping Checker، Loops/file reading، Arrays، Functions.",
+      "notUsed": "Bash تعريف/Variables/If وبعض الحلقات المتكررة: يغطيها الطناني 55–63. لم نكررها.",
+      "reason": "هذه الإضافات تسد النواقص العملية في Bash وتقدم مشاريع لا توجد بالصيغة نفسها في دورة الطناني."
+    },
+    {
+      "name": "Security Jordan – Blue Team & SOC Foundations (3 videos)",
+      "instructor": "Security Jordan",
+      "url": "https://www.youtube.com/@securityjordan6081/playlists",
+      "status": "مؤجل في تبويب SOC",
+      "used": "الفيديو 01 Roadmap؛ الفيديو 02 SOC Fundamentals/SIEM/Logs/Alerts؛ الفيديو 03 SOC Workflow/Triage/Investigation.",
+      "notUsed": "لا يدخل في Linux الحالي؛ سيبدأ بعد Linux وSecurity+.",
+      "reason": "محتوى SOC وليس Linux Administration. محفوظ كأول مرحلة مستقبلية."
+    },
+    {
+      "name": "Linux Practical Guide – 9 Videos",
+      "instructor": "م. مصطفى عبدالسلام – Free4Arab / Information Technology",
+      "url": "https://www.youtube.com/watch?v=mfiqpP3cE9Y",
+      "status": "غير مدمج بسبب التكرار؛ محفوظ في التدقيق",
+      "used": "لا توجد فيديوهات إلزامية مضافة منه؛ تم فحص القائمة ذات 9 فيديوهات.",
+      "notUsed": "Setting Up Lab، OS Overview، Linux Intro، Debian Install، VBox Tools، Filesystem، Directory Structure، Users/Groups/Permissions، Terminal.",
+      "reason": "محتواه تمهيدي، وأحمد عيد يغطي OS/Virtualization ثم الطناني يغطي تثبيت Debian/Rocky والملفات والمستخدمين والصلاحيات والطرفية بمستوى أوسع. لا نحتاج دورة تأسيسية أخرى كاملة."
+    },
+    {
+      "name": "Ethical Hacking – 6 Hours (video supplied by user)",
+      "instructor": "القناة الظاهرة في رابط الفيديو؛ اسم المدرّب غير مثبت هنا",
+      "url": "https://www.youtube.com/watch?v=qaNZKH5NohQ",
+      "status": "مؤجل في تبويب SOC",
+      "used": "في المرحلة القادمة نستخدم الأجزاء ذات الصلة بالدفاع: Nmap/Recon، MITM، ARP/DNS spoofing، Wireshark، وفهم آثار الاستغلال.",
+      "notUsed": "Kali/Linux basics، Payloads، Meterpreter، BeEF والتفاصيل الهجومية ليست من أهداف مرحلة Linux الحالية ولا من أولويات L1.",
+      "reason": "الفيديو دورة هجومية مستقلة، وليست Linux Administration. نستفيد من بعض الأجزاء لفهم ما يجب على Blue Team اكتشافه، لا لإعادة مسار Pentesting كامل."
+    }
+  ],
+  "sourceExtras": {
+    "ahmedChapters": [
+      {
+        "time": "00:00:11",
+        "title": "Introduction to Operating Systems",
+        "decision": "مدمج – بداية Linux track"
+      },
+      {
+        "time": "00:52:17",
+        "title": "Introduction to Virtualization and Virtual Machines",
+        "decision": "مدمج – بداية Linux track"
+      },
+      {
+        "time": "01:19:36",
+        "title": "Setup Linux Virtual Machine",
+        "decision": "مدمج – بداية Linux track"
+      },
+      {
+        "time": "01:49:20",
+        "title": "Linux File System",
+        "decision": "مستبعد كتكرار مع الطناني #07–11"
+      },
+      {
+        "time": "02:48:01",
+        "title": "GUI vs Command Line Interface",
+        "decision": "مستبعد كتكرار مع الطناني #05 وما بعده"
+      },
+      {
+        "time": "02:58:27",
+        "title": "Basic Linux Commands",
+        "decision": "مستبعد كتكرار مع الطناني #05–11"
+      },
+      {
+        "time": "03:45:50",
+        "title": "Package Management",
+        "decision": "مستبعد كتكرار مع الطناني #39–42"
+      },
+      {
+        "time": "04:28:38",
+        "title": "Vi and Vim",
+        "decision": "مستبعد كتكرار مع الطناني #29"
+      },
+      {
+        "time": "04:54:44",
+        "title": "Linux User Accounts",
+        "decision": "مستبعد كتكرار مع الطناني #12–18"
+      },
+      {
+        "time": "05:26:36",
+        "title": "File Ownership and Permissions",
+        "decision": "مستبعد كتكرار مع الطناني #19–24"
+      },
+      {
+        "time": "06:05:27",
+        "title": "Pipes and Redirects",
+        "decision": "مستبعد كتكرار مع الطناني #28"
+      },
+      {
+        "time": "06:30:46",
+        "title": "What's next? Shell Scripting and Ansible?",
+        "decision": "خاتمة – لا درس Linux مستقل"
+      }
+    ],
+    "mostafaLessons": [
+      [
+        "01",
+        "Setting Up a Lab",
+        "10:19"
+      ],
+      [
+        "02",
+        "Overview of Operating Systems",
+        "24:04"
+      ],
+      [
+        "03",
+        "Introduction to Linux",
+        "45:04"
+      ],
+      [
+        "04",
+        "Installing Debian Linux",
+        "33:19"
+      ],
+      [
+        "05",
+        "Installing VBox Tools",
+        "20:12"
+      ],
+      [
+        "06",
+        "Linux File System",
+        "16:16"
+      ],
+      [
+        "07",
+        "Linux Directory Structure",
+        "29:40"
+      ],
+      [
+        "08",
+        "Linux Users & Groups - Permissions",
+        "30:29"
+      ],
+      [
+        "09",
+        "Linux Terminal",
+        "16:54"
+      ]
+    ],
+    "abdallahAll": [
+      [
+        "01",
+        "مقدمة الكورس",
+        "غير مذكورة"
+      ],
+      [
+        "02",
+        "تاريخ نظام Linux باختصار",
+        "غير مذكورة"
+      ],
+      [
+        "03",
+        "ما هو نظام Linux ولماذا نستخدمه؟",
+        "غير مذكورة"
+      ],
+      [
+        "04",
+        "توزيعات نظام Linux باختصار",
+        "غير مذكورة"
+      ],
+      [
+        "05",
+        "تحميل نظام Kali Linux على Windows",
+        "غير مذكورة"
+      ],
+      [
+        "06",
+        "مفهوم Terminal وShell في Linux",
+        "غير مذكورة"
+      ],
+      [
+        "07",
+        "مفهوم نظام ملفات Linux وطريقة التعامل معه",
+        "غير مذكورة"
+      ],
+      [
+        "08",
+        "إنشاء وإدارة الملفات في Linux",
+        "غير مذكورة"
+      ],
+      [
+        "09",
+        "أوامر نظام Linux",
+        "غير مذكورة"
+      ],
+      [
+        "10",
+        "إدارة المستخدمين والجروبات",
+        "غير مذكورة"
+      ],
+      [
+        "11",
+        "الصلاحيات والملكية",
+        "غير مذكورة"
+      ],
+      [
+        "12",
+        "أداة sudo وشرح مفهوم root",
+        "غير مذكورة"
+      ],
+      [
+        "13",
+        "استخدام APT Package Manager",
+        "غير مذكورة"
+      ],
+      [
+        "14",
+        "التحميل من مصادر خارجية",
+        "02:16"
+      ],
+      [
+        "15",
+        "مفهوم عنوان الشبكة والمنافذ في Linux",
+        "غير مذكورة"
+      ],
+      [
+        "16",
+        "اختبارات الاتصال",
+        "04:20"
+      ],
+      [
+        "17",
+        "فحص بورتات وخدمات الشبكة",
+        "07:57"
+      ],
+      [
+        "18",
+        "كتابة سكربتات Shell",
+        "غير مذكورة"
+      ],
+      [
+        "19",
+        "المهام المجدولة",
+        "غير مذكورة"
+      ],
+      [
+        "20",
+        "إدارة العمليات",
+        "غير مذكورة"
+      ],
+      [
+        "21",
+        "أدوات مراقبة النظام",
+        "غير مذكورة"
+      ],
+      [
+        "22",
+        "خدمات Linux",
+        "غير مذكورة"
+      ],
+      [
+        "23",
+        "سجلات النظام",
+        "11:58"
+      ],
+      [
+        "24",
+        "إصلاح مشاكل النظام",
+        "غير مذكورة"
+      ],
+      [
+        "25",
+        "استخدام Linux في بيئة اختبار الاختراق",
+        "غير مذكورة"
+      ],
+      [
+        "26",
+        "مفهوم Shell واستخدامه",
+        "غير مذكورة"
+      ],
+      [
+        "27",
+        "تحدي الكورس الأخير",
+        "01:15"
+      ],
+      [
+        "28",
+        "خاتمة الكورس والخطوات القادمة",
+        "غير مذكورة"
+      ]
+    ],
+    "socJordanVideos": [
+      {
+        "no": "01",
+        "title": "Blue Team & SOC Foundations Course in Arabic | From Zero to Investigating Alerts",
+        "date": "2026-10-05",
+        "duration": "حوالي 57 دقيقة",
+        "url": "https://www.youtube.com/watch?v=mfiqpP3cE9Y"
+      },
+      {
+        "no": "02",
+        "title": "SOC Fundamentals, SIEM, Logs & Alerts | From Scratch",
+        "date": "2026-11-07",
+        "duration": "40:09 تقريبًا",
+        "url": "https://www.youtube.com/watch?v=R_U2OGILxUA"
+      },
+      {
+        "no": "03",
+        "title": "SOC Analyst Workflow, Alert Triage & Investigation | From Scratch",
+        "date": "2026-11-11",
+        "duration": "47:50",
+        "url": "https://www.youtube.com/watch?v=8pWWwkhOkKM"
+      }
+    ],
+    "socPillars": [
+      {
+        "name": "Log Analysis",
+        "description": "قراءة وتفسير سجلات Windows وLinux والشبكة والهوية، والبحث والربط الزمني."
+      },
+      {
+        "name": "MITRE ATT&CK",
+        "description": "تصنيف سلوك الهجوم إلى Tactics وTechniques وSub-techniques وربطه بالدليل."
+      },
+      {
+        "name": "EDR – Endpoint Detection & Response",
+        "description": "فحص Telemetry وAlerts وProcess Tree وDevice Timeline وتنفيذ إجراءات استجابة مصرح بها."
+      },
+      {
+        "name": "Hands-On SOC Skills",
+        "description": "Alert Triage والتحقيق وجمع الأدلة والتوثيق والتصعيد والاستجابة العملية."
+      }
+    ],
+    "jordanPart1Chapters": [
+      [
+        "00:00",
+        "مقدمة إلى Kali Linux",
+        "مستبعد: تثبيت/بيئة Kali ليست مطلوبة لمسار إدارة Linux، والـ VM والتوزيعات مغطاة بأحمد عيد والطناني."
+      ],
+      [
+        "03:42",
+        "Virtualization",
+        "مستبعد: مغطى بأحمد عيد في بداية المسار."
+      ],
+      [
+        "06:13",
+        "OVA وملفات الأجهزة الافتراضية",
+        "مستبعد: مغطى في تجهيز المعمل."
+      ],
+      [
+        "07:30",
+        "تحميل Kali وVirtualBox",
+        "مستبعد: نستخدم Rocky وDebian في مسار الإدارة، وKali ليس نظام السيرفر الأساسي هنا."
+      ],
+      [
+        "08:59",
+        "تثبيت Kali Linux",
+        "مستبعد: التثبيت الأساسي مغطى بالطناني؛ Kali ليس مطلوبًا لـSOC Linux administration."
+      ],
+      [
+        "18:08",
+        "Kali Documentation",
+        "مرجع فقط: يمكن استخدام توثيق Kali عند دراسة أدواته لاحقًا."
+      ],
+      [
+        "18:53",
+        "Kali Undercover Mode",
+        "مستبعد: ميزة شكلية خاصة بـKali وليست مهارة إدارة أو SOC."
+      ],
+      [
+        "21:08",
+        "Kali Documentation – متابعة",
+        "مرجع فقط."
+      ],
+      [
+        "22:04",
+        "Linux File Types",
+        "مستبعد كتكرار مع File System في الطناني."
+      ],
+      [
+        "31:00",
+        "Linux File System",
+        "مستبعد كتكرار مع الطناني #07–11."
+      ],
+      [
+        "46:42",
+        "Shell Prompt",
+        "مستبعد كتكرار مع الطناني #05–06."
+      ],
+      [
+        "52:14",
+        "TTY",
+        "مستبعد كتكرار مع الطناني #05."
+      ],
+      [
+        "57:00",
+        "Shell Types",
+        "مستبعد كتكرار وظيفي مع أساسيات Shell لدى الطناني."
+      ],
+      [
+        "57:41",
+        "Linux Commands",
+        "مستبعد كتكرار مع الطناني #06–11."
+      ],
+      [
+        "01:35:22",
+        "Help / man / info",
+        "مستبعد كتكرار مع الطناني #25."
+      ],
+      [
+        "01:45:55",
+        "Users and Groups",
+        "مستبعد كتكرار مع الطناني #12–18."
+      ],
+      [
+        "02:41:58",
+        "User Management",
+        "مستبعد كتكرار مع الطناني #12–18."
+      ],
+      [
+        "03:33:28",
+        "Shadow File وPassword Aging",
+        "مستبعد كتكرار مع الطناني #17–18."
+      ],
+      [
+        "04:32:25",
+        "File Permissions",
+        "مستبعد كتكرار مع الطناني #19–22."
+      ],
+      [
+        "05:33:33",
+        "Special Permissions",
+        "مستبعد كتكرار مع الطناني #23–24."
+      ],
+      [
+        "06:18:55",
+        "Searching",
+        "مستبعد كتكرار مع الطناني #26–27."
+      ],
+      [
+        "06:49:30",
+        "Redirection",
+        "مستبعد كتكرار مع الطناني #28."
+      ],
+      [
+        "07:12:35",
+        "Vim",
+        "مستبعد كتكرار مع الطناني #29."
+      ],
+      [
+        "07:40:55",
+        "Compression",
+        "مستبعد كتكرار مع الطناني #30."
+      ],
+      [
+        "08:18:15",
+        "Inodes and Links",
+        "مستبعد كتكرار مع الطناني #31."
+      ],
+      [
+        "08:38:40",
+        "Processes",
+        "مستبعد كتكرار مع الطناني #32–33."
+      ],
+      [
+        "09:28:45",
+        "Task Scheduling",
+        "مستبعد كتكرار مع الطناني #64–65."
+      ]
+    ],
+    "jordanPart2Chapters": [
+      [
+        "00:00",
+        "Linux Boot Process",
+        "مستبعد كتكرار مع الطناني #34."
+      ],
+      [
+        "00:11:50",
+        "Services and Daemons",
+        "مستبعد كتكرار مع الطناني #34."
+      ],
+      [
+        "00:43:36",
+        "Manage Linux Network",
+        "مستبعد كتكرار وظيفي مع الطناني #35 وعبدالله #15–17."
+      ],
+      [
+        "01:10:00",
+        "Cryptography Fundamentals",
+        "مغطى بالمبادئ في Security+؛ لا نعيده في Linux."
+      ],
+      [
+        "01:49:00",
+        "Secure Shell (SSH)",
+        "مستبعد كتكرار مع الطناني #36."
+      ],
+      [
+        "02:14:05",
+        "Understanding Linux Authentication",
+        "مدمج في Linux — تسلسل الدرس #44."
+      ],
+      [
+        "02:24:10",
+        "System Logs: rsyslog وSystemd Journal",
+        "مستبعد كشرح مكرر؛ ندرس الطناني #37–38 ثم عبدالله #23 كتطبيق."
+      ],
+      [
+        "03:15:40",
+        "Printf وAWK وSED وCUT وTR",
+        "مدمج في Linux — تسلسل الدرس #84."
+      ],
+      [
+        "04:38:10",
+        "Linux Package Management",
+        "مستبعد كتكرار مع الطناني #39–42."
+      ],
+      [
+        "05:20:15",
+        "Bash Scripting",
+        "مستبعد كشرح أساسي مكرر؛ نستخدم مقاطع Bash المنفصلة ذات المشاريع والتطبيقات التي تكمل الطناني."
+      ],
+      [
+        "08:11:49",
+        "Bandit walkthrough Levels 0–34",
+        "مدمج كمعمل Linux ختامي: المستويات 0–34."
+      ]
+    ],
+    "bashPlaylistKnown": [
+      {
+        "no": "29",
+        "title": "While Loop Part 1",
+        "url": "https://www.youtube.com/watch?v=SWDrATjXYlo&list=PLBdyyeW_Z41DykncH9zzMk8T7Rm5UlZXd&index=29",
+        "decision": "مستبعد كتكرار: while loops مغطاة في الطناني #61، ومقاطع Loops في Security Jordan Bash Full Course. بيانات بقية فيديوهات القائمة لم يمكن تثبيتها من الرابط المرسل وحده."
+      }
+    ]
+  }
+}

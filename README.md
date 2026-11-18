@@ -1,34 +1,47 @@
-# Linux Learning Track – one-pass curriculum
+# Linux → SOC Analyst L1 → L2 Roadmap
 
-A static Arabic RTL learning tracker built for GitHub Pages / Vercel.
+موقع عربي RTL ثابت (HTML/CSS/JS) مصمم للنشر مباشرة على GitHub وVercel، دون Node أو قاعدة بيانات أو Build Step.
 
-## What is included
-- Ahmed Eid: selected OS / Linux kernel / virtualization foundation chapters only.
-- TananyAcademy: all 72 Linux Administration lessons, in source order, with the listed lesson duration.
-- Abdallah Al-Nuaimy: the non-duplicate Linux network, monitoring, troubleshooting and final challenge lessons that complement Tanany.
-- Security Jordan Bash: only the timestamped chapters that add material not already covered by Tanany (Shebang, script execution, user input, operators, loops reading files, projects, arrays and functions).
-- Security Jordan Linux Part 2: AWK / SED / CUT / TR text-processing segment at the timestamp previously identified.
+## هيكل الموقع
+- **تبويب Linux الآن:** منهج متصل One-pass. كل الدروس نشطة ومطلوبة وتدخل في النسبة. 16 مرحلة مرتبة مع عنوان الدرس والمحاضر ورقم الفيديو والمدة ورابط المصدر وملاحظة سبب الترتيب والتطبيق المطلوب وملاحظات شخصية.
+- **تبويب SOC لاحقًا:** مرجع مستقل يبدأ بعد إنهاء Linux وCompTIA Security+. مبني حول المحاور الأربعة: Log Analysis وMITRE ATT&CK وEDR وHands-On SOC Skills، ويضيف SIEM وSOC Foundations وIncident Response وThreat Hunting وDetection Engineering.
+- **تبويب مراجعة المصادر:** يوضح ما تم دمجه وما استُبعد ولماذا، ويعرض الفهارس الكاملة التي أمكن التحقق منها.
 
-## Study status labels
-- `أساسي`: core lessons required to complete the track.
-- `استكمال مطلوب`: complementary content that is still required now.
-- `تطبيق عملي`: required hands-on challenge.
+## الملفات
+- `index.html` — واجهة الموقع.
+- `styles.css` — التصميم المتجاوب.
+- `app.js` — التفاعل والحفظ والتصفية والتصدير/الاستيراد.
+- `curriculum.js` — بيانات كل الدروس والمصادر والمسارين.
+- `curriculum.json` — نسخة JSON مستقلة من المنهج.
+- `CURRICULUM_AUDIT.md` — تدقيق مفصل للمصادر والقرارات والفهرس.
 
-Every visible lesson is part of the same one-pass sequence. There is no optional "review and expansion" stage.
+## النشر على GitHub وVercel
+1. فك ضغط ZIP.
+2. ارفع **محتويات المجلد** إلى جذر GitHub Repository.
+3. في Vercel اختر Import Git Repository.
+4. الإعدادات:
+   - Framework Preset: `Other`
+   - Build Command: فارغ
+   - Install Command: فارغ
+   - Output Directory: `.`
+5. Deploy.
 
-## Run locally
-Open `index.html` in a browser. No build step or external JavaScript package is required. Google Fonts is used as a visual enhancement; the page falls back to system fonts if unavailable.
+## التشغيل المحلي
+افتح `index.html` مباشرة في المتصفح، أو شغّل خادمًا محليًا من المجلد مثل `python -m http.server 8000` ثم افتح `http://localhost:8000`.
 
-## Deploy to Vercel
-- Framework Preset: Other
-- Build Command: empty
-- Output Directory: `.`
-- Install Command: empty
+## حفظ التقدم
+- يُحفظ تقدم Linux والملاحظات وتقدم SOC وبوابة الانتقال في `localStorage` على المتصفح الحالي.
+- استخدم Export لحفظ ملف JSON، وImport لاستعادته على جهاز أو متصفح آخر.
+- لا توجد مزامنة سحابية بين الأجهزة في هذا الإصدار.
 
-Upload the contents of this folder to the root of a GitHub repository, then import that repository into Vercel.
+## ملاحظات الدقة
+- فصول أحمد عيد في أول المسار تستخدم علامات الفصول الرسمية: 00:00:11، 00:52:17، 01:19:36. تم تجنب التقسيمات الزمنية الافتراضية غير المنشورة.
+- دورة الطناني تحتوي 72 فيديو مرتبة كما في قائمة التشغيل، مع مددها.
+- فهرس عبدالله النعيمي أُخذ من القائمة التي أرسلها المستخدم؛ المدد غير الموجودة أُظهرت على أنها غير محددة.
+- مقاطع Bash من Security Jordan اختيرت من الفصول المنشورة في الفيديو المجمع؛ المدد محسوبة بين علامات الفصول.
+- فيديوهات SOC الثلاثة وروابطها فُحصت، ويظهر تبويب SOC كخطة مستقبلية وليس كجزء من تقدم Linux.
+- قائمة Bash Level 0 المنفصلة: المتاح فقط من المستخدم كان رابط فيديو While Loop Part 1 عند index 29؛ لم نخترع تفاصيل بقية القائمة.
+- فيديو Ethical Hacking محفوظ للمرحلة المستقبلية، ولا تُعرض أوقات داخلية غير مؤكدة.
 
-## Progress
-Progress is saved in browser `localStorage`. Use Export / Import to move progress between browsers or machines.
-
-## Accuracy note
-The Tanany 72-lesson titles/durations were transcribed from the public playlist index mirrored by iToutBreak. Ahmed Eid chapters were transcribed from the public chapter list. Security Jordan's compiled Bash video has chapter timestamps; selected segment durations are calculated from adjacent published chapter markers. The Abdullah playlist data was supplied by the user; durations that were not visible are marked as not available rather than guessed. The previously supplied separate Bash playlist (video `SWDrATjXYlo`) could not be fully enumerated via public indexing; the supplied While Loop Part 1 is excluded as duplicate of Tanany lesson 61 and the selected Security Jordan loops segment.
+## النسخ الاحتياطي
+احتفظ بملف `linux-to-soc-progress.json` بعد كل فترة دراسة مهمة، خصوصًا قبل الانتقال بين الأجهزة أو المتصفحات.

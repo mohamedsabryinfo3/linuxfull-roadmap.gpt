@@ -1,70 +1,62 @@
-(() => {
-  const data = window.CURRICULUM;
-  const STORAGE = 'linux-learning-track-v2';
-  const $ = s => document.querySelector(s);
-  let state = JSON.parse(localStorage.getItem(STORAGE) || '{"done":[],"hideDone":false,"filter":"all","search":""}');
-  if (!Array.isArray(state.done)) state.done=[];
-  let search = '';
-  let typeFilter = 'all';
-  const escapeHtml = s => String(s ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
-  const typeClass = k => k==='أساسي'?'أساسي':k==='استكمال مطلوب'?'استكمال':'تطبيق';
-  const all = data.lessons;
-  const doneSet = new Set(state.done);
-  function save(){state.done=[...doneSet];state.hideDone=hideDone;state.filter=typeFilter;state.search=search;localStorage.setItem(STORAGE,JSON.stringify(state));updateProgress();}
-  let hideDone = !!state.hideDone;
-  $('#searchInput').value=state.search||''; search=state.search||'';
-  $('#typeFilter').value=state.filter||'all';typeFilter=state.filter||'all';
-  function updateProgress(){
-    const count=doneSet.size, total=all.length, pct=Math.round(count/total*100);
-    $('#progressPct').textContent=pct+'%';$('#progressCount').textContent=`${count} / ${total} درس`;
-    $('#remainingCount').textContent=total-count?`متبقي ${total-count} درس`:'اكتمل المسار بالكامل';
-    $('#lessonCount').textContent=total;$('#progressRing').style.background=`conic-gradient(#75b7ff ${pct}%,#ffffff2a ${pct}%)`;
-    $('#nextBtn').textContent=total===count?'اكتمل المسار ✓':'ابدأ بالدرس التالي ←';
-  }
-  function matches(x){
-    const text=[x.title,x.instructor,x.course,x.no,x.stage,x.note].join(' ').toLowerCase();
-    if(search && !text.includes(search.toLowerCase())) return false;
-    if(typeFilter!=='all' && x.kind!==typeFilter) return false;
-    if(hideDone && doneSet.has(x.id)) return false;
-    return true;
-  }
-  function render(){
-    const filtered=all.filter(matches);
-    $('#visibleCount').textContent=`${filtered.length} درس ظاهر`;
-    if(!filtered.length){$('#curriculum').innerHTML='<div class="empty">لا توجد دروس مطابقة لبحثك.</div>';return;}
-    const stageOrder=[...new Set(all.map(x=>x.stage))];
-    const groups=stageOrder.map(s=>[s,filtered.filter(x=>x.stage===s)]).filter(g=>g[1].length);
-    $('#curriculum').innerHTML=groups.map(([stage,items],idx)=>{
-      const stageAll=all.filter(x=>x.stage===stage);const stageDone=stageAll.filter(x=>doneSet.has(x.id)).length;
-      return `<section class="phase"><div class="phase-title"><span class="phase-num">${String(idx+1).padStart(2,'0')}</span><div><h3>${escapeHtml(stage)}</h3><small>${stageDone} من ${stageAll.length} مكتمل · ${stageAll.length} درس في المرحلة</small></div></div><div class="phase-items">${items.map(x=>{
-        const done=doneSet.has(x.id);const k=typeClass(x.kind);
-        return `<article class="lesson ${done?'done':''}" id="${x.id}">
-          <button class="check" data-check="${x.id}" aria-label="تغيير إنجاز ${escapeHtml(x.title)}">${done?'✓':''}</button>
-          <div class="lesson-main">
-            <div class="lesson-top"><span class="lesson-num">${String(x.seq).padStart(3,'0')}</span><span class="kind ${k}">${escapeHtml(x.kind)}</span></div>
-            <h4 class="lesson-title">${escapeHtml(x.title)}</h4>
-            <div class="lesson-meta"><span>👨‍🏫 ${escapeHtml(x.instructor)}</span><span>📚 ${escapeHtml(x.course)}</span><span>🎬 ${escapeHtml(x.no)}</span></div>
-            ${x.note?`<p class="lesson-note">${escapeHtml(x.note)}</p>`:''}
-            <details class="lesson-details"><summary>تفاصيل الدرس وطريقة دراسته</summary><p>${escapeHtml(x.details)}</p><div class="lesson-actions"><a href="${escapeHtml(x.url)}" target="_blank" rel="noopener">فتح الدرس / المقطع ↗</a></div></details>
-          </div><div class="duration">◷ ${escapeHtml(x.duration)}</div>
-        </article>`;
-      }).join('')}</div></section>`;
-    }).join('');
-    document.querySelectorAll('[data-check]').forEach(b=>b.addEventListener('click',()=>{
-      const id=b.dataset.check;doneSet.has(id)?doneSet.delete(id):doneSet.add(id);save();render();
-    }));
-  }
-  $('#searchInput').addEventListener('input',e=>{search=e.target.value;render();save();});
-  $('#typeFilter').addEventListener('change',e=>{typeFilter=e.target.value;render();save();});
-  $('#hideDoneBtn').textContent=hideDone?'إظهار المنتهي':'إخفاء المنتهي';
-  $('#hideDoneBtn').addEventListener('click',()=>{hideDone=!hideDone;$('#hideDoneBtn').textContent=hideDone?'إظهار المنتهي':'إخفاء المنتهي';render();save();});
-  $('#resetBtn').addEventListener('click',()=>{if(confirm('هل تريد تصفير إنجاز جميع الدروس؟')){doneSet.clear();save();render();}});
-  $('#nextBtn').addEventListener('click',()=>{const next=all.find(x=>!doneSet.has(x.id));if(next){if(!matches(next)){search='';typeFilter='all';hideDone=false;$('#searchInput').value='';$('#typeFilter').value='all';$('#hideDoneBtn').textContent='إخفاء المنتهي';}render();setTimeout(()=>{const el=document.getElementById(next.id);if(el){el.scrollIntoView({behavior:'smooth',block:'center'});el.style.outline='2px solid #8db6f2';setTimeout(()=>el.style.outline='',1500);}},40);}});
-  $('#exportBtn').addEventListener('click',()=>{const blob=new Blob([JSON.stringify({product:'Linux Learning Track',version:2,exportedAt:new Date().toISOString(),done:[...doneSet]},null,2)],{type:'application/json'});const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download='linux-learning-progress.json';a.click();URL.revokeObjectURL(a.href);});
-  $('#importFile').addEventListener('change',async e=>{const f=e.target.files[0];if(!f)return;try{const val=JSON.parse(await f.text());if(!Array.isArray(val.done))throw new Error();const known=new Set(all.map(x=>x.id));doneSet.clear();val.done.filter(id=>known.has(id)).forEach(id=>doneSet.add(id));save();render();alert('تم استيراد التقدم.');}catch{alert('ملف التقدم غير صالح.');}e.target.value='';});
-  $('#auditToggle').addEventListener('click',()=>$('#auditContent').classList.toggle('hidden'));
-  function auditCard(x){return `<article class="audit-item"><strong>${escapeHtml(x.source)} — ${escapeHtml(x.instructor)}</strong><small>${escapeHtml(x.lesson)}</small><p><b>المحتوى:</b> ${escapeHtml(x.content)}</p><p class="reason"><b>سبب القرار:</b> ${escapeHtml(x.reason)}</p>${x.url?`<a href="${escapeHtml(x.url)}" target="_blank" rel="noopener">فتح المصدر ↗</a>`:''}</article>`}
-  $('#excludedList').innerHTML=data.excluded.map(auditCard).join('');
-  $('#laterList').innerHTML=data.later.map(auditCard).join('');
-  updateProgress();render();
+(()=>{'use strict';
+const D=window.ROADMAP_DATA; if(!D){document.body.innerHTML='تعذر تحميل بيانات المنهج';return;}
+const $=s=>document.querySelector(s), $$=s=>Array.from(document.querySelectorAll(s));
+const LKEY='linuxSocFinal.linux.done.v1', NKEY='linuxSocFinal.linux.notes.v1', SKEY='linuxSocFinal.soc.done.v1', GKEY='linuxSocFinal.gate.v1';
+let done=new Set(JSON.parse(localStorage.getItem(LKEY)||'[]'));
+let notes=JSON.parse(localStorage.getItem(NKEY)||'{}');
+let socDone=new Set(JSON.parse(localStorage.getItem(SKEY)||'[]'));
+let gate=JSON.parse(localStorage.getItem(GKEY)||'{"linux":false,"security":false}');
+let activeTab='linux',hideDone=false,search='',phaseFilter='all',typeFilter='all';
+const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+function save(){localStorage.setItem(LKEY,JSON.stringify([...done]));localStorage.setItem(NKEY,JSON.stringify(notes));localStorage.setItem(SKEY,JSON.stringify([...socDone]));localStorage.setItem(GKEY,JSON.stringify(gate));}
+let toastTimer;function toast(s){const el=$('#toast');el.textContent=s;el.classList.add('show');clearTimeout(toastTimer);toastTimer=setTimeout(()=>el.classList.remove('show'),2300);}
+function showTab(t){activeTab=t;$$('.main-tab').forEach(b=>b.classList.toggle('active',b.dataset.tab===t));$('#linuxPanel').classList.toggle('active-panel',t==='linux');$('#socPanel').classList.toggle('active-panel',t==='soc');$('#sourcesPanel').classList.toggle('active-panel',t==='sources');window.scrollTo({top:0,behavior:'smooth'});}
+$$('.main-tab').forEach(b=>b.addEventListener('click',()=>showTab(b.dataset.tab)));$$('[data-goto="soc"]').forEach(b=>b.addEventListener('click',()=>showTab('soc')));
+function lessonMatches(x){const q=search.toLowerCase();return (!q||[x.title,x.course,x.instructor,x.lessonNo,x.reason,x.task].join(' ').toLowerCase().includes(q))&&(phaseFilter==='all'||x.phaseId===phaseFilter)&&(typeFilter==='all'||x.kind===typeFilter)&&(!hideDone||!done.has(x.id));}
+function renderLinux(){
+ const total=D.lessons.length,completed=D.lessons.filter(x=>done.has(x.id)).length,pct=Math.round(completed/Math.max(1,total)*100),left=total-completed;
+ $('#linuxTotal').textContent=total;$('#linuxDone').textContent=completed;$('#linuxPct').textContent=pct+'%';$('#linuxLeft').textContent=left;$('#linuxBar').style.width=pct+'%';$('#linuxRing').style.background=`conic-gradient(var(--blue) ${pct*3.6}deg,#e9eff7 0deg)`;$('#linuxRemaining').textContent=left?`متبقي ${left} درسًا — استمر بالترتيب حتى النهاية.`:'اكتمل مسار Linux بالكامل. انتقل إلى Security+ ثم بوابة SOC.';$('#phaseTotal').textContent=D.phases.length;
+ let sec=D.meta.knownVideoSeconds||0;$('#watchTime').textContent=`${Math.floor(sec/3600)}س ${Math.floor(sec%3600/60)}د`;
+ const next=D.lessons.find(x=>!done.has(x.id));
+ if(next){$('#nextBtn').innerHTML='ابدأ الدرس <span>←</span>';$('#nextPhase').textContent=`المرحلة ${String(next.phaseNumber).padStart(2,'0')} · ${next.phaseTitle}`;$('#nextTitle').textContent=next.title;$('#nextMeta').textContent=`${next.instructor} · ${next.lessonNo} · ${next.duration}`;$('#nextBtn').disabled=false;$('#nextBtn').onclick=()=>jump(next.id);}
+ else{$('#nextPhase').textContent='تم إكمال المسار';$('#nextTitle').textContent='أحسنت! أنهيت جميع دروس Linux';$('#nextMeta').textContent='أكمل Security+ ثم انتقل إلى تبويب SOC.';$('#nextBtn').textContent='خطة SOC ←';$('#nextBtn').onclick=()=>showTab('soc');}
+ const select=$('#phaseFilter');const prev=select.value;select.innerHTML='<option value="all">كل المراحل</option>'+D.phases.map(p=>`<option value="${p.id}">${esc(p.title)}</option>`).join('');select.value=D.phases.some(p=>p.id===prev)?prev:'all';
+ let html='',shown=0;
+ D.phases.forEach((p,idx)=>{
+  const arr=D.lessons.filter(x=>x.phaseId===p.id),matched=arr.filter(lessonMatches);if(!matched.length)return;shown+=matched.length;
+  const pd=arr.filter(x=>done.has(x.id)).length,pp=Math.round(pd/Math.max(1,arr.length)*100);
+  const open=search||phaseFilter!=='all'||idx===D.phases.findIndex(z=>z.id===(next?.phaseId||D.phases[0].id));
+  html+=`<details class="stage-card ${pp===100?'completed':''}" ${open?'open':''}><summary class="stage-head"><div class="stage-num">${String(idx+1).padStart(2,'0')}</div><div class="stage-heading"><h3>${esc(p.title)}</h3><p>${esc(p.subtitle)}</p></div><div class="stage-meta"><span class="stage-count">${pd}/${arr.length}</span><span class="stage-progress"><i style="width:${pp}%"></i></span><span class="chevron">⌄</span></div></summary><div class="stage-body"><div class="stage-outcome"><b>هدف المرحلة:</b> ${esc(p.goal)}<br><b>المخرج المطلوب:</b> ${esc(p.deliverable)}</div>`;
+  matched.forEach(x=>{
+   html+=`<article class="lesson-card ${done.has(x.id)?'is-done':''}" id="${x.id}"><div class="check-wrap"><input class="lesson-check" type="checkbox" data-check="${x.id}" aria-label="إنهاء ${esc(x.title)}" ${done.has(x.id)?'checked':''}></div><div class="lesson-main"><div class="lesson-title-row"><h4 class="lesson-title">${String(x.seq).padStart(3,'0')}. ${esc(x.title)}</h4><span class="kind-badge kind-${x.kind==='أساسي'?'أساسي':x.kind==='استكمال مطلوب'?'استكمال-مطلوب':'تطبيق-عملي'}">${esc(x.kind)}</span></div><div class="lesson-meta"><span>👤 <b>${esc(x.instructor)}</b></span><span>📚 ${esc(x.course)}</span><span>🎬 ${esc(x.lessonNo)}</span></div><p class="lesson-note">${esc(x.reason)}</p><details class="lesson-detail"><summary>تفاصيل الدرس والمطلوب مني</summary><div class="detail-grid"><div class="detail-box"><b>لماذا في هذا الموضع؟</b>${esc(x.reason)}</div><div class="detail-box"><b>التطبيق المطلوب</b>${esc(x.task)}</div></div><div class="instructor-mini"><b>عن المحاضر:</b> ${esc(x.instructorNote||x.instructor)}<br><b>المصدر:</b> ${esc(x.source)} · ${esc(x.chapter||'')}</div><textarea class="personal-note" data-note="${x.id}" placeholder="اكتب ملاحظاتك الشخصية: أوامر، أخطاء، نتائج التطبيق...">${esc(notes[x.id]||'')}</textarea><div class="lesson-actions"><a class="watch-link" href="${esc(x.url)}" target="_blank" rel="noopener">فتح الدرس على YouTube / المصدر ↗</a>${x.sourceGroup?`<span class="legend-note">${esc(x.sourceGroup)}</span>`:''}</div></details></div><div class="duration">◷ ${esc(x.duration)}</div></article>`;
+  });
+  html+='</div></details>';
+ });
+ $('#linuxStages').innerHTML=html||'<div class="empty-state">لا توجد نتائج مطابقة. غيّر البحث أو الفلاتر.</div>';
+ $('#hideDoneBtn').textContent=hideDone?'إظهار المنتهي':'إخفاء المنتهي';
+ $('#linuxStages').querySelectorAll('[data-check]').forEach(el=>el.addEventListener('change',()=>{const id=el.dataset.check;el.checked?done.add(id):done.delete(id);save();renderLinux();toast(el.checked?'تم تسجيل إنجاز الدرس':'تم إلغاء الإنجاز');}));
+ $('#linuxStages').querySelectorAll('[data-note]').forEach(el=>el.addEventListener('input',()=>{notes[el.dataset.note]=el.value;save();}));
+}
+function jump(id){const el=document.getElementById(id);if(!el)return;const d=el.closest('details');if(d)d.open=true;el.scrollIntoView({behavior:'smooth',block:'center'});el.classList.add('highlight');setTimeout(()=>el.classList.remove('highlight'),1700);}
+function renderSoc(){
+ $('#gateLinux').checked=!!gate.linux;$('#gateSecurity').checked=!!gate.security;const ready=gate.linux&&gate.security;$('#gateState').textContent=ready?'جاهز للبدء':'لم يحن البدء بعد';$('#gateState').classList.toggle('ready',ready);
+ $('#pillarsGrid').innerHTML=D.sourceExtras.socPillars.map((p,i)=>`<div class="pillar-card"><span class="pillar-num">0${i+1} / PILLAR</span><h3>${esc(p.name)}</h3><p>${esc(p.description)}</p></div>`).join('');
+ $('#socStages').innerHTML=D.socPhases.map((p,i)=>{let tasks=p.tasks||[];const status=p.status;return `<details class="soc-phase" ${i<3?'open':''}><summary class="soc-phase-head"><div class="soc-phase-num">${String(i).padStart(2,'0')}</div><div class="soc-phase-title"><h3>${esc(p.title)}</h3><p>${esc(p.goal)}</p></div><span class="soc-status">${esc(status)}</span><span class="chevron">⌄</span></summary><div class="soc-phase-content"><div class="soc-goal">${esc(p.goal)}</div>${tasks.map((t,j)=>{const tid=p.id+'-'+j;return `<div class="soc-task"><input type="checkbox" data-soc-check="${tid}" ${socDone.has(tid)?'checked':''} aria-label="${esc(t.title)}"><div><div class="task-meta"><span>${esc(t.source||'')}</span><span>${esc(t.lessonNo||'')}</span><span>${esc(t.duration||'')}</span></div><h4>${esc(t.title)}</h4><p>${esc(t.note||'')}</p></div>${t.url?`<a href="${esc(t.url)}" target="_blank" rel="noopener">فتح المصدر ↗</a>`:''}</div>`}).join('')}</div></details>`}).join('');
+ $('#socStages').querySelectorAll('[data-soc-check]').forEach(el=>el.addEventListener('change',()=>{el.checked?socDone.add(el.dataset.socCheck):socDone.delete(el.dataset.socCheck);save();toast('تم حفظ حالة عنصر SOC في تبويبه المنفصل');}));
+}
+function renderSources(){
+ const active=D.lessons.length, future=D.socPhases.reduce((a,p)=>a+p.tasks.length,0);$('#auditSummary').innerHTML=`<div class="audit-stat"><b>${active}</b><small>درس Linux نشط مطلوب</small></div><div class="audit-stat"><b>${D.phases.length}</b><small>مراحل Linux</small></div><div class="audit-stat"><b>${D.sources.length}</b><small>مصادر من قوائمك</small></div><div class="audit-stat"><b>${future}</b><small>عنصر محفوظ في مرجع SOC</small></div>`;
+ const q=($('#sourceSearch').value||'').toLowerCase(),f=$('#sourceStatus').value;
+ const list=D.sources.filter(s=>{const t=[s.name,s.instructor,s.status,s.used,s.notUsed].join(' ').toLowerCase();return (!q||t.includes(q))&&(f==='all'||(f==='مدمج'&&s.status.includes('مدمج'))||(f==='مستبعد'&&s.status.includes('مستبعد'))||(f==='مؤجل'&&s.status.includes('مؤجل')));});
+ $('#sourceCards').innerHTML=list.map(s=>{let cls=s.status.includes('مدمج بالكامل')?'used':s.status.includes('مدمج')?'partial':s.status.includes('مؤجل')?'later':'skip';return `<article class="source-card"><span class="source-badge ${cls}">${esc(s.status)}</span><h3>${esc(s.name)}</h3><div class="source-meta"><span>المحاضر: ${esc(s.instructor)}</span></div><p><b>المستخدم:</b> ${esc(s.used)}</p><p><b>غير المستخدم:</b> ${esc(s.notUsed)}</p><p><b>سبب القرار:</b> ${esc(s.reason)}</p><a href="${esc(s.url)}" target="_blank" rel="noopener">فتح المصدر الأصلي ↗</a></article>`}).join('')||'<div class="empty-state">لا توجد مصادر مطابقة.</div>';
+ const ex=D.sourceExtras;$('#sourceDetails').innerHTML=`<div class="index-block"><h4>Ahmed Eid – Chapters</h4><div class="index-list">${ex.ahmedChapters.map(x=>`<div><span>${esc(x.time)}</span>${esc(x.title)} — ${esc(x.decision)}</div>`).join('')}</div></div><div class="index-block"><h4>Mostafa Abdelsalam – 9 Videos</h4><div class="index-list">${ex.mostafaLessons.map(x=>`<div><span>#${x[0]} · ${x[2]}</span>${esc(x[1])}</div>`).join('')}</div></div><div class="index-block"><h4>Abdullah Al-Nuaimy – Full 28 Video List</h4><div class="index-list">${ex.abdallahAll.map(x=>`<div><span>#${x[0]} · ${x[2]}</span>${esc(x[1])}</div>`).join('')}</div></div><div class="index-block"><h4>Security Jordan – Linux Part 1: full chapter review</h4><div class="index-list">${ex.jordanPart1Chapters.map(x=>`<div><span>${esc(x[0])}</span><b>${esc(x[1])}</b> — ${esc(x[2])}</div>`).join('')}</div><a href="https://www.youtube.com/watch?v=JBGnzEtimmg" target="_blank" rel="noopener">فتح Part 1 ↗</a></div><div class="index-block"><h4>Security Jordan – Linux Part 2: full chapter review</h4><div class="index-list">${ex.jordanPart2Chapters.map(x=>`<div><span>${esc(x[0])}</span><b>${esc(x[1])}</b> — ${esc(x[2])}</div>`).join('')}</div><a href="https://www.youtube.com/watch?v=qjqiPF0QBJ0" target="_blank" rel="noopener">فتح Part 2 ↗</a></div><div class="index-block"><h4>Security Jordan – Bash playlist: only verified user-shared item</h4><div class="index-list">${ex.bashPlaylistKnown.map(x=>`<div><span>#${esc(x.no)}</span><b>${esc(x.title)}</b> — ${esc(x.decision)} <a href="${esc(x.url)}" target="_blank" rel="noopener">فتح الفيديو ↗</a></div>`).join('')}</div></div><div class="index-block"><h4>Security Jordan – SOC Videos</h4><div class="index-list">${ex.socJordanVideos.map(x=>`<div><span>Video ${x.no} · ${x.duration}</span><a href="${x.url}" target="_blank" rel="noopener">${esc(x.title)}</a></div>`).join('')}</div></div>`;
+}
+$('#searchInput').addEventListener('input',e=>{search=e.target.value;renderLinux();});$('#phaseFilter').addEventListener('change',e=>{phaseFilter=e.target.value;renderLinux();});$('#typeFilter').addEventListener('change',e=>{typeFilter=e.target.value;renderLinux();});$('#hideDoneBtn').addEventListener('click',()=>{hideDone=!hideDone;renderLinux();});$('#resetLinuxBtn').addEventListener('click',()=>{if(confirm('تصفير تقدم Linux فقط؟ لن يتغير تبويب SOC.')){done.clear();notes={};save();renderLinux();toast('تم تصفير تقدم Linux');}});
+$('#sourceSearch').addEventListener('input',renderSources);$('#sourceStatus').addEventListener('change',renderSources);
+$('#gateLinux').addEventListener('change',e=>{gate.linux=e.target.checked;save();renderSoc();});$('#gateSecurity').addEventListener('change',e=>{gate.security=e.target.checked;save();renderSoc();});
+function exportData(){const payload={product:'Linux to SOC Learning Roadmap',version:3,exportedAt:new Date().toISOString(),linuxDone:[...done],linuxNotes:notes,socDone:[...socDone],gate};const blob=new Blob([JSON.stringify(payload,null,2)],{type:'application/json'});const a=document.createElement('a');a.href=URL.createObjectURL(blob);a.download='linux-to-soc-progress.json';a.click();setTimeout(()=>URL.revokeObjectURL(a.href),1000);toast('تم تصدير التقدم والملاحظات');}
+function importData(file){if(!file)return;const r=new FileReader();r.onload=()=>{try{const p=JSON.parse(r.result);const ids=new Set(D.lessons.map(x=>x.id));done=new Set((p.linuxDone||p.done||[]).filter(x=>ids.has(x)));notes=p.linuxNotes||{};socDone=new Set(p.socDone||[]);gate=p.gate||gate;save();renderAll();toast('تم استيراد التقدم');}catch(e){toast('ملف التقدم غير صالح');}};r.readAsText(file);}
+$('#exportBtn').addEventListener('click',exportData);$('#exportBtn2').addEventListener('click',exportData);$('#importFile').addEventListener('change',e=>{importData(e.target.files[0]);e.target.value='';});$('#importBtn2').addEventListener('click',()=>$('#importFile').click());$('#resetAllBtn').addEventListener('click',()=>{if(confirm('هل تريد تصفير تقدم Linux وSOC والملاحظات وبوابة الانتقال؟')){done.clear();notes={};socDone.clear();gate={linux:false,security:false};save();renderAll();toast('تم تصفير كل التقدم');}});
+function renderAll(){renderLinux();renderSoc();renderSources();}
+renderAll();
 })();
