@@ -1,0 +1,10 @@
+FINAL LINUX CURRICULUM COUNTS
+============================
+93 total learning units in 16 phases.
+75 Essential = 3 selected chapters from one Ahmed Eid video + all 72 Tanany videos.
+16 Complementary = 6 selected Abdullah videos (#14, #15, #16, #17, #21, #24) + 2 selected chapters from Security Jordan Linux Part 2 + 8 selected chapters from one Security Jordan Bash video.
+2 Practical = Abdullah video #27 final challenge + OverTheWire Bandit Levels 0-34 lab.
+Therefore: 92 visible video chapter/lesson segments from 82 distinct YouTube source videos + 1 external Bandit lab.
+Known duration of selected video segments: 36 hours, 13 minutes, 28 seconds.
+Three selected video items have no independently stated duration in the supplied playlist index. Bandit lab time varies by learner.
+SOC reference: 10 phases / 51 tasks, separately stored and not included in Linux completion.

@@ -4,31 +4,31 @@
       "name": "Ahmed Eid – دورة تعلم Linux كاملة باللغة العربية للجميع في 6 ساعات ونصف",
       "instructor": "أحمد عيد – TechShots",
       "url": "https://www.youtube.com/watch?v=8f2Zsb89uoM",
-      "status": "مدمج جزئيًا في Linux",
-      "used": "أول ثلاثة فصول فقط: Operating Systems، Virtualization، Setup Linux VM. أُدرجت بأوقاتها الفعلية من 00:00:11 إلى 01:49:20.",
-      "notUsed": "من 01:49:20 فصاعدًا: File System، CLI، Commands، Package Management، Vim، Users، Permissions، Pipes/Redirects. هذه الموضوعات مشروحة ضمن دورة الطناني، لذلك لم نكررها.",
-      "reason": "وجود أحمد عيد مهم لتأسيس فهم OS/Kernel/Virtualization. لم نحذف المحاضر؛ اخترنا القسم الذي يضيف أساسًا غير مكرر."
+      "status": "مدمج جزئيًا – 3 فصول تأسيسية",
+      "used": "3 فصول من الفيديو نفسه: Operating Systems، Virtualization، Setup Linux VM. تظهر كـ3 وحدات متتابعة، لا كـ3 فيديوهات مستقلة.",
+      "notUsed": "بقية الفصول من Linux File System وCLI وCommands وPackage Management وVim وUsers وPermissions وPipes/Redirection؛ لأنها مغطاة في الطناني، ولن نكررها.",
+      "reason": "أحمد عيد مهم لتأسيس فهم أنظمة التشغيل والـKernel والـVirtualization قبل إدارة Linux. أُدرج الجزء الذي يضيف أساسًا جديدًا فقط."
     },
     {
       "name": "Linux Administration Course 2024 – 72 Videos",
       "instructor": "محمد الطناني – TananyAcademy",
       "url": "https://www.youtube.com/playlist?list=PLsWFuR2EEv1uIV2vzqAhSa8gI6IG9dMpc",
-      "status": "مدمج بالكامل في Linux",
-      "used": "جميع الفيديوهات 01–72 بترتيبها الأصلي، مع العناوين والمدد وروابط index المباشرة.",
-      "notUsed": "لا يوجد فيديو مستبعد من الدورة الأساسية.",
-      "reason": "هو عمود Linux Administration في المنهج، ويغطي Debian وRocky Linux والإدارة والخدمات والتخزين وBash والمهام وخدمات الشبكة."
+      "status": "مدمج بالكامل – 72/72 فيديو",
+      "used": "جميع فيديوهات قائمة Linux Administration وعددها 72، بترتيب القائمة الأصلي.",
+      "notUsed": "لا يوجد فيديو مستبعد من دورة الطناني.",
+      "reason": "هو العمود الرئيسي لإدارة Linux على Debian وRocky: المستخدمون والصلاحيات والعمليات والخدمات والشبكات والسجلات والتخزين وBash والمهام وخدمات الشبكة."
     },
     {
       "name": "Linux Course in CyberSecurity – 28 Videos",
       "instructor": "عبدالله النعيمي – Abdallah Al-Nuaimy",
       "url": "https://www.youtube.com/playlist?list=PLtlmgvQV7sDtKQUPF6i6rNA3mIiieeuWp",
-      "status": "مدمج انتقائيًا في Linux + مرجع SOC",
-      "used": "#14 External Package Sources؛ #15 IP/Ports؛ #16 Connectivity Tests؛ #17 Port/Service Scanning؛ #21 System Monitoring؛ #23 System Logs؛ #24 Troubleshooting؛ #27 Final Challenge.",
-      "notUsed": "#01–13 أساسيات وتثبيت وأوامر وصلاحيات مغطاة بأحمد/الطناني؛ #18 Shell Scripting مغطى بالطناني وBash الإضافي؛ #19 Scheduling مغطى بالطناني 64–65؛ #20 Process Management مغطى بالطناني 32–33؛ #22 Services مغطى بالطناني 34؛ #25 Linux in Penetration Testing محفوظ في SOC/المعرفة الهجومية؛ #26 Shell مكرر؛ #28 خاتمة لا تضيف مهارة.",
-      "reason": "اختيرت الفيديوهات التي تضيف Network Diagnostics وMonitoring وLogs وTroubleshooting، ووُضعت في مكانها التعليمي بين محاضرات الطناني."
+      "status": "مدمج انتقائيًا – 7/28 فيديوهات",
+      "used": "#14 مصادر البرامج الخارجية؛ #15 عنوان الشبكة والمنافذ؛ #16 اختبارات الاتصال؛ #17 فحص المنافذ والخدمات؛ #21 أدوات مراقبة النظام؛ #24 إصلاح مشاكل النظام؛ #27 التحدي النهائي (مُصنف تطبيقًا عمليًا).",
+      "notUsed": "#01–13 أساسيات وتثبيت وأوامر ومستخدمون وصلاحيات مغطاة بأحمد/الطناني؛ #18 Shell Scripting و#19 Scheduling مغطاة بالطناني وBash المكمل؛ #20 العمليات و#22 الخدمات مغطاة بالطناني؛ #23 System Logs مستبعد لأنه يكرر rsyslog/journald في الطناني #37–38؛ #25 Linux in Penetration Testing محفوظ كمعرفة هجومية في مرجع SOC؛ #26 Shell مكرر؛ #28 خاتمة.",
+      "reason": "احتفظنا فقط بالدروس السبعة التي تضيف Network Diagnostics وMonitoring وTroubleshooting وتحديًا ختاميًا. استبعدنا فيديو System Logs #23 صراحةً لتجنب التكرار."
     },
     {
-      "name": "Security Jordan – Linux from Zero to Pro in 20 Hours (Part 1)",
+      "name": "Security Jordan – Linux Course in CyberSecurity [Arabic] (Part 1)",
       "instructor": "Security Jordan",
       "url": "https://www.youtube.com/watch?v=JBGnzEtimmg",
       "status": "مستبعد من Linux النشط بسبب التكرار؛ محفوظ في سجل المصادر",
@@ -37,13 +37,13 @@
       "reason": "محتوى مفيد لكن تكراره مرتفع. لو احتجت Kali installation لاحقًا، استخدمه كمرجع مستقل وليس كمتطلب Linux."
     },
     {
-      "name": "Security Jordan – تعلم Kali Linux من الصفر (Linux Part 2)",
+      "name": "Security Jordan – Linux Course in CyberSecurity [Arabic] (Part 2)",
       "instructor": "Security Jordan",
       "url": "https://www.youtube.com/watch?v=qjqiPF0QBJ0",
-      "status": "مدمج جزئيًا في Linux + مرجع SOC",
-      "used": "Linux Authentication 02:14:05؛ AWK/SED/CUT/TR 03:15:40؛ Bandit walkthrough يبدأ 08:11:49 (معمل 0–34 مدمج).",
-      "notUsed": "Boot Process وServices وNetwork Management وSSH وSystem Logs وPackage Management مغطاة بالطناني وعبدالله. فصل Bash عند 05:20:15 لم نستخدمه لأنه يعيد أساسيات Bash التي يغطيها الطناني؛ أخذنا بدلًا منه مقاطع المشاريع وShebang وInput وArrays وFunctions من كورس Security Jordan Bash المنفصل. System Logs تطبق من الطناني 37–38 وعبدالله #23.",
-      "reason": "أضفنا المصادقة الأمنية ومعالجة النصوص واللاب؛ لم نعد شرح إدارة الخدمات والسجلات مرة أخرى."
+      "status": "مدمج جزئيًا – فصلان + مرجع معمل",
+      "used": "Linux Authentication 02:14:05–02:24:10 (10:05)؛ AWK/SED/CUT/TR 03:15:40–04:38:10 (1:22:30)؛ Bandit walkthrough عند 08:11:49 كمرجع مساعدة لمعمل 0–34.",
+      "notUsed": "Boot Process وServices وNetwork وSSH وSystem Logs وPackage Management لأنها مغطاة في الطناني وعبدالله. System Logs في هذا الفيديو مستبعد أيضًا لتجنب تكرار الطناني #37–38 وعبدالله #23 المستبعد. فصل Bash العام مكرر؛ أخذنا الإضافات العملية من فيديو Bash المنفصل.",
+      "reason": "اخترنا فصل المصادقة كاستكمال محدد، ومعالجة النصوص كمهارة أساسية لاستخراج بيانات السجلات، وBandit كتطبيق ختامي. لا نعيد بقية شرح إدارة Linux."
     },
     {
       "name": "Bash Scripting Course Tutorial Arabic (Level 0) – video shared at playlist index 29",
@@ -58,10 +58,10 @@
       "name": "Security Jordan – Bash Scripting Full Course (under 3 hours)",
       "instructor": "Security Jordan",
       "url": "https://www.youtube.com/watch?v=M5-MCMrC0sI",
-      "status": "مدمج انتقائيًا في Linux",
-      "used": "أول Script، Shebang، تشغيل السكربت، User Input، Operators، System Information Project، Ping Checker، Loops/file reading، Arrays، Functions.",
-      "notUsed": "Bash تعريف/Variables/If وبعض الحلقات المتكررة: يغطيها الطناني 55–63. لم نكررها.",
-      "reason": "هذه الإضافات تسد النواقص العملية في Bash وتقدم مشاريع لا توجد بالصيغة نفسها في دورة الطناني."
+      "status": "مدمج انتقائيًا – 8 مقاطع من فيديو واحد",
+      "used": "مقطع واحد مدمج لإنشاء أول Script + Shebang + التشغيل؛ ثم User Input؛ Operators؛ System Information Project؛ Ping Checker Project؛ قراءة الملفات سطرًا بسطر؛ Arrays؛ Functions.",
+      "notUsed": "التعريفات التمهيدية وBash/Terminal basics والمتغيرات وIf Statements وأساسيات الحلقات التي يغطيها الطناني #55–63. لا نعيد فصولها.",
+      "reason": "أُخذت الإضافات العملية غير المغطاة بالكامل في دورة الإدارة، مع دمج ثلاثة فصول متصلة في درس واحد لتجنب تضخيم العدد."
     },
     {
       "name": "Security Jordan – Blue Team & SOC Foundations (3 videos)",
@@ -75,7 +75,7 @@
     {
       "name": "Linux Practical Guide – 9 Videos",
       "instructor": "م. مصطفى عبدالسلام – Free4Arab / Information Technology",
-      "url": "https://www.youtube.com/watch?v=mfiqpP3cE9Y",
+      "url": "https://www.youtube.com/watch?v=rfonmgAfV98&list=PLLlr6jKKdyK2XmYvNZhqwUDEnZOlQAWS-",
       "status": "غير مدمج بسبب التكرار؛ محفوظ في التدقيق",
       "used": "لا توجد فيديوهات إلزامية مضافة منه؛ تم فحص القائمة ذات 9 فيديوهات.",
       "notUsed": "Setting Up Lab، OS Overview، Linux Intro، Debian Install، VBox Tools، Filesystem، Directory Structure، Users/Groups/Permissions، Terminal.",
@@ -315,7 +315,7 @@
       [
         "23",
         "سجلات النظام",
-        "11:58"
+        "11:58 — مستبعد كتكرار مع الطناني #37–38؛ لا تشاهده ضمن المنهج."
       ],
       [
         "24",
@@ -335,7 +335,7 @@
       [
         "27",
         "تحدي الكورس الأخير",
-        "01:15"
+        "01:15 — مدمج كتطبيق عملي ختامي بعد Troubleshooting."
       ],
       [
         "28",
@@ -550,12 +550,12 @@
       [
         "02:14:05",
         "Understanding Linux Authentication",
-        "مدمج في Linux — تسلسل الدرس #44."
+        "مدمج في Linux كإضافة مكملة مدتها 10:05؛ الفصل 02:14:05–02:24:10. ركّز على آلية المصادقة وتجاوز ما يكرر إدارة المستخدمين وShadow."
       ],
       [
         "02:24:10",
         "System Logs: rsyslog وSystemd Journal",
-        "مستبعد كشرح مكرر؛ ندرس الطناني #37–38 ثم عبدالله #23 كتطبيق."
+        "مستبعد كتكرار: ندرس الطناني #37–38 فقط. كما استُبعد فيديو عبدالله #23 لأنه يعالج الموضوع نفسه؛ لا تفتح أيًا منهما مرة ثانية."
       ],
       [
         "03:15:40",
@@ -583,8 +583,95 @@
         "no": "29",
         "title": "While Loop Part 1",
         "url": "https://www.youtube.com/watch?v=SWDrATjXYlo&list=PLBdyyeW_Z41DykncH9zzMk8T7Rm5UlZXd&index=29",
-        "decision": "مستبعد كتكرار: while loops مغطاة في الطناني #61، ومقاطع Loops في Security Jordan Bash Full Course. بيانات بقية فيديوهات القائمة لم يمكن تثبيتها من الرابط المرسل وحده."
+        "decision": "مستبعد كتكرار: While Loop مغطاة في الطناني #61، والجزء العملي لقراءة الملفات سطرًا بسطر مأخوذ من فيديو Bash Full Course. لا تضف هذا الفيديو مرة ثانية."
       }
+    ],
+    "bashFullChapters": [
+      [
+        "00:00:00",
+        "Introduction",
+        "مقدمة عامة؛ لا تُحتسب كوحدة مستقلة."
+      ],
+      [
+        "00:02:35",
+        "What is Bash?",
+        "مستبعد: تعريفات أساسية ضمن الطناني #05 و#55."
+      ],
+      [
+        "00:03:49",
+        "What is Bash Scripting?",
+        "مستبعد: الفكرة العامة مغطاة في الطناني #55."
+      ],
+      [
+        "00:04:34",
+        "Why should I learn Bash scripting?",
+        "مقدمة تحفيزية وليست مهارة تنفيذية مستقلة."
+      ],
+      [
+        "00:06:04",
+        "Is Bash a programming language?",
+        "معلومة تعريفية؛ لا تحتاج درسًا منفصلًا."
+      ],
+      [
+        "00:06:43",
+        "Terminal / Shell / Bash",
+        "مستبعد: مغطى بالطناني #05."
+      ],
+      [
+        "00:13:24",
+        "First Script + Shebang + Running",
+        "مدمج في وحدة واحدة مدتها 10:59."
+      ],
+      [
+        "00:24:23",
+        "Variables",
+        "مستبعد: مغطى بالطناني #56."
+      ],
+      [
+        "00:37:36",
+        "Reading User Input",
+        "مدمج – إضافة مكملة."
+      ],
+      [
+        "00:48:44",
+        "Operators",
+        "مدمج – إضافة مكملة لتوسيع استخدام المقارنات والعمليات داخل السكربت."
+      ],
+      [
+        "01:07:52",
+        "If Statements",
+        "مستبعد: مغطى بالطناني #60."
+      ],
+      [
+        "01:30:10",
+        "Project 1 – System Information",
+        "مدمج – تطبيق عملي."
+      ],
+      [
+        "01:38:08",
+        "Project 2 – Ping Checker",
+        "مدمج – تطبيق عملي."
+      ],
+      [
+        "01:45:16",
+        "Loops / Reading Files Line by Line",
+        "مدمج – التركيز على قراءة الملف سطرًا بسطر؛ أساسيات الحلقات مغطاة بالطناني #61–62."
+      ],
+      [
+        "02:19:10",
+        "Arrays",
+        "مدمج – إضافة مكملة غير موجودة في فهرس الطناني."
+      ],
+      [
+        "02:28:45",
+        "Functions",
+        "مدمج – إضافة مكملة غير موجودة في فهرس الطناني."
+      ],
+      [
+        "02:51:10",
+        "End",
+        "خاتمة."
+      ]
     ]
   }
 }

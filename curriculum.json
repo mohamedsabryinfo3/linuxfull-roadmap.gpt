@@ -2,14 +2,23 @@
   "meta": {
     "title": "Linux → SOC Analyst L1 → L2",
     "subtitle": "مساران منفصلان: Linux للدراسة الآن، وSOC كخطة مرجعية بعد إنهاء Linux وSecurity+.",
-    "linuxCount": 96,
-    "linuxRequired": 96,
+    "linuxCount": 93,
+    "linuxRequired": 93,
     "phaseCount": 16,
     "socPhaseCount": 10,
-    "knownVideoSeconds": 130521,
-    "unknownDurationCount": 5,
+    "knownVideoSeconds": 130408,
+    "unknownDurationCount": 4,
     "updated": "2026-11-18",
-    "rule": "كل درس في تبويب Linux مطلوب ضمن تسلسل واحد. لا يوجد قسم مراجعة أو توسع مؤجل داخل Linux. المحتوى المكرر موضح في تدقيق المصادر فقط."
+    "rule": "منهج دراسة واحد لا يُعاد: أساسي + إضافة مكملة + تطبيق عملي. تم حذف التكرار المؤكد. عدد وحدات الدراسة يختلف عن عدد فيديوهات YouTube لأن بعض الوحدات مقاطع محددة من فيديو واحد طويل.",
+    "studyUnitCount": 93,
+    "videoSegmentCount": 92,
+    "uniqueVideoCount": 82,
+    "basicCount": 75,
+    "complementaryCount": 16,
+    "practicalCount": 2,
+    "unknownVideoDurationCount": 3,
+    "variableLabCount": 1,
+    "countExplanation": "93 وحدة دراسة = 92 مقطعًا/فصلًا مرئيًا + معمل Bandit واحد. المقاطع المرئية مأخوذة من 82 فيديو YouTube أصليًا مختلفًا؛ بعض الفيديوهات الطويلة قُسمت إلى فصول مختارة. 75 أساسي + 16 إضافة مكملة + 2 تطبيق عملي."
   },
   "phases": [
     {
@@ -63,17 +72,17 @@
     {
       "id": "p07",
       "title": "المصادقة والتحقق من الهوية",
-      "subtitle": "استكمال الجانب الأمني لتسجيل الدخول والمصادقة على Linux.",
-      "goal": "تفهم ما يحدث عند مصادقة المستخدم، وأين تبحث عند فشل تسجيل الدخول أو الاشتباه في الحساب.",
-      "deliverable": "ملاحظة عملية تشرح مسار مصادقة SSH والملفات/السجلات ذات الصلة.",
+      "subtitle": "فهم آلية المصادقة في Linux بعد إدارة الحسابات وتهيئة SSH، دون إعادة دروس المستخدمين وملف Shadow.",
+      "goal": "تفهم الفكرة العامة لمسار المصادقة وأين تبحث عن أثر محاولات الدخول.",
+      "deliverable": "اكتب مخططًا مختصرًا لمسار تسجيل الدخول، وحدد أين يمكن رصد النجاح أو الفشل في السجلات.",
       "time": "مدة الفصل غير مفصولة في الفهرس"
     },
     {
       "id": "p08",
       "title": "سجلات Linux وتحليلها",
-      "subtitle": "تخزين السجلات باستخدام rsyslog وjournald، ثم قراءة سجلات النظام عمليًا.",
+      "subtitle": "إدارة سجلات Linux باستخدام rsyslog وjournald، ثم تطبيق القراءة والاستخراج من السجلات دون إعادة محاضرات متشابهة.",
       "goal": "تستطيع الوصول إلى سجلات الخدمات والمصادقة، وتحديد الوقت والمصدر والرسالة المهمة.",
-      "deliverable": "نفّذ تسجيل دخول ناجحًا وفاشلًا في معملك، ثم استخرج السجل المرتبط بهما.",
+      "deliverable": "نفّذ تسجيل دخول ناجحًا وفاشلًا في معملك، ثم استخرج السجل المرتبط بهما باستخدام journalctl أو ملف المصادقة المناسب لتوزيعتك.",
       "time": "حسب مدد المصادر"
     },
     {
@@ -103,9 +112,9 @@
     {
       "id": "p12",
       "title": "استكمال Bash بالمشاريع والدوال والمصفوفات",
-      "subtitle": "استكمال النواقص العملية التي لم تغطها دورة الإدارة وحدها.",
-      "goal": "تستطيع كتابة سكربت فيه Shebang وInput وOperators وArrays وFunctions، واختباره وتشغيله.",
-      "deliverable": "أنجز مشروعي System Information وPing Checker بنفسك دون نسخ الكود.",
+      "subtitle": "ابدأ بأساس Shell Scripting في الطناني، ثم خذ الإضافات العملية الجديدة من Security Jordan: إنشاء السكربت، الإدخال، العمليات، المشاريع، قراءة الملفات، Arrays وFunctions.",
+      "goal": "تستطيع كتابة سكربت Bash قابل للتنفيذ، يستقبل مدخلات، يستخدم الشروط والحلقات والدوال والمصفوفات، وينفذ مهمة مفيدة.",
+      "deliverable": "أنشئ سكربتًا واحدًا يجمع System Information وPing Checker وقراءة ملف نصي، مع دوال وتعامل صحيح مع المدخلات.",
       "time": "حوالي ساعتين و3 دقائق للمقاطع المختارة"
     },
     {
@@ -135,9 +144,9 @@
     {
       "id": "p16",
       "title": "الاختبار العملي النهائي واستكشاف الأعطال",
-      "subtitle": "تطبيق ما تعلمته على تحديات Linux، ثم تشخيص مشكلة نظام وتقييم المهارات.",
-      "goal": "تنجز المهام الأساسية دون متابعة الشرح خطوة بخطوة، وتعرف كيف تبحث عن سبب العطل.",
-      "deliverable": "أكمل Bandit Levels 0–34، ثم حل تحدي عبدالله النهائي واكتب ملخصًا بما تعلمته.",
+      "subtitle": "شخّص عطلًا، نفّذ تحدي عبدالله، ثم اختبر مهارات Linux في Bandit 0–34.",
+      "goal": "تنجز مهام Linux الأساسية دون متابعة الشرح خطوة بخطوة، وتعرف كيف تبحث عن سبب العطل وتوثق الحل.",
+      "deliverable": "أكمل Troubleshooting Challenge وعبدالله Final Challenge، ثم Bandit Levels 0–34 وسجل ما تعلمته.",
       "time": "اللاب عملي؛ الوقت يعتمد على سرعة الحل"
     }
   ],
@@ -163,7 +172,9 @@
       "seq": 1,
       "phaseNumber": 1,
       "phaseGoal": "تخرج من المرحلة وأنت تفهم أين يعمل Linux وكيف ستشغّله في جهاز افتراضي آمن.",
-      "phaseDeliverable": "جهاز افتراضي واحد جاهز، ولقطة Snapshot قبل بدء التعديلات."
+      "phaseDeliverable": "جهاز افتراضي واحد جاهز، ولقطة Snapshot قبل بدء التعديلات.",
+      "mediaType": "video",
+      "videoKey": "youtube:8f2Zsb89uoM"
     },
     {
       "id": "LIN002",
@@ -186,7 +197,9 @@
       "seq": 2,
       "phaseNumber": 1,
       "phaseGoal": "تخرج من المرحلة وأنت تفهم أين يعمل Linux وكيف ستشغّله في جهاز افتراضي آمن.",
-      "phaseDeliverable": "جهاز افتراضي واحد جاهز، ولقطة Snapshot قبل بدء التعديلات."
+      "phaseDeliverable": "جهاز افتراضي واحد جاهز، ولقطة Snapshot قبل بدء التعديلات.",
+      "mediaType": "video",
+      "videoKey": "youtube:8f2Zsb89uoM"
     },
     {
       "id": "LIN003",
@@ -209,7 +222,9 @@
       "seq": 3,
       "phaseNumber": 1,
       "phaseGoal": "تخرج من المرحلة وأنت تفهم أين يعمل Linux وكيف ستشغّله في جهاز افتراضي آمن.",
-      "phaseDeliverable": "جهاز افتراضي واحد جاهز، ولقطة Snapshot قبل بدء التعديلات."
+      "phaseDeliverable": "جهاز افتراضي واحد جاهز، ولقطة Snapshot قبل بدء التعديلات.",
+      "mediaType": "video",
+      "videoKey": "youtube:8f2Zsb89uoM"
     },
     {
       "id": "LIN004",
@@ -232,7 +247,9 @@
       "seq": 4,
       "phaseNumber": 2,
       "phaseGoal": "تستطيع الدخول إلى النظام والتنقل وإنشاء الملفات وإدارتها من الطرفية.",
-      "phaseDeliverable": "Rocky Linux وDebian مثبتان، ومجلد تدريب يحتوي على ملفات ومجلدات تجريبية."
+      "phaseDeliverable": "Rocky Linux وDebian مثبتان، ومجلد تدريب يحتوي على ملفات ومجلدات تجريبية.",
+      "mediaType": "video",
+      "videoKey": "playlist:PLsWFuR2EEv1uIV2vzqAhSa8gI6IG9dMpc:1"
     },
     {
       "id": "LIN005",
@@ -255,7 +272,9 @@
       "seq": 5,
       "phaseNumber": 2,
       "phaseGoal": "تستطيع الدخول إلى النظام والتنقل وإنشاء الملفات وإدارتها من الطرفية.",
-      "phaseDeliverable": "Rocky Linux وDebian مثبتان، ومجلد تدريب يحتوي على ملفات ومجلدات تجريبية."
+      "phaseDeliverable": "Rocky Linux وDebian مثبتان، ومجلد تدريب يحتوي على ملفات ومجلدات تجريبية.",
+      "mediaType": "video",
+      "videoKey": "playlist:PLsWFuR2EEv1uIV2vzqAhSa8gI6IG9dMpc:2"
     },
     {
       "id": "LIN006",
@@ -278,7 +297,9 @@
       "seq": 6,
       "phaseNumber": 2,
       "phaseGoal": "تستطيع الدخول إلى النظام والتنقل وإنشاء الملفات وإدارتها من الطرفية.",
-      "phaseDeliverable": "Rocky Linux وDebian مثبتان، ومجلد تدريب يحتوي على ملفات ومجلدات تجريبية."
+      "phaseDeliverable": "Rocky Linux وDebian مثبتان، ومجلد تدريب يحتوي على ملفات ومجلدات تجريبية.",
+      "mediaType": "video",
+      "videoKey": "playlist:PLsWFuR2EEv1uIV2vzqAhSa8gI6IG9dMpc:3"
     },
     {
       "id": "LIN007",
@@ -301,7 +322,9 @@
       "seq": 7,
       "phaseNumber": 2,
       "phaseGoal": "تستطيع الدخول إلى النظام والتنقل وإنشاء الملفات وإدارتها من الطرفية.",
-      "phaseDeliverable": "Rocky Linux وDebian مثبتان، ومجلد تدريب يحتوي على ملفات ومجلدات تجريبية."
+      "phaseDeliverable": "Rocky Linux وDebian مثبتان، ومجلد تدريب يحتوي على ملفات ومجلدات تجريبية.",
+      "mediaType": "video",
+      "videoKey": "playlist:PLsWFuR2EEv1uIV2vzqAhSa8gI6IG9dMpc:4"
     },
     {
       "id": "LIN008",
@@ -324,7 +347,9 @@
       "seq": 8,
       "phaseNumber": 2,
       "phaseGoal": "تستطيع الدخول إلى النظام والتنقل وإنشاء الملفات وإدارتها من الطرفية.",
-      "phaseDeliverable": "Rocky Linux وDebian مثبتان، ومجلد تدريب يحتوي على ملفات ومجلدات تجريبية."
+      "phaseDeliverable": "Rocky Linux وDebian مثبتان، ومجلد تدريب يحتوي على ملفات ومجلدات تجريبية.",
+      "mediaType": "video",
+      "videoKey": "playlist:PLsWFuR2EEv1uIV2vzqAhSa8gI6IG9dMpc:5"
     },
     {
       "id": "LIN009",
@@ -347,7 +372,9 @@
       "seq": 9,
       "phaseNumber": 2,
       "phaseGoal": "تستطيع الدخول إلى النظام والتنقل وإنشاء الملفات وإدارتها من الطرفية.",
-      "phaseDeliverable": "Rocky Linux وDebian مثبتان، ومجلد تدريب يحتوي على ملفات ومجلدات تجريبية."
+      "phaseDeliverable": "Rocky Linux وDebian مثبتان، ومجلد تدريب يحتوي على ملفات ومجلدات تجريبية.",
+      "mediaType": "video",
+      "videoKey": "playlist:PLsWFuR2EEv1uIV2vzqAhSa8gI6IG9dMpc:6"
     },
     {
       "id": "LIN010",
@@ -370,7 +397,9 @@
       "seq": 10,
       "phaseNumber": 2,
       "phaseGoal": "تستطيع الدخول إلى النظام والتنقل وإنشاء الملفات وإدارتها من الطرفية.",
-      "phaseDeliverable": "Rocky Linux وDebian مثبتان، ومجلد تدريب يحتوي على ملفات ومجلدات تجريبية."
+      "phaseDeliverable": "Rocky Linux وDebian مثبتان، ومجلد تدريب يحتوي على ملفات ومجلدات تجريبية.",
+      "mediaType": "video",
+      "videoKey": "playlist:PLsWFuR2EEv1uIV2vzqAhSa8gI6IG9dMpc:7"
     },
     {
       "id": "LIN011",
@@ -393,7 +422,9 @@
       "seq": 11,
       "phaseNumber": 2,
       "phaseGoal": "تستطيع الدخول إلى النظام والتنقل وإنشاء الملفات وإدارتها من الطرفية.",
-      "phaseDeliverable": "Rocky Linux وDebian مثبتان، ومجلد تدريب يحتوي على ملفات ومجلدات تجريبية."
+      "phaseDeliverable": "Rocky Linux وDebian مثبتان، ومجلد تدريب يحتوي على ملفات ومجلدات تجريبية.",
+      "mediaType": "video",
+      "videoKey": "playlist:PLsWFuR2EEv1uIV2vzqAhSa8gI6IG9dMpc:8"
     },
     {
       "id": "LIN012",
@@ -416,7 +447,9 @@
       "seq": 12,
       "phaseNumber": 2,
       "phaseGoal": "تستطيع الدخول إلى النظام والتنقل وإنشاء الملفات وإدارتها من الطرفية.",
-      "phaseDeliverable": "Rocky Linux وDebian مثبتان، ومجلد تدريب يحتوي على ملفات ومجلدات تجريبية."
+      "phaseDeliverable": "Rocky Linux وDebian مثبتان، ومجلد تدريب يحتوي على ملفات ومجلدات تجريبية.",
+      "mediaType": "video",
+      "videoKey": "playlist:PLsWFuR2EEv1uIV2vzqAhSa8gI6IG9dMpc:9"
     },
     {
       "id": "LIN013",
@@ -439,7 +472,9 @@
       "seq": 13,
       "phaseNumber": 2,
       "phaseGoal": "تستطيع الدخول إلى النظام والتنقل وإنشاء الملفات وإدارتها من الطرفية.",
-      "phaseDeliverable": "Rocky Linux وDebian مثبتان، ومجلد تدريب يحتوي على ملفات ومجلدات تجريبية."
+      "phaseDeliverable": "Rocky Linux وDebian مثبتان، ومجلد تدريب يحتوي على ملفات ومجلدات تجريبية.",
+      "mediaType": "video",
+      "videoKey": "playlist:PLsWFuR2EEv1uIV2vzqAhSa8gI6IG9dMpc:10"
     },
     {
       "id": "LIN014",
@@ -462,7 +497,9 @@
       "seq": 14,
       "phaseNumber": 2,
       "phaseGoal": "تستطيع الدخول إلى النظام والتنقل وإنشاء الملفات وإدارتها من الطرفية.",
-      "phaseDeliverable": "Rocky Linux وDebian مثبتان، ومجلد تدريب يحتوي على ملفات ومجلدات تجريبية."
+      "phaseDeliverable": "Rocky Linux وDebian مثبتان، ومجلد تدريب يحتوي على ملفات ومجلدات تجريبية.",
+      "mediaType": "video",
+      "videoKey": "playlist:PLsWFuR2EEv1uIV2vzqAhSa8gI6IG9dMpc:11"
     },
     {
       "id": "LIN015",
@@ -485,7 +522,9 @@
       "seq": 15,
       "phaseNumber": 3,
       "phaseGoal": "تستطيع إنشاء المستخدمين والمجموعات، وفهم الملكية وchmod وSUID/SGID وumask.",
-      "phaseDeliverable": "أنشئ مستخدمًا ومجموعة، وطبّق صلاحيات مختلفة، ثم اختبر الوصول بحساب غير إداري."
+      "phaseDeliverable": "أنشئ مستخدمًا ومجموعة، وطبّق صلاحيات مختلفة، ثم اختبر الوصول بحساب غير إداري.",
+      "mediaType": "video",
+      "videoKey": "playlist:PLsWFuR2EEv1uIV2vzqAhSa8gI6IG9dMpc:12"
     },
     {
       "id": "LIN016",
@@ -508,7 +547,9 @@
       "seq": 16,
       "phaseNumber": 3,
       "phaseGoal": "تستطيع إنشاء المستخدمين والمجموعات، وفهم الملكية وchmod وSUID/SGID وumask.",
-      "phaseDeliverable": "أنشئ مستخدمًا ومجموعة، وطبّق صلاحيات مختلفة، ثم اختبر الوصول بحساب غير إداري."
+      "phaseDeliverable": "أنشئ مستخدمًا ومجموعة، وطبّق صلاحيات مختلفة، ثم اختبر الوصول بحساب غير إداري.",
+      "mediaType": "video",
+      "videoKey": "playlist:PLsWFuR2EEv1uIV2vzqAhSa8gI6IG9dMpc:13"
     },
     {
       "id": "LIN017",
@@ -531,7 +572,9 @@
       "seq": 17,
       "phaseNumber": 3,
       "phaseGoal": "تستطيع إنشاء المستخدمين والمجموعات، وفهم الملكية وchmod وSUID/SGID وumask.",
-      "phaseDeliverable": "أنشئ مستخدمًا ومجموعة، وطبّق صلاحيات مختلفة، ثم اختبر الوصول بحساب غير إداري."
+      "phaseDeliverable": "أنشئ مستخدمًا ومجموعة، وطبّق صلاحيات مختلفة، ثم اختبر الوصول بحساب غير إداري.",
+      "mediaType": "video",
+      "videoKey": "playlist:PLsWFuR2EEv1uIV2vzqAhSa8gI6IG9dMpc:14"
     },
     {
       "id": "LIN018",
@@ -554,7 +597,9 @@
       "seq": 18,
       "phaseNumber": 3,
       "phaseGoal": "تستطيع إنشاء المستخدمين والمجموعات، وفهم الملكية وchmod وSUID/SGID وumask.",
-      "phaseDeliverable": "أنشئ مستخدمًا ومجموعة، وطبّق صلاحيات مختلفة، ثم اختبر الوصول بحساب غير إداري."
+      "phaseDeliverable": "أنشئ مستخدمًا ومجموعة، وطبّق صلاحيات مختلفة، ثم اختبر الوصول بحساب غير إداري.",
+      "mediaType": "video",
+      "videoKey": "playlist:PLsWFuR2EEv1uIV2vzqAhSa8gI6IG9dMpc:15"
     },
     {
       "id": "LIN019",
@@ -577,7 +622,9 @@
       "seq": 19,
       "phaseNumber": 3,
       "phaseGoal": "تستطيع إنشاء المستخدمين والمجموعات، وفهم الملكية وchmod وSUID/SGID وumask.",
-      "phaseDeliverable": "أنشئ مستخدمًا ومجموعة، وطبّق صلاحيات مختلفة، ثم اختبر الوصول بحساب غير إداري."
+      "phaseDeliverable": "أنشئ مستخدمًا ومجموعة، وطبّق صلاحيات مختلفة، ثم اختبر الوصول بحساب غير إداري.",
+      "mediaType": "video",
+      "videoKey": "playlist:PLsWFuR2EEv1uIV2vzqAhSa8gI6IG9dMpc:16"
     },
     {
       "id": "LIN020",
@@ -600,7 +647,9 @@
       "seq": 20,
       "phaseNumber": 3,
       "phaseGoal": "تستطيع إنشاء المستخدمين والمجموعات، وفهم الملكية وchmod وSUID/SGID وumask.",
-      "phaseDeliverable": "أنشئ مستخدمًا ومجموعة، وطبّق صلاحيات مختلفة، ثم اختبر الوصول بحساب غير إداري."
+      "phaseDeliverable": "أنشئ مستخدمًا ومجموعة، وطبّق صلاحيات مختلفة، ثم اختبر الوصول بحساب غير إداري.",
+      "mediaType": "video",
+      "videoKey": "playlist:PLsWFuR2EEv1uIV2vzqAhSa8gI6IG9dMpc:17"
     },
     {
       "id": "LIN021",
@@ -623,7 +672,9 @@
       "seq": 21,
       "phaseNumber": 3,
       "phaseGoal": "تستطيع إنشاء المستخدمين والمجموعات، وفهم الملكية وchmod وSUID/SGID وumask.",
-      "phaseDeliverable": "أنشئ مستخدمًا ومجموعة، وطبّق صلاحيات مختلفة، ثم اختبر الوصول بحساب غير إداري."
+      "phaseDeliverable": "أنشئ مستخدمًا ومجموعة، وطبّق صلاحيات مختلفة، ثم اختبر الوصول بحساب غير إداري.",
+      "mediaType": "video",
+      "videoKey": "playlist:PLsWFuR2EEv1uIV2vzqAhSa8gI6IG9dMpc:18"
     },
     {
       "id": "LIN022",
@@ -646,7 +697,9 @@
       "seq": 22,
       "phaseNumber": 3,
       "phaseGoal": "تستطيع إنشاء المستخدمين والمجموعات، وفهم الملكية وchmod وSUID/SGID وumask.",
-      "phaseDeliverable": "أنشئ مستخدمًا ومجموعة، وطبّق صلاحيات مختلفة، ثم اختبر الوصول بحساب غير إداري."
+      "phaseDeliverable": "أنشئ مستخدمًا ومجموعة، وطبّق صلاحيات مختلفة، ثم اختبر الوصول بحساب غير إداري.",
+      "mediaType": "video",
+      "videoKey": "playlist:PLsWFuR2EEv1uIV2vzqAhSa8gI6IG9dMpc:19"
     },
     {
       "id": "LIN023",
@@ -669,7 +722,9 @@
       "seq": 23,
       "phaseNumber": 3,
       "phaseGoal": "تستطيع إنشاء المستخدمين والمجموعات، وفهم الملكية وchmod وSUID/SGID وumask.",
-      "phaseDeliverable": "أنشئ مستخدمًا ومجموعة، وطبّق صلاحيات مختلفة، ثم اختبر الوصول بحساب غير إداري."
+      "phaseDeliverable": "أنشئ مستخدمًا ومجموعة، وطبّق صلاحيات مختلفة، ثم اختبر الوصول بحساب غير إداري.",
+      "mediaType": "video",
+      "videoKey": "playlist:PLsWFuR2EEv1uIV2vzqAhSa8gI6IG9dMpc:20"
     },
     {
       "id": "LIN024",
@@ -692,7 +747,9 @@
       "seq": 24,
       "phaseNumber": 3,
       "phaseGoal": "تستطيع إنشاء المستخدمين والمجموعات، وفهم الملكية وchmod وSUID/SGID وumask.",
-      "phaseDeliverable": "أنشئ مستخدمًا ومجموعة، وطبّق صلاحيات مختلفة، ثم اختبر الوصول بحساب غير إداري."
+      "phaseDeliverable": "أنشئ مستخدمًا ومجموعة، وطبّق صلاحيات مختلفة، ثم اختبر الوصول بحساب غير إداري.",
+      "mediaType": "video",
+      "videoKey": "playlist:PLsWFuR2EEv1uIV2vzqAhSa8gI6IG9dMpc:21"
     },
     {
       "id": "LIN025",
@@ -715,7 +772,9 @@
       "seq": 25,
       "phaseNumber": 3,
       "phaseGoal": "تستطيع إنشاء المستخدمين والمجموعات، وفهم الملكية وchmod وSUID/SGID وumask.",
-      "phaseDeliverable": "أنشئ مستخدمًا ومجموعة، وطبّق صلاحيات مختلفة، ثم اختبر الوصول بحساب غير إداري."
+      "phaseDeliverable": "أنشئ مستخدمًا ومجموعة، وطبّق صلاحيات مختلفة، ثم اختبر الوصول بحساب غير إداري.",
+      "mediaType": "video",
+      "videoKey": "playlist:PLsWFuR2EEv1uIV2vzqAhSa8gI6IG9dMpc:22"
     },
     {
       "id": "LIN026",
@@ -738,7 +797,9 @@
       "seq": 26,
       "phaseNumber": 3,
       "phaseGoal": "تستطيع إنشاء المستخدمين والمجموعات، وفهم الملكية وchmod وSUID/SGID وumask.",
-      "phaseDeliverable": "أنشئ مستخدمًا ومجموعة، وطبّق صلاحيات مختلفة، ثم اختبر الوصول بحساب غير إداري."
+      "phaseDeliverable": "أنشئ مستخدمًا ومجموعة، وطبّق صلاحيات مختلفة، ثم اختبر الوصول بحساب غير إداري.",
+      "mediaType": "video",
+      "videoKey": "playlist:PLsWFuR2EEv1uIV2vzqAhSa8gI6IG9dMpc:23"
     },
     {
       "id": "LIN027",
@@ -761,7 +822,9 @@
       "seq": 27,
       "phaseNumber": 3,
       "phaseGoal": "تستطيع إنشاء المستخدمين والمجموعات، وفهم الملكية وchmod وSUID/SGID وumask.",
-      "phaseDeliverable": "أنشئ مستخدمًا ومجموعة، وطبّق صلاحيات مختلفة، ثم اختبر الوصول بحساب غير إداري."
+      "phaseDeliverable": "أنشئ مستخدمًا ومجموعة، وطبّق صلاحيات مختلفة، ثم اختبر الوصول بحساب غير إداري.",
+      "mediaType": "video",
+      "videoKey": "playlist:PLsWFuR2EEv1uIV2vzqAhSa8gI6IG9dMpc:24"
     },
     {
       "id": "LIN028",
@@ -784,7 +847,9 @@
       "seq": 28,
       "phaseNumber": 4,
       "phaseGoal": "تستطيع العثور على ملف أو نص محدد واستخراج النتائج وتوجيه مخرجات الأوامر.",
-      "phaseDeliverable": "ملف أوامر شخصي يحتوي أمثلة موثقة لـ find وgrep وredirection وvim وtar/gzip."
+      "phaseDeliverable": "ملف أوامر شخصي يحتوي أمثلة موثقة لـ find وgrep وredirection وvim وtar/gzip.",
+      "mediaType": "video",
+      "videoKey": "playlist:PLsWFuR2EEv1uIV2vzqAhSa8gI6IG9dMpc:25"
     },
     {
       "id": "LIN029",
@@ -807,7 +872,9 @@
       "seq": 29,
       "phaseNumber": 4,
       "phaseGoal": "تستطيع العثور على ملف أو نص محدد واستخراج النتائج وتوجيه مخرجات الأوامر.",
-      "phaseDeliverable": "ملف أوامر شخصي يحتوي أمثلة موثقة لـ find وgrep وredirection وvim وtar/gzip."
+      "phaseDeliverable": "ملف أوامر شخصي يحتوي أمثلة موثقة لـ find وgrep وredirection وvim وtar/gzip.",
+      "mediaType": "video",
+      "videoKey": "playlist:PLsWFuR2EEv1uIV2vzqAhSa8gI6IG9dMpc:26"
     },
     {
       "id": "LIN030",
@@ -830,7 +897,9 @@
       "seq": 30,
       "phaseNumber": 4,
       "phaseGoal": "تستطيع العثور على ملف أو نص محدد واستخراج النتائج وتوجيه مخرجات الأوامر.",
-      "phaseDeliverable": "ملف أوامر شخصي يحتوي أمثلة موثقة لـ find وgrep وredirection وvim وtar/gzip."
+      "phaseDeliverable": "ملف أوامر شخصي يحتوي أمثلة موثقة لـ find وgrep وredirection وvim وtar/gzip.",
+      "mediaType": "video",
+      "videoKey": "playlist:PLsWFuR2EEv1uIV2vzqAhSa8gI6IG9dMpc:27"
     },
     {
       "id": "LIN031",
@@ -853,7 +922,9 @@
       "seq": 31,
       "phaseNumber": 4,
       "phaseGoal": "تستطيع العثور على ملف أو نص محدد واستخراج النتائج وتوجيه مخرجات الأوامر.",
-      "phaseDeliverable": "ملف أوامر شخصي يحتوي أمثلة موثقة لـ find وgrep وredirection وvim وtar/gzip."
+      "phaseDeliverable": "ملف أوامر شخصي يحتوي أمثلة موثقة لـ find وgrep وredirection وvim وtar/gzip.",
+      "mediaType": "video",
+      "videoKey": "playlist:PLsWFuR2EEv1uIV2vzqAhSa8gI6IG9dMpc:28"
     },
     {
       "id": "LIN032",
@@ -876,7 +947,9 @@
       "seq": 32,
       "phaseNumber": 4,
       "phaseGoal": "تستطيع العثور على ملف أو نص محدد واستخراج النتائج وتوجيه مخرجات الأوامر.",
-      "phaseDeliverable": "ملف أوامر شخصي يحتوي أمثلة موثقة لـ find وgrep وredirection وvim وtar/gzip."
+      "phaseDeliverable": "ملف أوامر شخصي يحتوي أمثلة موثقة لـ find وgrep وredirection وvim وtar/gzip.",
+      "mediaType": "video",
+      "videoKey": "playlist:PLsWFuR2EEv1uIV2vzqAhSa8gI6IG9dMpc:29"
     },
     {
       "id": "LIN033",
@@ -899,7 +972,9 @@
       "seq": 33,
       "phaseNumber": 4,
       "phaseGoal": "تستطيع العثور على ملف أو نص محدد واستخراج النتائج وتوجيه مخرجات الأوامر.",
-      "phaseDeliverable": "ملف أوامر شخصي يحتوي أمثلة موثقة لـ find وgrep وredirection وvim وtar/gzip."
+      "phaseDeliverable": "ملف أوامر شخصي يحتوي أمثلة موثقة لـ find وgrep وredirection وvim وtar/gzip.",
+      "mediaType": "video",
+      "videoKey": "playlist:PLsWFuR2EEv1uIV2vzqAhSa8gI6IG9dMpc:30"
     },
     {
       "id": "LIN034",
@@ -922,7 +997,9 @@
       "seq": 34,
       "phaseNumber": 4,
       "phaseGoal": "تستطيع العثور على ملف أو نص محدد واستخراج النتائج وتوجيه مخرجات الأوامر.",
-      "phaseDeliverable": "ملف أوامر شخصي يحتوي أمثلة موثقة لـ find وgrep وredirection وvim وtar/gzip."
+      "phaseDeliverable": "ملف أوامر شخصي يحتوي أمثلة موثقة لـ find وgrep وredirection وvim وtar/gzip.",
+      "mediaType": "video",
+      "videoKey": "playlist:PLsWFuR2EEv1uIV2vzqAhSa8gI6IG9dMpc:31"
     },
     {
       "id": "LIN035",
@@ -945,7 +1022,9 @@
       "seq": 35,
       "phaseNumber": 5,
       "phaseGoal": "تستطيع معرفة العملية التي تعمل، وخدمتها، وحالتها، ومراقبة استهلاك الموارد.",
-      "phaseDeliverable": "تقرير صغير عن العمليات والخدمات النشطة على جهازك الافتراضي."
+      "phaseDeliverable": "تقرير صغير عن العمليات والخدمات النشطة على جهازك الافتراضي.",
+      "mediaType": "video",
+      "videoKey": "playlist:PLsWFuR2EEv1uIV2vzqAhSa8gI6IG9dMpc:32"
     },
     {
       "id": "LIN036",
@@ -968,7 +1047,9 @@
       "seq": 36,
       "phaseNumber": 5,
       "phaseGoal": "تستطيع معرفة العملية التي تعمل، وخدمتها، وحالتها، ومراقبة استهلاك الموارد.",
-      "phaseDeliverable": "تقرير صغير عن العمليات والخدمات النشطة على جهازك الافتراضي."
+      "phaseDeliverable": "تقرير صغير عن العمليات والخدمات النشطة على جهازك الافتراضي.",
+      "mediaType": "video",
+      "videoKey": "playlist:PLsWFuR2EEv1uIV2vzqAhSa8gI6IG9dMpc:33"
     },
     {
       "id": "LIN037",
@@ -991,7 +1072,9 @@
       "seq": 37,
       "phaseNumber": 5,
       "phaseGoal": "تستطيع معرفة العملية التي تعمل، وخدمتها، وحالتها، ومراقبة استهلاك الموارد.",
-      "phaseDeliverable": "تقرير صغير عن العمليات والخدمات النشطة على جهازك الافتراضي."
+      "phaseDeliverable": "تقرير صغير عن العمليات والخدمات النشطة على جهازك الافتراضي.",
+      "mediaType": "video",
+      "videoKey": "playlist:PLsWFuR2EEv1uIV2vzqAhSa8gI6IG9dMpc:34"
     },
     {
       "id": "LIN038",
@@ -1004,7 +1087,7 @@
       "title": "أدوات مراقبة النظام",
       "duration": "غير محددة في الفهرس المرسل",
       "url": "https://www.youtube.com/playlist?list=PLtlmgvQV7sDtKQUPF6i6rNA3mIiieeuWp&index=21",
-      "kind": "استكمال مطلوب",
+      "kind": "إضافة مكملة",
       "reason": "استكمال عملي لمراقبة استهلاك الموارد وحالة النظام بعد تعلم إدارة العمليات والخدمات.",
       "task": "راقب CPU وRAM والعمليات النشطة، وسجّل ما يستهلك الموارد.",
       "instructorNote": "محاضر يقدم Linux من زاوية الأمن السيبراني، مع دروس قصيرة وتطبيقات عملية.",
@@ -1014,7 +1097,9 @@
       "seq": 38,
       "phaseNumber": 5,
       "phaseGoal": "تستطيع معرفة العملية التي تعمل، وخدمتها، وحالتها، ومراقبة استهلاك الموارد.",
-      "phaseDeliverable": "تقرير صغير عن العمليات والخدمات النشطة على جهازك الافتراضي."
+      "phaseDeliverable": "تقرير صغير عن العمليات والخدمات النشطة على جهازك الافتراضي.",
+      "mediaType": "video",
+      "videoKey": "playlist:PLtlmgvQV7sDtKQUPF6i6rNA3mIiieeuWp:21"
     },
     {
       "id": "LIN039",
@@ -1027,7 +1112,7 @@
       "title": "مفهوم عنوان الشبكة والمنافذ في Linux",
       "duration": "غير محددة في الفهرس المرسل",
       "url": "https://www.youtube.com/playlist?list=PLtlmgvQV7sDtKQUPF6i6rNA3mIiieeuWp&index=15",
-      "kind": "استكمال مطلوب",
+      "kind": "إضافة مكملة",
       "reason": "يربط إعداد Linux بعنوان IP والمنفذ والخدمة التي تستقبل الاتصال.",
       "task": "اعرض عنوان IP والواجهات والمنافذ المستمعة على جهاز المعمل.",
       "instructorNote": "محاضر يقدم Linux من زاوية الأمن السيبراني، مع دروس قصيرة وتطبيقات عملية.",
@@ -1037,7 +1122,9 @@
       "seq": 39,
       "phaseNumber": 6,
       "phaseGoal": "تستطيع فحص عنوان IP والاتصال والمنافذ والخدمات، وإعداد SSH بصورة آمنة داخل معملك.",
-      "phaseDeliverable": "خريطة صغيرة لاتصالات جهاز Linux ومنافذه وخدمة SSH."
+      "phaseDeliverable": "خريطة صغيرة لاتصالات جهاز Linux ومنافذه وخدمة SSH.",
+      "mediaType": "video",
+      "videoKey": "playlist:PLtlmgvQV7sDtKQUPF6i6rNA3mIiieeuWp:15"
     },
     {
       "id": "LIN040",
@@ -1050,7 +1137,7 @@
       "title": "اختبارات الاتصال",
       "duration": "04:20",
       "url": "https://www.youtube.com/playlist?list=PLtlmgvQV7sDtKQUPF6i6rNA3mIiieeuWp&index=16",
-      "kind": "استكمال مطلوب",
+      "kind": "إضافة مكملة",
       "reason": "تطبيق اختبارات الاتصال وتفسير نجاح الاتصال أو فشله من داخل Linux.",
       "task": "نفّذ ping وtracepath أو traceroute إن توفر، وقارن النتائج.",
       "instructorNote": "محاضر يقدم Linux من زاوية الأمن السيبراني، مع دروس قصيرة وتطبيقات عملية.",
@@ -1060,7 +1147,9 @@
       "seq": 40,
       "phaseNumber": 6,
       "phaseGoal": "تستطيع فحص عنوان IP والاتصال والمنافذ والخدمات، وإعداد SSH بصورة آمنة داخل معملك.",
-      "phaseDeliverable": "خريطة صغيرة لاتصالات جهاز Linux ومنافذه وخدمة SSH."
+      "phaseDeliverable": "خريطة صغيرة لاتصالات جهاز Linux ومنافذه وخدمة SSH.",
+      "mediaType": "video",
+      "videoKey": "playlist:PLtlmgvQV7sDtKQUPF6i6rNA3mIiieeuWp:16"
     },
     {
       "id": "LIN041",
@@ -1083,7 +1172,9 @@
       "seq": 41,
       "phaseNumber": 6,
       "phaseGoal": "تستطيع فحص عنوان IP والاتصال والمنافذ والخدمات، وإعداد SSH بصورة آمنة داخل معملك.",
-      "phaseDeliverable": "خريطة صغيرة لاتصالات جهاز Linux ومنافذه وخدمة SSH."
+      "phaseDeliverable": "خريطة صغيرة لاتصالات جهاز Linux ومنافذه وخدمة SSH.",
+      "mediaType": "video",
+      "videoKey": "playlist:PLsWFuR2EEv1uIV2vzqAhSa8gI6IG9dMpc:35"
     },
     {
       "id": "LIN042",
@@ -1106,7 +1197,9 @@
       "seq": 42,
       "phaseNumber": 6,
       "phaseGoal": "تستطيع فحص عنوان IP والاتصال والمنافذ والخدمات، وإعداد SSH بصورة آمنة داخل معملك.",
-      "phaseDeliverable": "خريطة صغيرة لاتصالات جهاز Linux ومنافذه وخدمة SSH."
+      "phaseDeliverable": "خريطة صغيرة لاتصالات جهاز Linux ومنافذه وخدمة SSH.",
+      "mediaType": "video",
+      "videoKey": "playlist:PLsWFuR2EEv1uIV2vzqAhSa8gI6IG9dMpc:36"
     },
     {
       "id": "LIN043",
@@ -1119,7 +1212,7 @@
       "title": "فحص بورتات وخدمات الشبكة",
       "duration": "07:57",
       "url": "https://www.youtube.com/playlist?list=PLtlmgvQV7sDtKQUPF6i6rNA3mIiieeuWp&index=17",
-      "kind": "استكمال مطلوب",
+      "kind": "إضافة مكملة",
       "reason": "تتعرف على المنافذ والخدمات المكشوفة من منظور إدارة النظام والتحقق.",
       "task": "افحص أجهزة المعمل المملوكة لك فقط، واربط المنفذ بالخدمة التي تستمع عليه.",
       "instructorNote": "محاضر يقدم Linux من زاوية الأمن السيبراني، مع دروس قصيرة وتطبيقات عملية.",
@@ -1129,7 +1222,9 @@
       "seq": 43,
       "phaseNumber": 6,
       "phaseGoal": "تستطيع فحص عنوان IP والاتصال والمنافذ والخدمات، وإعداد SSH بصورة آمنة داخل معملك.",
-      "phaseDeliverable": "خريطة صغيرة لاتصالات جهاز Linux ومنافذه وخدمة SSH."
+      "phaseDeliverable": "خريطة صغيرة لاتصالات جهاز Linux ومنافذه وخدمة SSH.",
+      "mediaType": "video",
+      "videoKey": "playlist:PLtlmgvQV7sDtKQUPF6i6rNA3mIiieeuWp:17"
     },
     {
       "id": "LIN044",
@@ -1139,43 +1234,22 @@
       "instructor": "Security Jordan",
       "course": "تعلم Kali Linux من الصفر | الجزء الثاني من دورة Linux الشاملة",
       "lessonNo": "02:14:05",
-      "title": "Understanding Linux Authentication",
-      "duration": "غير محددة في الفهرس",
+      "title": "فهم مصادقة Linux (Linux Authentication)",
+      "duration": "10:05",
       "url": "https://www.youtube.com/watch?v=qjqiPF0QBJ0&t=8045s",
-      "kind": "استكمال مطلوب",
-      "reason": "يضيف منظورًا أمنيًا لفهم المصادقة على Linux بعد فهم المستخدمين وSSH؛ ركّز على علاقة الحساب وسياسة الدخول والسجلات.",
-      "task": "دوّن أين تبحث عن أثر محاولة مصادقة، وما الفرق بين الحساب والصلاحية وآلية الدخول.",
+      "kind": "إضافة مكملة",
+      "reason": "درس مكمل يأتي بعد إدارة الحسابات وSSH وقبل تحليل السجلات. الهدف فهم مسار المصادقة في Linux؛ لا تُعد تفاصيل إنشاء المستخدمين أو قراءة Shadow أو Password Aging التي أخذتها بالفعل في دروس الطناني.",
+      "task": "ارسم باختصار مسار محاولة تسجيل الدخول: المستخدم → آلية المصادقة → قبول/رفض الدخول → أثر الحدث في السجل. دوّن أسماء الملفات أو المكونات التي يذكرها المحاضر، مع تجنب إعادة تمارين إدارة الحسابات السابقة.",
       "instructorNote": "قناة عربية متخصصة في محتوى Linux والأمن السيبراني وBlue Team.",
-      "chapter": "Chapter 02:14:05",
-      "actualDuration": null,
+      "chapter": "Chapter 02:14:05–02:24:10؛ المدة محسوبة من بداية هذا الفصل إلى بداية الفصل التالي المنشور.",
+      "actualDuration": "10:05",
       "sourceGroup": "Security Jordan Linux Part 2",
       "seq": 44,
       "phaseNumber": 7,
       "phaseGoal": "تفهم ما يحدث عند مصادقة المستخدم، وأين تبحث عند فشل تسجيل الدخول أو الاشتباه في الحساب.",
-      "phaseDeliverable": "ملاحظة عملية تشرح مسار مصادقة SSH والملفات/السجلات ذات الصلة."
-    },
-    {
-      "id": "LIN045",
-      "phaseId": "p08",
-      "phaseTitle": "سجلات Linux وتحليلها",
-      "source": "Abdallah Al-Nuaimy – Linux Course in CyberSecurity",
-      "instructor": "عبدالله النعيمي",
-      "course": "Linux Course in CyberSecurity [Arabic]",
-      "lessonNo": "فيديو 23",
-      "title": "سجلات النظام",
-      "duration": "11:58",
-      "url": "https://www.youtube.com/playlist?list=PLtlmgvQV7sDtKQUPF6i6rNA3mIiieeuWp&index=23",
-      "kind": "استكمال مطلوب",
-      "reason": "تطبيق مختصر على قراءة سجلات النظام وربط الرسائل بالخدمة والوقت والمصدر بعد دراسة rsyslog وjournald.",
-      "task": "استخرج رسائل خدمة محددة من السجل وقارن وقتها بحالة الخدمة.",
-      "instructorNote": "محاضر يقدم Linux من زاوية الأمن السيبراني، مع دروس قصيرة وتطبيقات عملية.",
-      "chapter": "فهرس قائمة التشغيل الذي أرسله المستخدم",
-      "actualDuration": "11:58",
-      "sourceGroup": "Abdullah 28",
-      "seq": 45,
-      "phaseNumber": 8,
-      "phaseGoal": "تستطيع الوصول إلى سجلات الخدمات والمصادقة، وتحديد الوقت والمصدر والرسالة المهمة.",
-      "phaseDeliverable": "نفّذ تسجيل دخول ناجحًا وفاشلًا في معملك، ثم استخرج السجل المرتبط بهما."
+      "phaseDeliverable": "ملاحظة عملية تشرح مسار مصادقة SSH والملفات/السجلات ذات الصلة.",
+      "mediaType": "video",
+      "videoKey": "youtube:qjqiPF0QBJ0"
     },
     {
       "id": "LIN046",
@@ -1195,10 +1269,12 @@
       "chapter": "فيديو من قائمة التشغيل الأصلية ذات 72 فيديو",
       "actualDuration": "35:09",
       "sourceGroup": "Tanany 72",
-      "seq": 46,
+      "seq": 45,
       "phaseNumber": 8,
       "phaseGoal": "تستطيع الوصول إلى سجلات الخدمات والمصادقة، وتحديد الوقت والمصدر والرسالة المهمة.",
-      "phaseDeliverable": "نفّذ تسجيل دخول ناجحًا وفاشلًا في معملك، ثم استخرج السجل المرتبط بهما."
+      "phaseDeliverable": "نفّذ تسجيل دخول ناجحًا وفاشلًا في معملك، ثم استخرج السجل المرتبط بهما.",
+      "mediaType": "video",
+      "videoKey": "playlist:PLsWFuR2EEv1uIV2vzqAhSa8gI6IG9dMpc:37"
     },
     {
       "id": "LIN047",
@@ -1218,10 +1294,12 @@
       "chapter": "فيديو من قائمة التشغيل الأصلية ذات 72 فيديو",
       "actualDuration": "42:13",
       "sourceGroup": "Tanany 72",
-      "seq": 47,
+      "seq": 46,
       "phaseNumber": 8,
       "phaseGoal": "تستطيع الوصول إلى سجلات الخدمات والمصادقة، وتحديد الوقت والمصدر والرسالة المهمة.",
-      "phaseDeliverable": "نفّذ تسجيل دخول ناجحًا وفاشلًا في معملك، ثم استخرج السجل المرتبط بهما."
+      "phaseDeliverable": "نفّذ تسجيل دخول ناجحًا وفاشلًا في معملك، ثم استخرج السجل المرتبط بهما.",
+      "mediaType": "video",
+      "videoKey": "playlist:PLsWFuR2EEv1uIV2vzqAhSa8gI6IG9dMpc:38"
     },
     {
       "id": "LIN048",
@@ -1241,10 +1319,12 @@
       "chapter": "فيديو من قائمة التشغيل الأصلية ذات 72 فيديو",
       "actualDuration": "31:41",
       "sourceGroup": "Tanany 72",
-      "seq": 48,
+      "seq": 47,
       "phaseNumber": 9,
       "phaseGoal": "تستطيع تثبيت وتحديث وإزالة البرامج، وفهم مصدر الحزمة قبل الوثوق بها.",
-      "phaseDeliverable": "وثّق عملية تثبيت وتحديث حزمة على Debian وعلى Rocky، ودوّن مصدرها."
+      "phaseDeliverable": "وثّق عملية تثبيت وتحديث حزمة على Debian وعلى Rocky، ودوّن مصدرها.",
+      "mediaType": "video",
+      "videoKey": "playlist:PLsWFuR2EEv1uIV2vzqAhSa8gI6IG9dMpc:39"
     },
     {
       "id": "LIN049",
@@ -1264,10 +1344,12 @@
       "chapter": "فيديو من قائمة التشغيل الأصلية ذات 72 فيديو",
       "actualDuration": "43:59",
       "sourceGroup": "Tanany 72",
-      "seq": 49,
+      "seq": 48,
       "phaseNumber": 9,
       "phaseGoal": "تستطيع تثبيت وتحديث وإزالة البرامج، وفهم مصدر الحزمة قبل الوثوق بها.",
-      "phaseDeliverable": "وثّق عملية تثبيت وتحديث حزمة على Debian وعلى Rocky، ودوّن مصدرها."
+      "phaseDeliverable": "وثّق عملية تثبيت وتحديث حزمة على Debian وعلى Rocky، ودوّن مصدرها.",
+      "mediaType": "video",
+      "videoKey": "playlist:PLsWFuR2EEv1uIV2vzqAhSa8gI6IG9dMpc:40"
     },
     {
       "id": "LIN050",
@@ -1287,10 +1369,12 @@
       "chapter": "فيديو من قائمة التشغيل الأصلية ذات 72 فيديو",
       "actualDuration": "24:18",
       "sourceGroup": "Tanany 72",
-      "seq": 50,
+      "seq": 49,
       "phaseNumber": 9,
       "phaseGoal": "تستطيع تثبيت وتحديث وإزالة البرامج، وفهم مصدر الحزمة قبل الوثوق بها.",
-      "phaseDeliverable": "وثّق عملية تثبيت وتحديث حزمة على Debian وعلى Rocky، ودوّن مصدرها."
+      "phaseDeliverable": "وثّق عملية تثبيت وتحديث حزمة على Debian وعلى Rocky، ودوّن مصدرها.",
+      "mediaType": "video",
+      "videoKey": "playlist:PLsWFuR2EEv1uIV2vzqAhSa8gI6IG9dMpc:41"
     },
     {
       "id": "LIN051",
@@ -1310,10 +1394,12 @@
       "chapter": "فيديو من قائمة التشغيل الأصلية ذات 72 فيديو",
       "actualDuration": "34:56",
       "sourceGroup": "Tanany 72",
-      "seq": 51,
+      "seq": 50,
       "phaseNumber": 9,
       "phaseGoal": "تستطيع تثبيت وتحديث وإزالة البرامج، وفهم مصدر الحزمة قبل الوثوق بها.",
-      "phaseDeliverable": "وثّق عملية تثبيت وتحديث حزمة على Debian وعلى Rocky، ودوّن مصدرها."
+      "phaseDeliverable": "وثّق عملية تثبيت وتحديث حزمة على Debian وعلى Rocky، ودوّن مصدرها.",
+      "mediaType": "video",
+      "videoKey": "playlist:PLsWFuR2EEv1uIV2vzqAhSa8gI6IG9dMpc:42"
     },
     {
       "id": "LIN052",
@@ -1326,17 +1412,19 @@
       "title": "تحميل البرامج من مصادر خارجية",
       "duration": "02:16",
       "url": "https://www.youtube.com/playlist?list=PLtlmgvQV7sDtKQUPF6i6rNA3mIiieeuWp&index=14",
-      "kind": "استكمال مطلوب",
+      "kind": "إضافة مكملة",
       "reason": "افهم كيفية التعامل مع مصادر البرامج الخارجية، ولماذا يجب التحقق من المصدر والتوقيع قبل التثبيت.",
       "task": "اختبر إضافة/مصدر موثوق في VM فقط، ثم وثّق كيف تتحقق من مصدر الحزمة.",
       "instructorNote": "محاضر يقدم Linux من زاوية الأمن السيبراني، مع دروس قصيرة وتطبيقات عملية.",
       "chapter": "فهرس قائمة التشغيل الذي أرسله المستخدم",
       "actualDuration": "02:16",
       "sourceGroup": "Abdullah 28",
-      "seq": 52,
+      "seq": 51,
       "phaseNumber": 9,
       "phaseGoal": "تستطيع تثبيت وتحديث وإزالة البرامج، وفهم مصدر الحزمة قبل الوثوق بها.",
-      "phaseDeliverable": "وثّق عملية تثبيت وتحديث حزمة على Debian وعلى Rocky، ودوّن مصدرها."
+      "phaseDeliverable": "وثّق عملية تثبيت وتحديث حزمة على Debian وعلى Rocky، ودوّن مصدرها.",
+      "mediaType": "video",
+      "videoKey": "playlist:PLtlmgvQV7sDtKQUPF6i6rNA3mIiieeuWp:14"
     },
     {
       "id": "LIN053",
@@ -1356,10 +1444,12 @@
       "chapter": "فيديو من قائمة التشغيل الأصلية ذات 72 فيديو",
       "actualDuration": "32:04",
       "sourceGroup": "Tanany 72",
-      "seq": 53,
+      "seq": 52,
       "phaseNumber": 10,
       "phaseGoal": "تفهم mount وfstab وfdisk وgdisk وRAID وLVM، وتعرف أثرها على تشغيل الخادم.",
-      "phaseDeliverable": "نفّذ تجربة mount وLVM على قرص افتراضي إضافي فقط، وليس على قرص جهازك الحقيقي."
+      "phaseDeliverable": "نفّذ تجربة mount وLVM على قرص افتراضي إضافي فقط، وليس على قرص جهازك الحقيقي.",
+      "mediaType": "video",
+      "videoKey": "playlist:PLsWFuR2EEv1uIV2vzqAhSa8gI6IG9dMpc:43"
     },
     {
       "id": "LIN054",
@@ -1379,10 +1469,12 @@
       "chapter": "فيديو من قائمة التشغيل الأصلية ذات 72 فيديو",
       "actualDuration": "31:53",
       "sourceGroup": "Tanany 72",
-      "seq": 54,
+      "seq": 53,
       "phaseNumber": 10,
       "phaseGoal": "تفهم mount وfstab وfdisk وgdisk وRAID وLVM، وتعرف أثرها على تشغيل الخادم.",
-      "phaseDeliverable": "نفّذ تجربة mount وLVM على قرص افتراضي إضافي فقط، وليس على قرص جهازك الحقيقي."
+      "phaseDeliverable": "نفّذ تجربة mount وLVM على قرص افتراضي إضافي فقط، وليس على قرص جهازك الحقيقي.",
+      "mediaType": "video",
+      "videoKey": "playlist:PLsWFuR2EEv1uIV2vzqAhSa8gI6IG9dMpc:44"
     },
     {
       "id": "LIN055",
@@ -1402,10 +1494,12 @@
       "chapter": "فيديو من قائمة التشغيل الأصلية ذات 72 فيديو",
       "actualDuration": "42:30",
       "sourceGroup": "Tanany 72",
-      "seq": 55,
+      "seq": 54,
       "phaseNumber": 10,
       "phaseGoal": "تفهم mount وfstab وfdisk وgdisk وRAID وLVM، وتعرف أثرها على تشغيل الخادم.",
-      "phaseDeliverable": "نفّذ تجربة mount وLVM على قرص افتراضي إضافي فقط، وليس على قرص جهازك الحقيقي."
+      "phaseDeliverable": "نفّذ تجربة mount وLVM على قرص افتراضي إضافي فقط، وليس على قرص جهازك الحقيقي.",
+      "mediaType": "video",
+      "videoKey": "playlist:PLsWFuR2EEv1uIV2vzqAhSa8gI6IG9dMpc:45"
     },
     {
       "id": "LIN056",
@@ -1425,10 +1519,12 @@
       "chapter": "فيديو من قائمة التشغيل الأصلية ذات 72 فيديو",
       "actualDuration": "27:10",
       "sourceGroup": "Tanany 72",
-      "seq": 56,
+      "seq": 55,
       "phaseNumber": 10,
       "phaseGoal": "تفهم mount وfstab وfdisk وgdisk وRAID وLVM، وتعرف أثرها على تشغيل الخادم.",
-      "phaseDeliverable": "نفّذ تجربة mount وLVM على قرص افتراضي إضافي فقط، وليس على قرص جهازك الحقيقي."
+      "phaseDeliverable": "نفّذ تجربة mount وLVM على قرص افتراضي إضافي فقط، وليس على قرص جهازك الحقيقي.",
+      "mediaType": "video",
+      "videoKey": "playlist:PLsWFuR2EEv1uIV2vzqAhSa8gI6IG9dMpc:46"
     },
     {
       "id": "LIN057",
@@ -1448,10 +1544,12 @@
       "chapter": "فيديو من قائمة التشغيل الأصلية ذات 72 فيديو",
       "actualDuration": "24:53",
       "sourceGroup": "Tanany 72",
-      "seq": 57,
+      "seq": 56,
       "phaseNumber": 10,
       "phaseGoal": "تفهم mount وfstab وfdisk وgdisk وRAID وLVM، وتعرف أثرها على تشغيل الخادم.",
-      "phaseDeliverable": "نفّذ تجربة mount وLVM على قرص افتراضي إضافي فقط، وليس على قرص جهازك الحقيقي."
+      "phaseDeliverable": "نفّذ تجربة mount وLVM على قرص افتراضي إضافي فقط، وليس على قرص جهازك الحقيقي.",
+      "mediaType": "video",
+      "videoKey": "playlist:PLsWFuR2EEv1uIV2vzqAhSa8gI6IG9dMpc:47"
     },
     {
       "id": "LIN058",
@@ -1471,10 +1569,12 @@
       "chapter": "فيديو من قائمة التشغيل الأصلية ذات 72 فيديو",
       "actualDuration": "17:54",
       "sourceGroup": "Tanany 72",
-      "seq": 58,
+      "seq": 57,
       "phaseNumber": 10,
       "phaseGoal": "تفهم mount وfstab وfdisk وgdisk وRAID وLVM، وتعرف أثرها على تشغيل الخادم.",
-      "phaseDeliverable": "نفّذ تجربة mount وLVM على قرص افتراضي إضافي فقط، وليس على قرص جهازك الحقيقي."
+      "phaseDeliverable": "نفّذ تجربة mount وLVM على قرص افتراضي إضافي فقط، وليس على قرص جهازك الحقيقي.",
+      "mediaType": "video",
+      "videoKey": "playlist:PLsWFuR2EEv1uIV2vzqAhSa8gI6IG9dMpc:48"
     },
     {
       "id": "LIN059",
@@ -1494,10 +1594,12 @@
       "chapter": "فيديو من قائمة التشغيل الأصلية ذات 72 فيديو",
       "actualDuration": "29:35",
       "sourceGroup": "Tanany 72",
-      "seq": 59,
+      "seq": 58,
       "phaseNumber": 10,
       "phaseGoal": "تفهم mount وfstab وfdisk وgdisk وRAID وLVM، وتعرف أثرها على تشغيل الخادم.",
-      "phaseDeliverable": "نفّذ تجربة mount وLVM على قرص افتراضي إضافي فقط، وليس على قرص جهازك الحقيقي."
+      "phaseDeliverable": "نفّذ تجربة mount وLVM على قرص افتراضي إضافي فقط، وليس على قرص جهازك الحقيقي.",
+      "mediaType": "video",
+      "videoKey": "playlist:PLsWFuR2EEv1uIV2vzqAhSa8gI6IG9dMpc:49"
     },
     {
       "id": "LIN060",
@@ -1517,10 +1619,12 @@
       "chapter": "فيديو من قائمة التشغيل الأصلية ذات 72 فيديو",
       "actualDuration": "34:16",
       "sourceGroup": "Tanany 72",
-      "seq": 60,
+      "seq": 59,
       "phaseNumber": 10,
       "phaseGoal": "تفهم mount وfstab وfdisk وgdisk وRAID وLVM، وتعرف أثرها على تشغيل الخادم.",
-      "phaseDeliverable": "نفّذ تجربة mount وLVM على قرص افتراضي إضافي فقط، وليس على قرص جهازك الحقيقي."
+      "phaseDeliverable": "نفّذ تجربة mount وLVM على قرص افتراضي إضافي فقط، وليس على قرص جهازك الحقيقي.",
+      "mediaType": "video",
+      "videoKey": "playlist:PLsWFuR2EEv1uIV2vzqAhSa8gI6IG9dMpc:50"
     },
     {
       "id": "LIN061",
@@ -1540,10 +1644,12 @@
       "chapter": "فيديو من قائمة التشغيل الأصلية ذات 72 فيديو",
       "actualDuration": "32:26",
       "sourceGroup": "Tanany 72",
-      "seq": 61,
+      "seq": 60,
       "phaseNumber": 10,
       "phaseGoal": "تفهم mount وfstab وfdisk وgdisk وRAID وLVM، وتعرف أثرها على تشغيل الخادم.",
-      "phaseDeliverable": "نفّذ تجربة mount وLVM على قرص افتراضي إضافي فقط، وليس على قرص جهازك الحقيقي."
+      "phaseDeliverable": "نفّذ تجربة mount وLVM على قرص افتراضي إضافي فقط، وليس على قرص جهازك الحقيقي.",
+      "mediaType": "video",
+      "videoKey": "playlist:PLsWFuR2EEv1uIV2vzqAhSa8gI6IG9dMpc:51"
     },
     {
       "id": "LIN062",
@@ -1563,10 +1669,12 @@
       "chapter": "فيديو من قائمة التشغيل الأصلية ذات 72 فيديو",
       "actualDuration": "31:53",
       "sourceGroup": "Tanany 72",
-      "seq": 62,
+      "seq": 61,
       "phaseNumber": 10,
       "phaseGoal": "تفهم mount وfstab وfdisk وgdisk وRAID وLVM، وتعرف أثرها على تشغيل الخادم.",
-      "phaseDeliverable": "نفّذ تجربة mount وLVM على قرص افتراضي إضافي فقط، وليس على قرص جهازك الحقيقي."
+      "phaseDeliverable": "نفّذ تجربة mount وLVM على قرص افتراضي إضافي فقط، وليس على قرص جهازك الحقيقي.",
+      "mediaType": "video",
+      "videoKey": "playlist:PLsWFuR2EEv1uIV2vzqAhSa8gI6IG9dMpc:52"
     },
     {
       "id": "LIN063",
@@ -1586,10 +1694,12 @@
       "chapter": "فيديو من قائمة التشغيل الأصلية ذات 72 فيديو",
       "actualDuration": "20:21",
       "sourceGroup": "Tanany 72",
-      "seq": 63,
+      "seq": 62,
       "phaseNumber": 10,
       "phaseGoal": "تفهم mount وfstab وfdisk وgdisk وRAID وLVM، وتعرف أثرها على تشغيل الخادم.",
-      "phaseDeliverable": "نفّذ تجربة mount وLVM على قرص افتراضي إضافي فقط، وليس على قرص جهازك الحقيقي."
+      "phaseDeliverable": "نفّذ تجربة mount وLVM على قرص افتراضي إضافي فقط، وليس على قرص جهازك الحقيقي.",
+      "mediaType": "video",
+      "videoKey": "playlist:PLsWFuR2EEv1uIV2vzqAhSa8gI6IG9dMpc:53"
     },
     {
       "id": "LIN064",
@@ -1609,10 +1719,12 @@
       "chapter": "فيديو من قائمة التشغيل الأصلية ذات 72 فيديو",
       "actualDuration": "25:49",
       "sourceGroup": "Tanany 72",
-      "seq": 64,
+      "seq": 63,
       "phaseNumber": 11,
       "phaseGoal": "تستطيع كتابة سكربت Bash بسيط يستخدم المتغيرات والشروط والحلقات.",
-      "phaseDeliverable": "اكتب سكربتًا يقرأ قيمة من المستخدم ويتحقق منها ثم يعرض نتيجة واضحة."
+      "phaseDeliverable": "اكتب سكربتًا يقرأ قيمة من المستخدم ويتحقق منها ثم يعرض نتيجة واضحة.",
+      "mediaType": "video",
+      "videoKey": "playlist:PLsWFuR2EEv1uIV2vzqAhSa8gI6IG9dMpc:54"
     },
     {
       "id": "LIN065",
@@ -1632,10 +1744,12 @@
       "chapter": "فيديو من قائمة التشغيل الأصلية ذات 72 فيديو",
       "actualDuration": "33:13",
       "sourceGroup": "Tanany 72",
-      "seq": 65,
+      "seq": 64,
       "phaseNumber": 11,
       "phaseGoal": "تستطيع كتابة سكربت Bash بسيط يستخدم المتغيرات والشروط والحلقات.",
-      "phaseDeliverable": "اكتب سكربتًا يقرأ قيمة من المستخدم ويتحقق منها ثم يعرض نتيجة واضحة."
+      "phaseDeliverable": "اكتب سكربتًا يقرأ قيمة من المستخدم ويتحقق منها ثم يعرض نتيجة واضحة.",
+      "mediaType": "video",
+      "videoKey": "playlist:PLsWFuR2EEv1uIV2vzqAhSa8gI6IG9dMpc:55"
     },
     {
       "id": "LIN066",
@@ -1655,10 +1769,12 @@
       "chapter": "فيديو من قائمة التشغيل الأصلية ذات 72 فيديو",
       "actualDuration": "26:38",
       "sourceGroup": "Tanany 72",
-      "seq": 66,
+      "seq": 65,
       "phaseNumber": 11,
       "phaseGoal": "تستطيع كتابة سكربت Bash بسيط يستخدم المتغيرات والشروط والحلقات.",
-      "phaseDeliverable": "اكتب سكربتًا يقرأ قيمة من المستخدم ويتحقق منها ثم يعرض نتيجة واضحة."
+      "phaseDeliverable": "اكتب سكربتًا يقرأ قيمة من المستخدم ويتحقق منها ثم يعرض نتيجة واضحة.",
+      "mediaType": "video",
+      "videoKey": "playlist:PLsWFuR2EEv1uIV2vzqAhSa8gI6IG9dMpc:56"
     },
     {
       "id": "LIN067",
@@ -1678,10 +1794,12 @@
       "chapter": "فيديو من قائمة التشغيل الأصلية ذات 72 فيديو",
       "actualDuration": "24:13",
       "sourceGroup": "Tanany 72",
-      "seq": 67,
+      "seq": 66,
       "phaseNumber": 11,
       "phaseGoal": "تستطيع كتابة سكربت Bash بسيط يستخدم المتغيرات والشروط والحلقات.",
-      "phaseDeliverable": "اكتب سكربتًا يقرأ قيمة من المستخدم ويتحقق منها ثم يعرض نتيجة واضحة."
+      "phaseDeliverable": "اكتب سكربتًا يقرأ قيمة من المستخدم ويتحقق منها ثم يعرض نتيجة واضحة.",
+      "mediaType": "video",
+      "videoKey": "playlist:PLsWFuR2EEv1uIV2vzqAhSa8gI6IG9dMpc:57"
     },
     {
       "id": "LIN068",
@@ -1701,10 +1819,12 @@
       "chapter": "فيديو من قائمة التشغيل الأصلية ذات 72 فيديو",
       "actualDuration": "07:04",
       "sourceGroup": "Tanany 72",
-      "seq": 68,
+      "seq": 67,
       "phaseNumber": 11,
       "phaseGoal": "تستطيع كتابة سكربت Bash بسيط يستخدم المتغيرات والشروط والحلقات.",
-      "phaseDeliverable": "اكتب سكربتًا يقرأ قيمة من المستخدم ويتحقق منها ثم يعرض نتيجة واضحة."
+      "phaseDeliverable": "اكتب سكربتًا يقرأ قيمة من المستخدم ويتحقق منها ثم يعرض نتيجة واضحة.",
+      "mediaType": "video",
+      "videoKey": "playlist:PLsWFuR2EEv1uIV2vzqAhSa8gI6IG9dMpc:58"
     },
     {
       "id": "LIN069",
@@ -1724,10 +1844,12 @@
       "chapter": "فيديو من قائمة التشغيل الأصلية ذات 72 فيديو",
       "actualDuration": "17:26",
       "sourceGroup": "Tanany 72",
-      "seq": 69,
+      "seq": 68,
       "phaseNumber": 11,
       "phaseGoal": "تستطيع كتابة سكربت Bash بسيط يستخدم المتغيرات والشروط والحلقات.",
-      "phaseDeliverable": "اكتب سكربتًا يقرأ قيمة من المستخدم ويتحقق منها ثم يعرض نتيجة واضحة."
+      "phaseDeliverable": "اكتب سكربتًا يقرأ قيمة من المستخدم ويتحقق منها ثم يعرض نتيجة واضحة.",
+      "mediaType": "video",
+      "videoKey": "playlist:PLsWFuR2EEv1uIV2vzqAhSa8gI6IG9dMpc:59"
     },
     {
       "id": "LIN070",
@@ -1747,10 +1869,12 @@
       "chapter": "فيديو من قائمة التشغيل الأصلية ذات 72 فيديو",
       "actualDuration": "25:26",
       "sourceGroup": "Tanany 72",
-      "seq": 70,
+      "seq": 69,
       "phaseNumber": 11,
       "phaseGoal": "تستطيع كتابة سكربت Bash بسيط يستخدم المتغيرات والشروط والحلقات.",
-      "phaseDeliverable": "اكتب سكربتًا يقرأ قيمة من المستخدم ويتحقق منها ثم يعرض نتيجة واضحة."
+      "phaseDeliverable": "اكتب سكربتًا يقرأ قيمة من المستخدم ويتحقق منها ثم يعرض نتيجة واضحة.",
+      "mediaType": "video",
+      "videoKey": "playlist:PLsWFuR2EEv1uIV2vzqAhSa8gI6IG9dMpc:60"
     },
     {
       "id": "LIN071",
@@ -1770,10 +1894,12 @@
       "chapter": "فيديو من قائمة التشغيل الأصلية ذات 72 فيديو",
       "actualDuration": "14:30",
       "sourceGroup": "Tanany 72",
-      "seq": 71,
+      "seq": 70,
       "phaseNumber": 11,
       "phaseGoal": "تستطيع كتابة سكربت Bash بسيط يستخدم المتغيرات والشروط والحلقات.",
-      "phaseDeliverable": "اكتب سكربتًا يقرأ قيمة من المستخدم ويتحقق منها ثم يعرض نتيجة واضحة."
+      "phaseDeliverable": "اكتب سكربتًا يقرأ قيمة من المستخدم ويتحقق منها ثم يعرض نتيجة واضحة.",
+      "mediaType": "video",
+      "videoKey": "playlist:PLsWFuR2EEv1uIV2vzqAhSa8gI6IG9dMpc:61"
     },
     {
       "id": "LIN072",
@@ -1793,10 +1919,12 @@
       "chapter": "فيديو من قائمة التشغيل الأصلية ذات 72 فيديو",
       "actualDuration": "15:25",
       "sourceGroup": "Tanany 72",
-      "seq": 72,
+      "seq": 71,
       "phaseNumber": 11,
       "phaseGoal": "تستطيع كتابة سكربت Bash بسيط يستخدم المتغيرات والشروط والحلقات.",
-      "phaseDeliverable": "اكتب سكربتًا يقرأ قيمة من المستخدم ويتحقق منها ثم يعرض نتيجة واضحة."
+      "phaseDeliverable": "اكتب سكربتًا يقرأ قيمة من المستخدم ويتحقق منها ثم يعرض نتيجة واضحة.",
+      "mediaType": "video",
+      "videoKey": "playlist:PLsWFuR2EEv1uIV2vzqAhSa8gI6IG9dMpc:62"
     },
     {
       "id": "LIN073",
@@ -1816,10 +1944,12 @@
       "chapter": "فيديو من قائمة التشغيل الأصلية ذات 72 فيديو",
       "actualDuration": "15:28",
       "sourceGroup": "Tanany 72",
-      "seq": 73,
+      "seq": 72,
       "phaseNumber": 11,
       "phaseGoal": "تستطيع كتابة سكربت Bash بسيط يستخدم المتغيرات والشروط والحلقات.",
-      "phaseDeliverable": "اكتب سكربتًا يقرأ قيمة من المستخدم ويتحقق منها ثم يعرض نتيجة واضحة."
+      "phaseDeliverable": "اكتب سكربتًا يقرأ قيمة من المستخدم ويتحقق منها ثم يعرض نتيجة واضحة.",
+      "mediaType": "video",
+      "videoKey": "playlist:PLsWFuR2EEv1uIV2vzqAhSa8gI6IG9dMpc:63"
     },
     {
       "id": "LIN074",
@@ -1828,67 +1958,28 @@
       "source": "Security Jordan – Bash Scripting Full Course",
       "instructor": "Security Jordan",
       "course": "تعلم Bash Scripting من الصفر إلى الاحتراف في أقل من 3 ساعات",
-      "lessonNo": "مقطع 13:24–15:04",
-      "title": "كتابة أول Bash Script",
-      "duration": "01:40",
+      "lessonNo": "مقطع 13:24–24:23",
+      "title": "إنشاء أول Bash Script: Shebang وتشغيله",
+      "duration": "10:59",
       "url": "https://www.youtube.com/watch?v=M5-MCMrC0sI&t=804s",
-      "kind": "استكمال مطلوب",
-      "reason": "بعد أساسيات الطناني، شاهد طريقة بناء أول سكربت عملي.",
-      "task": "هذا مقطع محدد من الفيديو الكامل؛ لا تحتاج لمشاهدة المقاطع التمهيدية أو المتكررة التي أخذتها من الطناني. المدة محسوبة بين فصول الفيديو المنشورة.",
+      "kind": "إضافة مكملة",
+      "reason": "استكمال عملي واحد يجمع إنشاء ملف السكربت، تحديد المفسّر بسطر Shebang، ثم تشغيله. دورة الطناني تقدم مقدمة Shell Scripting؛ هذا المقطع يثبت طريقة بناء ملف قابل للتنفيذ عمليًا دون إعادة شرح المتغيرات والشروط والحلقات.",
+      "task": "أنشئ ملفًا باسم hello.sh، اكتب سطر Shebang المناسب، أضف أمرًا بسيطًا، امنحه صلاحية التنفيذ، ثم شغّله بالطريقة التي شرحها المحاضر. دوّن الفرق بين bash file.sh والتنفيذ المباشر بعد chmod +x.",
       "instructorNote": "قناة عربية تشرح Linux وBash في سياق الأمن السيبراني، مع مشاريع تطبيقية.",
-      "chapter": "فصل محدد من فيديو كامل؛ المدة بين الفصول المنشورة",
-      "actualDuration": "01:40",
+      "chapter": "ثلاثة فصول متتابعة مدمجة في وحدة واحدة: 13:24 Writing First Script → 15:04 Shebang → 18:28 Running First Script → 24:23 Variables",
+      "actualDuration": "10:59",
       "sourceGroup": "Security Jordan Bash",
-      "seq": 74,
+      "seq": 73,
       "phaseNumber": 12,
       "phaseGoal": "تستطيع كتابة سكربت فيه Shebang وInput وOperators وArrays وFunctions، واختباره وتشغيله.",
-      "phaseDeliverable": "أنجز مشروعي System Information وPing Checker بنفسك دون نسخ الكود."
-    },
-    {
-      "id": "LIN075",
-      "phaseId": "p12",
-      "phaseTitle": "استكمال Bash بالمشاريع والدوال والمصفوفات",
-      "source": "Security Jordan – Bash Scripting Full Course",
-      "instructor": "Security Jordan",
-      "course": "تعلم Bash Scripting من الصفر إلى الاحتراف في أقل من 3 ساعات",
-      "lessonNo": "مقطع 15:04–18:28",
-      "title": "ما هو Shebang؟",
-      "duration": "03:24",
-      "url": "https://www.youtube.com/watch?v=M5-MCMrC0sI&t=904s",
-      "kind": "استكمال مطلوب",
-      "reason": "فهم السطر الذي يحدد مفسر السكربت.",
-      "task": "هذا مقطع محدد من الفيديو الكامل؛ لا تحتاج لمشاهدة المقاطع التمهيدية أو المتكررة التي أخذتها من الطناني. المدة محسوبة بين فصول الفيديو المنشورة.",
-      "instructorNote": "قناة عربية تشرح Linux وBash في سياق الأمن السيبراني، مع مشاريع تطبيقية.",
-      "chapter": "فصل محدد من فيديو كامل؛ المدة بين الفصول المنشورة",
-      "actualDuration": "03:24",
-      "sourceGroup": "Security Jordan Bash",
-      "seq": 75,
-      "phaseNumber": 12,
-      "phaseGoal": "تستطيع كتابة سكربت فيه Shebang وInput وOperators وArrays وFunctions، واختباره وتشغيله.",
-      "phaseDeliverable": "أنجز مشروعي System Information وPing Checker بنفسك دون نسخ الكود."
-    },
-    {
-      "id": "LIN076",
-      "phaseId": "p12",
-      "phaseTitle": "استكمال Bash بالمشاريع والدوال والمصفوفات",
-      "source": "Security Jordan – Bash Scripting Full Course",
-      "instructor": "Security Jordan",
-      "course": "تعلم Bash Scripting من الصفر إلى الاحتراف في أقل من 3 ساعات",
-      "lessonNo": "مقطع 18:28–24:23",
-      "title": "تشغيل Bash Script",
-      "duration": "05:55",
-      "url": "https://www.youtube.com/watch?v=M5-MCMrC0sI&t=1108s",
-      "kind": "استكمال مطلوب",
-      "reason": "تشغيل السكربت وفهم طريقة تنفيذه.",
-      "task": "هذا مقطع محدد من الفيديو الكامل؛ لا تحتاج لمشاهدة المقاطع التمهيدية أو المتكررة التي أخذتها من الطناني. المدة محسوبة بين فصول الفيديو المنشورة.",
-      "instructorNote": "قناة عربية تشرح Linux وBash في سياق الأمن السيبراني، مع مشاريع تطبيقية.",
-      "chapter": "فصل محدد من فيديو كامل؛ المدة بين الفصول المنشورة",
-      "actualDuration": "05:55",
-      "sourceGroup": "Security Jordan Bash",
-      "seq": 76,
-      "phaseNumber": 12,
-      "phaseGoal": "تستطيع كتابة سكربت فيه Shebang وInput وOperators وArrays وFunctions، واختباره وتشغيله.",
-      "phaseDeliverable": "أنجز مشروعي System Information وPing Checker بنفسك دون نسخ الكود."
+      "phaseDeliverable": "أنجز مشروعي System Information وPing Checker بنفسك دون نسخ الكود.",
+      "includedTopics": [
+        "إنشاء أول سكربت",
+        "Shebang",
+        "تشغيل السكربت"
+      ],
+      "mediaType": "video",
+      "videoKey": "youtube:M5-MCMrC0sI"
     },
     {
       "id": "LIN077",
@@ -1901,17 +1992,19 @@
       "title": "قراءة مدخلات المستخدم في Bash",
       "duration": "11:08",
       "url": "https://www.youtube.com/watch?v=M5-MCMrC0sI&t=2256s",
-      "kind": "استكمال مطلوب",
+      "kind": "إضافة مكملة",
       "reason": "إضافة مدخلات إلى السكربت باستخدام read والتحقق منها.",
       "task": "هذا مقطع محدد من الفيديو الكامل؛ لا تحتاج لمشاهدة المقاطع التمهيدية أو المتكررة التي أخذتها من الطناني. المدة محسوبة بين فصول الفيديو المنشورة.",
       "instructorNote": "قناة عربية تشرح Linux وBash في سياق الأمن السيبراني، مع مشاريع تطبيقية.",
-      "chapter": "فصل محدد من فيديو كامل؛ المدة بين الفصول المنشورة",
+      "chapter": "Chapter 00:37:36–00:48:44",
       "actualDuration": "11:08",
       "sourceGroup": "Security Jordan Bash",
-      "seq": 77,
+      "seq": 74,
       "phaseNumber": 12,
       "phaseGoal": "تستطيع كتابة سكربت فيه Shebang وInput وOperators وArrays وFunctions، واختباره وتشغيله.",
-      "phaseDeliverable": "أنجز مشروعي System Information وPing Checker بنفسك دون نسخ الكود."
+      "phaseDeliverable": "أنجز مشروعي System Information وPing Checker بنفسك دون نسخ الكود.",
+      "mediaType": "video",
+      "videoKey": "youtube:M5-MCMrC0sI"
     },
     {
       "id": "LIN078",
@@ -1924,17 +2017,19 @@
       "title": "Operators في Bash",
       "duration": "19:08",
       "url": "https://www.youtube.com/watch?v=M5-MCMrC0sI&t=2924s",
-      "kind": "استكمال مطلوب",
+      "kind": "إضافة مكملة",
       "reason": "استخدام المقارنات والعمليات داخل الشروط.",
       "task": "هذا مقطع محدد من الفيديو الكامل؛ لا تحتاج لمشاهدة المقاطع التمهيدية أو المتكررة التي أخذتها من الطناني. المدة محسوبة بين فصول الفيديو المنشورة.",
       "instructorNote": "قناة عربية تشرح Linux وBash في سياق الأمن السيبراني، مع مشاريع تطبيقية.",
-      "chapter": "فصل محدد من فيديو كامل؛ المدة بين الفصول المنشورة",
+      "chapter": "Chapter 00:48:44–01:07:52",
       "actualDuration": "19:08",
       "sourceGroup": "Security Jordan Bash",
-      "seq": 78,
+      "seq": 75,
       "phaseNumber": 12,
       "phaseGoal": "تستطيع كتابة سكربت فيه Shebang وInput وOperators وArrays وFunctions، واختباره وتشغيله.",
-      "phaseDeliverable": "أنجز مشروعي System Information وPing Checker بنفسك دون نسخ الكود."
+      "phaseDeliverable": "أنجز مشروعي System Information وPing Checker بنفسك دون نسخ الكود.",
+      "mediaType": "video",
+      "videoKey": "youtube:M5-MCMrC0sI"
     },
     {
       "id": "LIN079",
@@ -1947,17 +2042,19 @@
       "title": "مشروع 1: System Information",
       "duration": "07:58",
       "url": "https://www.youtube.com/watch?v=M5-MCMrC0sI&t=5410s",
-      "kind": "استكمال مطلوب",
+      "kind": "إضافة مكملة",
       "reason": "إنشاء سكربت يعرض معلومات النظام؛ طبّقه بنفسك بعد مشاهدة الجزء.",
       "task": "هذا مقطع محدد من الفيديو الكامل؛ لا تحتاج لمشاهدة المقاطع التمهيدية أو المتكررة التي أخذتها من الطناني. المدة محسوبة بين فصول الفيديو المنشورة.",
       "instructorNote": "قناة عربية تشرح Linux وBash في سياق الأمن السيبراني، مع مشاريع تطبيقية.",
-      "chapter": "فصل محدد من فيديو كامل؛ المدة بين الفصول المنشورة",
+      "chapter": "Chapter 01:30:10–01:38:08",
       "actualDuration": "07:58",
       "sourceGroup": "Security Jordan Bash",
-      "seq": 79,
+      "seq": 76,
       "phaseNumber": 12,
       "phaseGoal": "تستطيع كتابة سكربت فيه Shebang وInput وOperators وArrays وFunctions، واختباره وتشغيله.",
-      "phaseDeliverable": "أنجز مشروعي System Information وPing Checker بنفسك دون نسخ الكود."
+      "phaseDeliverable": "أنجز مشروعي System Information وPing Checker بنفسك دون نسخ الكود.",
+      "mediaType": "video",
+      "videoKey": "youtube:M5-MCMrC0sI"
     },
     {
       "id": "LIN080",
@@ -1970,17 +2067,19 @@
       "title": "مشروع 2: Ping Checker",
       "duration": "07:08",
       "url": "https://www.youtube.com/watch?v=M5-MCMrC0sI&t=5888s",
-      "kind": "استكمال مطلوب",
+      "kind": "إضافة مكملة",
       "reason": "إنشاء سكربت يتحقق من الوصول إلى عنوان IP عبر Ping.",
       "task": "هذا مقطع محدد من الفيديو الكامل؛ لا تحتاج لمشاهدة المقاطع التمهيدية أو المتكررة التي أخذتها من الطناني. المدة محسوبة بين فصول الفيديو المنشورة.",
       "instructorNote": "قناة عربية تشرح Linux وBash في سياق الأمن السيبراني، مع مشاريع تطبيقية.",
-      "chapter": "فصل محدد من فيديو كامل؛ المدة بين الفصول المنشورة",
+      "chapter": "Chapter 01:38:08–01:45:16",
       "actualDuration": "07:08",
       "sourceGroup": "Security Jordan Bash",
-      "seq": 80,
+      "seq": 77,
       "phaseNumber": 12,
       "phaseGoal": "تستطيع كتابة سكربت فيه Shebang وInput وOperators وArrays وFunctions، واختباره وتشغيله.",
-      "phaseDeliverable": "أنجز مشروعي System Information وPing Checker بنفسك دون نسخ الكود."
+      "phaseDeliverable": "أنجز مشروعي System Information وPing Checker بنفسك دون نسخ الكود.",
+      "mediaType": "video",
+      "videoKey": "youtube:M5-MCMrC0sI"
     },
     {
       "id": "LIN081",
@@ -1993,17 +2092,19 @@
       "title": "Loops وقراءة الملفات سطرًا بسطر",
       "duration": "33:54",
       "url": "https://www.youtube.com/watch?v=M5-MCMrC0sI&t=6316s",
-      "kind": "استكمال مطلوب",
-      "reason": "استكمال عملي للحلقات، مع التركيز على قراءة ملفات السجل line by line.",
-      "task": "هذا مقطع محدد من الفيديو الكامل؛ لا تحتاج لمشاهدة المقاطع التمهيدية أو المتكررة التي أخذتها من الطناني. المدة محسوبة بين فصول الفيديو المنشورة.",
+      "kind": "إضافة مكملة",
+      "reason": "هذا الفصل يضيف تطبيق قراءة الملفات سطرًا بسطر. أساسيات for/while سبق شرحها في الطناني؛ لا تعِد حفظ تركيب الحلقة، وركّز هنا على while read ومعالجة كل سطر من ملف نصي.",
+      "task": "اكتب سكربتًا يستخدم while IFS= read -r line لقراءة ملف تجريبي سطرًا بسطر، ثم يبحث عن كلمة محددة ويطبع الأسطر المطابقة.",
       "instructorNote": "قناة عربية تشرح Linux وBash في سياق الأمن السيبراني، مع مشاريع تطبيقية.",
-      "chapter": "فصل محدد من فيديو كامل؛ المدة بين الفصول المنشورة",
+      "chapter": "Chapter 01:45:16–02:19:10؛ التركيز المطلوب: قراءة الملفات سطرًا بسطر، لا إعادة شرح أساسيات الحلقات.",
       "actualDuration": "33:54",
       "sourceGroup": "Security Jordan Bash",
-      "seq": 81,
+      "seq": 78,
       "phaseNumber": 12,
       "phaseGoal": "تستطيع كتابة سكربت فيه Shebang وInput وOperators وArrays وFunctions، واختباره وتشغيله.",
-      "phaseDeliverable": "أنجز مشروعي System Information وPing Checker بنفسك دون نسخ الكود."
+      "phaseDeliverable": "أنجز مشروعي System Information وPing Checker بنفسك دون نسخ الكود.",
+      "mediaType": "video",
+      "videoKey": "youtube:M5-MCMrC0sI"
     },
     {
       "id": "LIN082",
@@ -2016,17 +2117,19 @@
       "title": "Arrays في Bash",
       "duration": "09:35",
       "url": "https://www.youtube.com/watch?v=M5-MCMrC0sI&t=8350s",
-      "kind": "استكمال مطلوب",
+      "kind": "إضافة مكملة",
       "reason": "تجميع عدة قيم ومعالجتها داخل السكربت.",
       "task": "هذا مقطع محدد من الفيديو الكامل؛ لا تحتاج لمشاهدة المقاطع التمهيدية أو المتكررة التي أخذتها من الطناني. المدة محسوبة بين فصول الفيديو المنشورة.",
       "instructorNote": "قناة عربية تشرح Linux وBash في سياق الأمن السيبراني، مع مشاريع تطبيقية.",
-      "chapter": "فصل محدد من فيديو كامل؛ المدة بين الفصول المنشورة",
+      "chapter": "Chapter 02:19:10–02:28:45",
       "actualDuration": "09:35",
       "sourceGroup": "Security Jordan Bash",
-      "seq": 82,
+      "seq": 79,
       "phaseNumber": 12,
       "phaseGoal": "تستطيع كتابة سكربت فيه Shebang وInput وOperators وArrays وFunctions، واختباره وتشغيله.",
-      "phaseDeliverable": "أنجز مشروعي System Information وPing Checker بنفسك دون نسخ الكود."
+      "phaseDeliverable": "أنجز مشروعي System Information وPing Checker بنفسك دون نسخ الكود.",
+      "mediaType": "video",
+      "videoKey": "youtube:M5-MCMrC0sI"
     },
     {
       "id": "LIN083",
@@ -2039,17 +2142,19 @@
       "title": "Functions في Bash",
       "duration": "22:25",
       "url": "https://www.youtube.com/watch?v=M5-MCMrC0sI&t=8925s",
-      "kind": "استكمال مطلوب",
+      "kind": "إضافة مكملة",
       "reason": "تقسيم السكربت إلى وظائف قابلة لإعادة الاستخدام.",
       "task": "هذا مقطع محدد من الفيديو الكامل؛ لا تحتاج لمشاهدة المقاطع التمهيدية أو المتكررة التي أخذتها من الطناني. المدة محسوبة بين فصول الفيديو المنشورة.",
       "instructorNote": "قناة عربية تشرح Linux وBash في سياق الأمن السيبراني، مع مشاريع تطبيقية.",
-      "chapter": "فصل محدد من فيديو كامل؛ المدة بين الفصول المنشورة",
+      "chapter": "Chapter 02:28:45–02:51:10",
       "actualDuration": "22:25",
       "sourceGroup": "Security Jordan Bash",
-      "seq": 83,
+      "seq": 80,
       "phaseNumber": 12,
       "phaseGoal": "تستطيع كتابة سكربت فيه Shebang وInput وOperators وArrays وFunctions، واختباره وتشغيله.",
-      "phaseDeliverable": "أنجز مشروعي System Information وPing Checker بنفسك دون نسخ الكود."
+      "phaseDeliverable": "أنجز مشروعي System Information وPing Checker بنفسك دون نسخ الكود.",
+      "mediaType": "video",
+      "videoKey": "youtube:M5-MCMrC0sI"
     },
     {
       "id": "LIN084",
@@ -2062,17 +2167,19 @@
       "title": "Printf وAWK وSED وCUT وTR لمعالجة النصوص",
       "duration": "1:22:30",
       "url": "https://www.youtube.com/watch?v=qjqiPF0QBJ0&t=11740s",
-      "kind": "استكمال مطلوب",
+      "kind": "إضافة مكملة",
       "reason": "هذه الأدوات هي الجسر بين التعامل مع الطرفية وتحليل ملفات السجلات: استخراج الحقول، التصفية، واستبدال النصوص.",
       "task": "أنشئ ملف سجل تجريبي، استخرج عمود IP باستخدام awk/cut، نظّف المخرجات بـ sed/tr، ثم احسب التكرارات.",
       "instructorNote": "قناة عربية متخصصة في Linux وCybersecurity.",
       "chapter": "Chapter 03:15:40–04:38:10",
       "actualDuration": "1:22:30",
       "sourceGroup": "Security Jordan Linux Part 2",
-      "seq": 84,
+      "seq": 81,
       "phaseNumber": 13,
       "phaseGoal": "تستطيع استخراج الحقول وتنظيف المخرجات وتجميع بيانات من ملف سجل كبير.",
-      "phaseDeliverable": "من ملف سجل تجريبي، استخرج عناوين IP وعدد مرات ظهور كل عنوان."
+      "phaseDeliverable": "من ملف سجل تجريبي، استخرج عناوين IP وعدد مرات ظهور كل عنوان.",
+      "mediaType": "video",
+      "videoKey": "youtube:qjqiPF0QBJ0"
     },
     {
       "id": "LIN085",
@@ -2092,10 +2199,12 @@
       "chapter": "فيديو من قائمة التشغيل الأصلية ذات 72 فيديو",
       "actualDuration": "15:34",
       "sourceGroup": "Tanany 72",
-      "seq": 85,
+      "seq": 82,
       "phaseNumber": 14,
       "phaseGoal": "تفهم كيف تعمل المهام المجدولة وأين تفحصها عند التحقيق في مهمة غير متوقعة.",
-      "phaseDeliverable": "أنشئ مهمة مجدولة آمنة في المعمل، ثم اعرضها واحذفها."
+      "phaseDeliverable": "أنشئ مهمة مجدولة آمنة في المعمل، ثم اعرضها واحذفها.",
+      "mediaType": "video",
+      "videoKey": "playlist:PLsWFuR2EEv1uIV2vzqAhSa8gI6IG9dMpc:64"
     },
     {
       "id": "LIN086",
@@ -2115,10 +2224,12 @@
       "chapter": "فيديو من قائمة التشغيل الأصلية ذات 72 فيديو",
       "actualDuration": "27:14",
       "sourceGroup": "Tanany 72",
-      "seq": 86,
+      "seq": 83,
       "phaseNumber": 14,
       "phaseGoal": "تفهم كيف تعمل المهام المجدولة وأين تفحصها عند التحقيق في مهمة غير متوقعة.",
-      "phaseDeliverable": "أنشئ مهمة مجدولة آمنة في المعمل، ثم اعرضها واحذفها."
+      "phaseDeliverable": "أنشئ مهمة مجدولة آمنة في المعمل، ثم اعرضها واحذفها.",
+      "mediaType": "video",
+      "videoKey": "playlist:PLsWFuR2EEv1uIV2vzqAhSa8gI6IG9dMpc:65"
     },
     {
       "id": "LIN087",
@@ -2138,10 +2249,12 @@
       "chapter": "فيديو من قائمة التشغيل الأصلية ذات 72 فيديو",
       "actualDuration": "37:45",
       "sourceGroup": "Tanany 72",
-      "seq": 87,
+      "seq": 84,
       "phaseNumber": 15,
       "phaseGoal": "تفهم وظيفة كل خدمة ومبدأ تشغيلها ومكان سجلاتها الأساسية.",
-      "phaseDeliverable": "شغّل خدمة ويب تجريبية داخل المعمل، وتحقق من حالة الخدمة وسجلات الوصول والأخطاء."
+      "phaseDeliverable": "شغّل خدمة ويب تجريبية داخل المعمل، وتحقق من حالة الخدمة وسجلات الوصول والأخطاء.",
+      "mediaType": "video",
+      "videoKey": "playlist:PLsWFuR2EEv1uIV2vzqAhSa8gI6IG9dMpc:66"
     },
     {
       "id": "LIN088",
@@ -2161,10 +2274,12 @@
       "chapter": "فيديو من قائمة التشغيل الأصلية ذات 72 فيديو",
       "actualDuration": "22:00",
       "sourceGroup": "Tanany 72",
-      "seq": 88,
+      "seq": 85,
       "phaseNumber": 15,
       "phaseGoal": "تفهم وظيفة كل خدمة ومبدأ تشغيلها ومكان سجلاتها الأساسية.",
-      "phaseDeliverable": "شغّل خدمة ويب تجريبية داخل المعمل، وتحقق من حالة الخدمة وسجلات الوصول والأخطاء."
+      "phaseDeliverable": "شغّل خدمة ويب تجريبية داخل المعمل، وتحقق من حالة الخدمة وسجلات الوصول والأخطاء.",
+      "mediaType": "video",
+      "videoKey": "playlist:PLsWFuR2EEv1uIV2vzqAhSa8gI6IG9dMpc:67"
     },
     {
       "id": "LIN089",
@@ -2184,10 +2299,12 @@
       "chapter": "فيديو من قائمة التشغيل الأصلية ذات 72 فيديو",
       "actualDuration": "49:41",
       "sourceGroup": "Tanany 72",
-      "seq": 89,
+      "seq": 86,
       "phaseNumber": 15,
       "phaseGoal": "تفهم وظيفة كل خدمة ومبدأ تشغيلها ومكان سجلاتها الأساسية.",
-      "phaseDeliverable": "شغّل خدمة ويب تجريبية داخل المعمل، وتحقق من حالة الخدمة وسجلات الوصول والأخطاء."
+      "phaseDeliverable": "شغّل خدمة ويب تجريبية داخل المعمل، وتحقق من حالة الخدمة وسجلات الوصول والأخطاء.",
+      "mediaType": "video",
+      "videoKey": "playlist:PLsWFuR2EEv1uIV2vzqAhSa8gI6IG9dMpc:68"
     },
     {
       "id": "LIN090",
@@ -2207,10 +2324,12 @@
       "chapter": "فيديو من قائمة التشغيل الأصلية ذات 72 فيديو",
       "actualDuration": "30:10",
       "sourceGroup": "Tanany 72",
-      "seq": 90,
+      "seq": 87,
       "phaseNumber": 15,
       "phaseGoal": "تفهم وظيفة كل خدمة ومبدأ تشغيلها ومكان سجلاتها الأساسية.",
-      "phaseDeliverable": "شغّل خدمة ويب تجريبية داخل المعمل، وتحقق من حالة الخدمة وسجلات الوصول والأخطاء."
+      "phaseDeliverable": "شغّل خدمة ويب تجريبية داخل المعمل، وتحقق من حالة الخدمة وسجلات الوصول والأخطاء.",
+      "mediaType": "video",
+      "videoKey": "playlist:PLsWFuR2EEv1uIV2vzqAhSa8gI6IG9dMpc:69"
     },
     {
       "id": "LIN091",
@@ -2230,10 +2349,12 @@
       "chapter": "فيديو من قائمة التشغيل الأصلية ذات 72 فيديو",
       "actualDuration": "23:28",
       "sourceGroup": "Tanany 72",
-      "seq": 91,
+      "seq": 88,
       "phaseNumber": 15,
       "phaseGoal": "تفهم وظيفة كل خدمة ومبدأ تشغيلها ومكان سجلاتها الأساسية.",
-      "phaseDeliverable": "شغّل خدمة ويب تجريبية داخل المعمل، وتحقق من حالة الخدمة وسجلات الوصول والأخطاء."
+      "phaseDeliverable": "شغّل خدمة ويب تجريبية داخل المعمل، وتحقق من حالة الخدمة وسجلات الوصول والأخطاء.",
+      "mediaType": "video",
+      "videoKey": "playlist:PLsWFuR2EEv1uIV2vzqAhSa8gI6IG9dMpc:70"
     },
     {
       "id": "LIN092",
@@ -2253,10 +2374,12 @@
       "chapter": "فيديو من قائمة التشغيل الأصلية ذات 72 فيديو",
       "actualDuration": "19:07",
       "sourceGroup": "Tanany 72",
-      "seq": 92,
+      "seq": 89,
       "phaseNumber": 15,
       "phaseGoal": "تفهم وظيفة كل خدمة ومبدأ تشغيلها ومكان سجلاتها الأساسية.",
-      "phaseDeliverable": "شغّل خدمة ويب تجريبية داخل المعمل، وتحقق من حالة الخدمة وسجلات الوصول والأخطاء."
+      "phaseDeliverable": "شغّل خدمة ويب تجريبية داخل المعمل، وتحقق من حالة الخدمة وسجلات الوصول والأخطاء.",
+      "mediaType": "video",
+      "videoKey": "playlist:PLsWFuR2EEv1uIV2vzqAhSa8gI6IG9dMpc:71"
     },
     {
       "id": "LIN093",
@@ -2276,10 +2399,62 @@
       "chapter": "فيديو من قائمة التشغيل الأصلية ذات 72 فيديو",
       "actualDuration": "32:21",
       "sourceGroup": "Tanany 72",
-      "seq": 93,
+      "seq": 90,
       "phaseNumber": 15,
       "phaseGoal": "تفهم وظيفة كل خدمة ومبدأ تشغيلها ومكان سجلاتها الأساسية.",
-      "phaseDeliverable": "شغّل خدمة ويب تجريبية داخل المعمل، وتحقق من حالة الخدمة وسجلات الوصول والأخطاء."
+      "phaseDeliverable": "شغّل خدمة ويب تجريبية داخل المعمل، وتحقق من حالة الخدمة وسجلات الوصول والأخطاء.",
+      "mediaType": "video",
+      "videoKey": "playlist:PLsWFuR2EEv1uIV2vzqAhSa8gI6IG9dMpc:72"
+    },
+    {
+      "id": "LIN095",
+      "phaseId": "p16",
+      "phaseTitle": "الاختبار العملي النهائي واستكشاف الأعطال",
+      "source": "Abdallah Al-Nuaimy – Linux Course in CyberSecurity",
+      "instructor": "عبدالله النعيمي",
+      "course": "Linux Course in CyberSecurity [Arabic]",
+      "lessonNo": "فيديو 24",
+      "title": "إصلاح مشاكل النظام",
+      "duration": "غير محددة في الفهرس المرسل",
+      "url": "https://www.youtube.com/playlist?list=PLtlmgvQV7sDtKQUPF6i6rNA3mIiieeuWp&index=24",
+      "kind": "إضافة مكملة",
+      "reason": "درس تشخيص أعطال مستقل؛ يطبق المعرفة المكتسبة في الخدمات والشبكة والحزم والسجلات على حالات خلل في Linux.",
+      "task": "شخّص مشكلة مقصودة في VM: ابدأ بفحص الحالة، ثم السجلات، ثم حدد السبب، واختبر الحل، ثم وثّق ما تغيّر.",
+      "instructorNote": "محاضر يقدم Linux من زاوية الأمن السيبراني، مع دروس قصيرة وتطبيقات عملية.",
+      "chapter": "فهرس قائمة التشغيل الذي أرسله المستخدم",
+      "actualDuration": "غير محددة في الفهرس المرسل",
+      "sourceGroup": "Abdullah 28",
+      "seq": 91,
+      "phaseNumber": 16,
+      "phaseGoal": "تنجز المهام الأساسية دون متابعة الشرح خطوة بخطوة، وتعرف كيف تبحث عن سبب العطل.",
+      "phaseDeliverable": "أكمل Bandit Levels 0–34، ثم حل تحدي عبدالله النهائي واكتب ملخصًا بما تعلمته.",
+      "mediaType": "video",
+      "videoKey": "playlist:PLtlmgvQV7sDtKQUPF6i6rNA3mIiieeuWp:24"
+    },
+    {
+      "id": "LIN096",
+      "phaseId": "p16",
+      "phaseTitle": "الاختبار العملي النهائي واستكشاف الأعطال",
+      "source": "Abdallah Al-Nuaimy – Linux Course in CyberSecurity",
+      "instructor": "عبدالله النعيمي",
+      "course": "Linux Course in CyberSecurity [Arabic]",
+      "lessonNo": "فيديو 27",
+      "title": "تحدي الكورس الأخير",
+      "duration": "01:15",
+      "url": "https://www.youtube.com/playlist?list=PLtlmgvQV7sDtKQUPF6i6rNA3mIiieeuWp&index=27",
+      "kind": "تطبيق عملي",
+      "reason": "تحدٍ ختامي من دورة عبدالله يجمع موضوعات Linux التي درستها. يأتي بعد درس Troubleshooting وقبل معمل Bandit النهائي.",
+      "task": "حل التحدي بنفسك أولًا، ثم شاهد المحاضرة للتحقق من الحل. سجّل الأوامر والمهارات التي احتجت إلى استخدامها.",
+      "instructorNote": "محاضر يقدم Linux من زاوية الأمن السيبراني، مع دروس قصيرة وتطبيقات عملية.",
+      "chapter": "فهرس قائمة التشغيل الذي أرسله المستخدم",
+      "actualDuration": "01:15",
+      "sourceGroup": "Abdullah 28",
+      "seq": 92,
+      "phaseNumber": 16,
+      "phaseGoal": "تنجز المهام الأساسية دون متابعة الشرح خطوة بخطوة، وتعرف كيف تبحث عن سبب العطل.",
+      "phaseDeliverable": "أكمل Bandit Levels 0–34، ثم حل تحدي عبدالله النهائي واكتب ملخصًا بما تعلمته.",
+      "mediaType": "video",
+      "videoKey": "playlist:PLtlmgvQV7sDtKQUPF6i6rNA3mIiieeuWp:27"
     },
     {
       "id": "LIN094",
@@ -2293,62 +2468,19 @@
       "duration": "وقت اللاب حسب سرعة الحل",
       "url": "https://overthewire.org/wargames/bandit/",
       "kind": "تطبيق عملي",
-      "reason": "تحديات عملية تثبّت SSH والملفات المخفية والبحث والصلاحيات والضغط والـ pipes. أكمل المستويات 0–34 كما في الشرح المرسل، بوصفها معملًا ختاميًا لتثبيت SSH والملفات والبحث والصلاحيات والضغط والـ pipes.",
-      "task": "حل المستويات 0–34 بنفسك وفق تعليمات المنصة. لا تنسخ الحل؛ سجّل الأمر الذي استخدمته ولماذا نجح، وطبّق داخل بيئة التحديات فقط. فيديو Security Jordan يبدأ عند 08:11:49 للمساعدة عند التعثر.",
+      "reason": "معمل ختامي عملي على OverTheWire Bandit من المستوى 0 إلى 34. ثبّت فيه SSH والملفات المخفية والبحث والصلاحيات والضغط والـ pipes. رابط الفيديو المساعد اختياري عند التعثر؛ المطلوب حل المستويات بنفسك.",
+      "task": "افتح منصة OverTheWire أولًا وحاول حل كل مستوى بنفسك. استخدم فيديو Security Jordan عند التعثر فقط، وسجّل الأمر أو الفكرة التي تعلمتها. لا تنسخ الحلول مباشرة.",
       "instructorNote": "Security Jordan يقدم شرحًا تطبيقيًا، وOverTheWire يوفر التحديات العملية.",
-      "chapter": "Bandit walkthrough begins 08:11:49",
+      "chapter": "المعمل: OverTheWire Bandit Levels 0–34. فيديو المساعدة في Part 2 يبدأ عند 08:11:49 (رابط منفصل داخل البطاقة).",
       "actualDuration": null,
       "sourceGroup": "Bandit",
-      "seq": 94,
+      "seq": 93,
       "phaseNumber": 16,
       "phaseGoal": "تنجز المهام الأساسية دون متابعة الشرح خطوة بخطوة، وتعرف كيف تبحث عن سبب العطل.",
-      "phaseDeliverable": "أكمل Bandit Levels 0–34، ثم حل تحدي عبدالله النهائي واكتب ملخصًا بما تعلمته."
-    },
-    {
-      "id": "LIN095",
-      "phaseId": "p16",
-      "phaseTitle": "الاختبار العملي النهائي واستكشاف الأعطال",
-      "source": "Abdallah Al-Nuaimy – Linux Course in CyberSecurity",
-      "instructor": "عبدالله النعيمي",
-      "course": "Linux Course in CyberSecurity [Arabic]",
-      "lessonNo": "فيديو 24",
-      "title": "إصلاح مشاكل النظام",
-      "duration": "غير محددة في الفهرس المرسل",
-      "url": "https://www.youtube.com/playlist?list=PLtlmgvQV7sDtKQUPF6i6rNA3mIiieeuWp&index=24",
-      "kind": "استكمال مطلوب",
-      "reason": "تطبيق troubleshooting بعد تغطية الخدمات والشبكة والحزم والسجلات.",
-      "task": "شخّص مشكلة مقصودة في VM: ابدأ بالحالة، ثم السجل، ثم السبب، ثم الحل.",
-      "instructorNote": "محاضر يقدم Linux من زاوية الأمن السيبراني، مع دروس قصيرة وتطبيقات عملية.",
-      "chapter": "فهرس قائمة التشغيل الذي أرسله المستخدم",
-      "actualDuration": "غير محددة في الفهرس المرسل",
-      "sourceGroup": "Abdullah 28",
-      "seq": 95,
-      "phaseNumber": 16,
-      "phaseGoal": "تنجز المهام الأساسية دون متابعة الشرح خطوة بخطوة، وتعرف كيف تبحث عن سبب العطل.",
-      "phaseDeliverable": "أكمل Bandit Levels 0–34، ثم حل تحدي عبدالله النهائي واكتب ملخصًا بما تعلمته."
-    },
-    {
-      "id": "LIN096",
-      "phaseId": "p16",
-      "phaseTitle": "الاختبار العملي النهائي واستكشاف الأعطال",
-      "source": "Abdallah Al-Nuaimy – Linux Course in CyberSecurity",
-      "instructor": "عبدالله النعيمي",
-      "course": "Linux Course in CyberSecurity [Arabic]",
-      "lessonNo": "فيديو 27",
-      "title": "تحدي الكورس الأخير",
-      "duration": "01:15",
-      "url": "https://www.youtube.com/playlist?list=PLtlmgvQV7sDtKQUPF6i6rNA3mIiieeuWp&index=27",
-      "kind": "استكمال مطلوب",
-      "reason": "تحدي ختامي يجمع موضوعات دورة Linux for CyberSecurity.",
-      "task": "حل التحدي بنفسك قبل مشاهدة الحل أو مراجعة الشرح.",
-      "instructorNote": "محاضر يقدم Linux من زاوية الأمن السيبراني، مع دروس قصيرة وتطبيقات عملية.",
-      "chapter": "فهرس قائمة التشغيل الذي أرسله المستخدم",
-      "actualDuration": "01:15",
-      "sourceGroup": "Abdullah 28",
-      "seq": 96,
-      "phaseNumber": 16,
-      "phaseGoal": "تنجز المهام الأساسية دون متابعة الشرح خطوة بخطوة، وتعرف كيف تبحث عن سبب العطل.",
-      "phaseDeliverable": "أكمل Bandit Levels 0–34، ثم حل تحدي عبدالله النهائي واكتب ملخصًا بما تعلمته."
+      "phaseDeliverable": "أكمل Bandit Levels 0–34، ثم حل تحدي عبدالله النهائي واكتب ملخصًا بما تعلمته.",
+      "mediaType": "lab",
+      "videoKey": null,
+      "helpUrl": "https://www.youtube.com/watch?v=qjqiPF0QBJ0&t=29509s"
     }
   ],
   "socPhases": [
@@ -2929,31 +3061,31 @@
       "name": "Ahmed Eid – دورة تعلم Linux كاملة باللغة العربية للجميع في 6 ساعات ونصف",
       "instructor": "أحمد عيد – TechShots",
       "url": "https://www.youtube.com/watch?v=8f2Zsb89uoM",
-      "status": "مدمج جزئيًا في Linux",
-      "used": "أول ثلاثة فصول فقط: Operating Systems، Virtualization، Setup Linux VM. أُدرجت بأوقاتها الفعلية من 00:00:11 إلى 01:49:20.",
-      "notUsed": "من 01:49:20 فصاعدًا: File System، CLI، Commands، Package Management، Vim، Users، Permissions، Pipes/Redirects. هذه الموضوعات مشروحة ضمن دورة الطناني، لذلك لم نكررها.",
-      "reason": "وجود أحمد عيد مهم لتأسيس فهم OS/Kernel/Virtualization. لم نحذف المحاضر؛ اخترنا القسم الذي يضيف أساسًا غير مكرر."
+      "status": "مدمج جزئيًا – 3 فصول تأسيسية",
+      "used": "3 فصول من الفيديو نفسه: Operating Systems، Virtualization، Setup Linux VM. تظهر كـ3 وحدات متتابعة، لا كـ3 فيديوهات مستقلة.",
+      "notUsed": "بقية الفصول من Linux File System وCLI وCommands وPackage Management وVim وUsers وPermissions وPipes/Redirection؛ لأنها مغطاة في الطناني، ولن نكررها.",
+      "reason": "أحمد عيد مهم لتأسيس فهم أنظمة التشغيل والـKernel والـVirtualization قبل إدارة Linux. أُدرج الجزء الذي يضيف أساسًا جديدًا فقط."
     },
     {
       "name": "Linux Administration Course 2024 – 72 Videos",
       "instructor": "محمد الطناني – TananyAcademy",
       "url": "https://www.youtube.com/playlist?list=PLsWFuR2EEv1uIV2vzqAhSa8gI6IG9dMpc",
-      "status": "مدمج بالكامل في Linux",
-      "used": "جميع الفيديوهات 01–72 بترتيبها الأصلي، مع العناوين والمدد وروابط index المباشرة.",
-      "notUsed": "لا يوجد فيديو مستبعد من الدورة الأساسية.",
-      "reason": "هو عمود Linux Administration في المنهج، ويغطي Debian وRocky Linux والإدارة والخدمات والتخزين وBash والمهام وخدمات الشبكة."
+      "status": "مدمج بالكامل – 72/72 فيديو",
+      "used": "جميع فيديوهات قائمة Linux Administration وعددها 72، بترتيب القائمة الأصلي.",
+      "notUsed": "لا يوجد فيديو مستبعد من دورة الطناني.",
+      "reason": "هو العمود الرئيسي لإدارة Linux على Debian وRocky: المستخدمون والصلاحيات والعمليات والخدمات والشبكات والسجلات والتخزين وBash والمهام وخدمات الشبكة."
     },
     {
       "name": "Linux Course in CyberSecurity – 28 Videos",
       "instructor": "عبدالله النعيمي – Abdallah Al-Nuaimy",
       "url": "https://www.youtube.com/playlist?list=PLtlmgvQV7sDtKQUPF6i6rNA3mIiieeuWp",
-      "status": "مدمج انتقائيًا في Linux + مرجع SOC",
-      "used": "#14 External Package Sources؛ #15 IP/Ports؛ #16 Connectivity Tests؛ #17 Port/Service Scanning؛ #21 System Monitoring؛ #23 System Logs؛ #24 Troubleshooting؛ #27 Final Challenge.",
-      "notUsed": "#01–13 أساسيات وتثبيت وأوامر وصلاحيات مغطاة بأحمد/الطناني؛ #18 Shell Scripting مغطى بالطناني وBash الإضافي؛ #19 Scheduling مغطى بالطناني 64–65؛ #20 Process Management مغطى بالطناني 32–33؛ #22 Services مغطى بالطناني 34؛ #25 Linux in Penetration Testing محفوظ في SOC/المعرفة الهجومية؛ #26 Shell مكرر؛ #28 خاتمة لا تضيف مهارة.",
-      "reason": "اختيرت الفيديوهات التي تضيف Network Diagnostics وMonitoring وLogs وTroubleshooting، ووُضعت في مكانها التعليمي بين محاضرات الطناني."
+      "status": "مدمج انتقائيًا – 7/28 فيديوهات",
+      "used": "#14 مصادر البرامج الخارجية؛ #15 عنوان الشبكة والمنافذ؛ #16 اختبارات الاتصال؛ #17 فحص المنافذ والخدمات؛ #21 أدوات مراقبة النظام؛ #24 إصلاح مشاكل النظام؛ #27 التحدي النهائي (مُصنف تطبيقًا عمليًا).",
+      "notUsed": "#01–13 أساسيات وتثبيت وأوامر ومستخدمون وصلاحيات مغطاة بأحمد/الطناني؛ #18 Shell Scripting و#19 Scheduling مغطاة بالطناني وBash المكمل؛ #20 العمليات و#22 الخدمات مغطاة بالطناني؛ #23 System Logs مستبعد لأنه يكرر rsyslog/journald في الطناني #37–38؛ #25 Linux in Penetration Testing محفوظ كمعرفة هجومية في مرجع SOC؛ #26 Shell مكرر؛ #28 خاتمة.",
+      "reason": "احتفظنا فقط بالدروس السبعة التي تضيف Network Diagnostics وMonitoring وTroubleshooting وتحديًا ختاميًا. استبعدنا فيديو System Logs #23 صراحةً لتجنب التكرار."
     },
     {
-      "name": "Security Jordan – Linux from Zero to Pro in 20 Hours (Part 1)",
+      "name": "Security Jordan – Linux Course in CyberSecurity [Arabic] (Part 1)",
       "instructor": "Security Jordan",
       "url": "https://www.youtube.com/watch?v=JBGnzEtimmg",
       "status": "مستبعد من Linux النشط بسبب التكرار؛ محفوظ في سجل المصادر",
@@ -2962,13 +3094,13 @@
       "reason": "محتوى مفيد لكن تكراره مرتفع. لو احتجت Kali installation لاحقًا، استخدمه كمرجع مستقل وليس كمتطلب Linux."
     },
     {
-      "name": "Security Jordan – تعلم Kali Linux من الصفر (Linux Part 2)",
+      "name": "Security Jordan – Linux Course in CyberSecurity [Arabic] (Part 2)",
       "instructor": "Security Jordan",
       "url": "https://www.youtube.com/watch?v=qjqiPF0QBJ0",
-      "status": "مدمج جزئيًا في Linux + مرجع SOC",
-      "used": "Linux Authentication 02:14:05؛ AWK/SED/CUT/TR 03:15:40؛ Bandit walkthrough يبدأ 08:11:49 (معمل 0–34 مدمج).",
-      "notUsed": "Boot Process وServices وNetwork Management وSSH وSystem Logs وPackage Management مغطاة بالطناني وعبدالله. فصل Bash عند 05:20:15 لم نستخدمه لأنه يعيد أساسيات Bash التي يغطيها الطناني؛ أخذنا بدلًا منه مقاطع المشاريع وShebang وInput وArrays وFunctions من كورس Security Jordan Bash المنفصل. System Logs تطبق من الطناني 37–38 وعبدالله #23.",
-      "reason": "أضفنا المصادقة الأمنية ومعالجة النصوص واللاب؛ لم نعد شرح إدارة الخدمات والسجلات مرة أخرى."
+      "status": "مدمج جزئيًا – فصلان + مرجع معمل",
+      "used": "Linux Authentication 02:14:05–02:24:10 (10:05)؛ AWK/SED/CUT/TR 03:15:40–04:38:10 (1:22:30)؛ Bandit walkthrough عند 08:11:49 كمرجع مساعدة لمعمل 0–34.",
+      "notUsed": "Boot Process وServices وNetwork وSSH وSystem Logs وPackage Management لأنها مغطاة في الطناني وعبدالله. System Logs في هذا الفيديو مستبعد أيضًا لتجنب تكرار الطناني #37–38 وعبدالله #23 المستبعد. فصل Bash العام مكرر؛ أخذنا الإضافات العملية من فيديو Bash المنفصل.",
+      "reason": "اخترنا فصل المصادقة كاستكمال محدد، ومعالجة النصوص كمهارة أساسية لاستخراج بيانات السجلات، وBandit كتطبيق ختامي. لا نعيد بقية شرح إدارة Linux."
     },
     {
       "name": "Bash Scripting Course Tutorial Arabic (Level 0) – video shared at playlist index 29",
@@ -2983,10 +3115,10 @@
       "name": "Security Jordan – Bash Scripting Full Course (under 3 hours)",
       "instructor": "Security Jordan",
       "url": "https://www.youtube.com/watch?v=M5-MCMrC0sI",
-      "status": "مدمج انتقائيًا في Linux",
-      "used": "أول Script، Shebang، تشغيل السكربت، User Input، Operators، System Information Project، Ping Checker، Loops/file reading، Arrays، Functions.",
-      "notUsed": "Bash تعريف/Variables/If وبعض الحلقات المتكررة: يغطيها الطناني 55–63. لم نكررها.",
-      "reason": "هذه الإضافات تسد النواقص العملية في Bash وتقدم مشاريع لا توجد بالصيغة نفسها في دورة الطناني."
+      "status": "مدمج انتقائيًا – 8 مقاطع من فيديو واحد",
+      "used": "مقطع واحد مدمج لإنشاء أول Script + Shebang + التشغيل؛ ثم User Input؛ Operators؛ System Information Project؛ Ping Checker Project؛ قراءة الملفات سطرًا بسطر؛ Arrays؛ Functions.",
+      "notUsed": "التعريفات التمهيدية وBash/Terminal basics والمتغيرات وIf Statements وأساسيات الحلقات التي يغطيها الطناني #55–63. لا نعيد فصولها.",
+      "reason": "أُخذت الإضافات العملية غير المغطاة بالكامل في دورة الإدارة، مع دمج ثلاثة فصول متصلة في درس واحد لتجنب تضخيم العدد."
     },
     {
       "name": "Security Jordan – Blue Team & SOC Foundations (3 videos)",
@@ -3000,7 +3132,7 @@
     {
       "name": "Linux Practical Guide – 9 Videos",
       "instructor": "م. مصطفى عبدالسلام – Free4Arab / Information Technology",
-      "url": "https://www.youtube.com/watch?v=mfiqpP3cE9Y",
+      "url": "https://www.youtube.com/watch?v=rfonmgAfV98&list=PLLlr6jKKdyK2XmYvNZhqwUDEnZOlQAWS-",
       "status": "غير مدمج بسبب التكرار؛ محفوظ في التدقيق",
       "used": "لا توجد فيديوهات إلزامية مضافة منه؛ تم فحص القائمة ذات 9 فيديوهات.",
       "notUsed": "Setting Up Lab، OS Overview، Linux Intro، Debian Install، VBox Tools، Filesystem، Directory Structure، Users/Groups/Permissions، Terminal.",
@@ -3240,7 +3372,7 @@
       [
         "23",
         "سجلات النظام",
-        "11:58"
+        "11:58 — مستبعد كتكرار مع الطناني #37–38؛ لا تشاهده ضمن المنهج."
       ],
       [
         "24",
@@ -3260,7 +3392,7 @@
       [
         "27",
         "تحدي الكورس الأخير",
-        "01:15"
+        "01:15 — مدمج كتطبيق عملي ختامي بعد Troubleshooting."
       ],
       [
         "28",
@@ -3475,12 +3607,12 @@
       [
         "02:14:05",
         "Understanding Linux Authentication",
-        "مدمج في Linux — تسلسل الدرس #44."
+        "مدمج في Linux كإضافة مكملة مدتها 10:05؛ الفصل 02:14:05–02:24:10. ركّز على آلية المصادقة وتجاوز ما يكرر إدارة المستخدمين وShadow."
       ],
       [
         "02:24:10",
         "System Logs: rsyslog وSystemd Journal",
-        "مستبعد كشرح مكرر؛ ندرس الطناني #37–38 ثم عبدالله #23 كتطبيق."
+        "مستبعد كتكرار: ندرس الطناني #37–38 فقط. كما استُبعد فيديو عبدالله #23 لأنه يعالج الموضوع نفسه؛ لا تفتح أيًا منهما مرة ثانية."
       ],
       [
         "03:15:40",
@@ -3508,8 +3640,95 @@
         "no": "29",
         "title": "While Loop Part 1",
         "url": "https://www.youtube.com/watch?v=SWDrATjXYlo&list=PLBdyyeW_Z41DykncH9zzMk8T7Rm5UlZXd&index=29",
-        "decision": "مستبعد كتكرار: while loops مغطاة في الطناني #61، ومقاطع Loops في Security Jordan Bash Full Course. بيانات بقية فيديوهات القائمة لم يمكن تثبيتها من الرابط المرسل وحده."
+        "decision": "مستبعد كتكرار: While Loop مغطاة في الطناني #61، والجزء العملي لقراءة الملفات سطرًا بسطر مأخوذ من فيديو Bash Full Course. لا تضف هذا الفيديو مرة ثانية."
       }
+    ],
+    "bashFullChapters": [
+      [
+        "00:00:00",
+        "Introduction",
+        "مقدمة عامة؛ لا تُحتسب كوحدة مستقلة."
+      ],
+      [
+        "00:02:35",
+        "What is Bash?",
+        "مستبعد: تعريفات أساسية ضمن الطناني #05 و#55."
+      ],
+      [
+        "00:03:49",
+        "What is Bash Scripting?",
+        "مستبعد: الفكرة العامة مغطاة في الطناني #55."
+      ],
+      [
+        "00:04:34",
+        "Why should I learn Bash scripting?",
+        "مقدمة تحفيزية وليست مهارة تنفيذية مستقلة."
+      ],
+      [
+        "00:06:04",
+        "Is Bash a programming language?",
+        "معلومة تعريفية؛ لا تحتاج درسًا منفصلًا."
+      ],
+      [
+        "00:06:43",
+        "Terminal / Shell / Bash",
+        "مستبعد: مغطى بالطناني #05."
+      ],
+      [
+        "00:13:24",
+        "First Script + Shebang + Running",
+        "مدمج في وحدة واحدة مدتها 10:59."
+      ],
+      [
+        "00:24:23",
+        "Variables",
+        "مستبعد: مغطى بالطناني #56."
+      ],
+      [
+        "00:37:36",
+        "Reading User Input",
+        "مدمج – إضافة مكملة."
+      ],
+      [
+        "00:48:44",
+        "Operators",
+        "مدمج – إضافة مكملة لتوسيع استخدام المقارنات والعمليات داخل السكربت."
+      ],
+      [
+        "01:07:52",
+        "If Statements",
+        "مستبعد: مغطى بالطناني #60."
+      ],
+      [
+        "01:30:10",
+        "Project 1 – System Information",
+        "مدمج – تطبيق عملي."
+      ],
+      [
+        "01:38:08",
+        "Project 2 – Ping Checker",
+        "مدمج – تطبيق عملي."
+      ],
+      [
+        "01:45:16",
+        "Loops / Reading Files Line by Line",
+        "مدمج – التركيز على قراءة الملف سطرًا بسطر؛ أساسيات الحلقات مغطاة بالطناني #61–62."
+      ],
+      [
+        "02:19:10",
+        "Arrays",
+        "مدمج – إضافة مكملة غير موجودة في فهرس الطناني."
+      ],
+      [
+        "02:28:45",
+        "Functions",
+        "مدمج – إضافة مكملة غير موجودة في فهرس الطناني."
+      ],
+      [
+        "02:51:10",
+        "End",
+        "خاتمة."
+      ]
     ]
   }
 }
