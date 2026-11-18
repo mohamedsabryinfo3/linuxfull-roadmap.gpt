@@ -52,3 +52,8 @@ Then open `http://localhost:8080`.
 - Where the duration could not be verified from the supplied course information, the lesson explicitly says so; any study-time estimate is labeled separately.
 - Some Security Jordan chapters are linked at approximate timestamps previously identified; the lesson card labels those timestamps as approximate and asks the learner to verify them when opening the video.
 - Optional storage and network-service material is retained so the 72-video Tanany course remains represented, but it is not required for the core progress percentage.
+
+
+## Companion audit of unused supplied videos
+
+A separate companion note, `DEFERRED_CONTENT_AFTER_LINUX_SECURITY_PLUS.md`, is delivered alongside the site package. Keep it as a planning reference for the next stage; it is intentionally not rendered in this Linux-only website.
