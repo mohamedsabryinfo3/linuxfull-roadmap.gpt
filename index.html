@@ -2,18 +2,16 @@
 <html lang="ar" dir="rtl">
 <head>
 <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="theme-color" content="#0b1730">
-<meta name="description" content="خطة متسلسلة من Linux Administration إلى SOC Analyst L1 وL2، مع متابعة الإنجاز وحفظ الملاحظات.">
-<title>Linux → SOC | Learning Roadmap</title>
-<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<meta name="theme-color" content="#0d151c">
+<meta name="description" content="دليل تعلم متسلسل من Linux Administration إلى SOC Analyst L1 وL2، بواجهة عمليات تعليمية ومتابعة إنجاز وملاحظات شخصية.">
+<title>FIELD / 01 — Linux to SOC Learning Atlas</title>
 <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 <div class="ambient ambient-a"></div><div class="ambient ambient-b"></div>
 <header class="topbar">
-  <a class="brand" href="#top" aria-label="الرئيسية"><span class="brand-mark">L<span>→</span>S</span><span class="brand-copy"><b>LEARNING PATH</b><small>LINUX TO SOC</small></span></a>
-  <div class="top-actions"><span class="local-save"><i></i> الحفظ يعمل تلقائيًا</span><button class="icon-btn" id="exportBtn" title="تصدير التقدم">⇧</button><label class="icon-btn import-btn" title="استيراد التقدم">⇩<input type="file" id="importFile" accept="application/json"></label></div>
+  <a class="brand" href="#top" aria-label="الرئيسية"><span class="brand-mark">L<span>→</span>S</span><span class="brand-copy"><b>FIELD / LEARNING ATLAS</b><small>LINUX → SECURITY OPERATIONS</small></span></a>
+  <div class="top-actions"><span class="local-save"><i></i> تقدمك محفوظ على هذا الجهاز</span><button class="icon-btn" id="exportBtn" title="تصدير التقدم">⇧</button><label class="icon-btn import-btn" title="استيراد التقدم">⇩<input type="file" id="importFile" accept="application/json"></label></div>
 </header>
 <main id="top" class="shell">
   <section class="hero">
@@ -22,7 +20,18 @@
       <p>مساران منفصلان بترتيب دراسي واضح. ادرس Linux الآن من البداية للنهاية، ثم ارجع إلى مرجع SOC بعد إنهاء Linux وSecurity+.</p>
       <div class="hero-pills"><span>01 / Linux الآن</span><span>02 / SOC لاحقًا</span><span>خطوة بخطوة · بدون تكرار</span></div>
     </div>
-    <div class="hero-visual"><div class="orbit orbit-one"></div><div class="orbit orbit-two"></div><div class="orbit-core"><span>LEARN</span><b>LINUX</b><small>BUILD THE BASE</small></div><span class="orbit-chip chip-linux">⌘ Linux</span><span class="orbit-chip chip-soc">◈ SOC</span><span class="orbit-chip chip-sec">✓ Security+</span></div>
+    <div class="hero-visual">
+      <div class="route-plate">
+        <div class="route-topline"><span>LEARNING ATLAS / 2026</span><span>FIELD MAP 01</span></div>
+        <div class="route-score"><b>01</b><span>ACTIVE<br>JOURNEY</span></div>
+        <div class="route-lines">
+          <div class="route-stop active"><i></i><span>LINUX FOUNDATION</span><b>NOW</b></div>
+          <div class="route-stop"><i></i><span>SECURITY+</span><b>NEXT</b></div>
+          <div class="route-stop future"><i></i><span>SOC L1 → L2</span><b>FUTURE</b></div>
+        </div>
+        <div class="route-foot"><span>BUILD THE BASE</span><span>01 — 16 PHASES</span></div>
+      </div>
+    </div>
   </section>
   <nav class="main-tabs" aria-label="أقسام الخطة">
     <button class="main-tab active" data-tab="linux"><span class="tab-index">01</span><span><b>مسار Linux</b><small>الدراسة الحالية</small></span><span class="tab-status now">ابدأ هنا</span></button>
@@ -30,7 +39,7 @@
     <button class="main-tab" data-tab="sources"><span class="tab-index">03</span><span><b>مراجعة المصادر</b><small>ما دُمج وما استُبعد</small></span></button>
   </nav>
   <section id="linuxPanel" class="panel active-panel">
-    <div class="section-heading"><div><div class="eyebrow blue">CURRENT TRACK <span class="eyebrow-line"></span> ONE PASS</div><h2>مسار Linux Administration</h2><p>كل الدروس هنا مطلوبة وتدخل في نسبة الإنجاز. لن تحتاج للرجوع إلى دورة Linux أخرى لإكمال هذه المرحلة.</p></div><div class="track-tag"><span class="pulse"></span> تدرس الآن</div></div>
+    <div class="section-heading"><div><div class="eyebrow blue">FIELD MANUAL / 01 <span class="eyebrow-line"></span> LINUX FOUNDATION</div><h2>مسار Linux Administration</h2><p>كل الدروس هنا مطلوبة وتدخل في نسبة الإنجاز. لن تحتاج للرجوع إلى دورة Linux أخرى لإكمال هذه المرحلة.</p></div><div class="track-tag"><span class="pulse"></span> تدرس الآن</div></div>
     <div class="stats-grid">
       <div class="progress-card main-progress"><div class="progress-ring" id="linuxRing"><div class="ring-inner"><b id="linuxPct">0%</b><small>مكتمل</small></div></div><div class="progress-info"><small>إجمالي تقدم Linux</small><strong><span id="linuxDone">0</span><em> / </em><span id="linuxTotal">0</span> درس</strong><div class="progress-bar"><i id="linuxBar"></i></div><small id="linuxRemaining">كل المنهج بانتظارك — ابدأ بالدرس الأول.</small></div></div>
       <div class="mini-stat"><span class="stat-icon">▤</span><small>المراحل</small><b id="phaseTotal">16</b><em>تسلسل واحد</em></div>
@@ -39,12 +48,12 @@
     </div>
     <div class="next-card" id="nextCard"><div class="next-label"><span>الخطوة التالية</span><span class="next-spark">✦</span></div><div class="next-main"><div><small id="nextPhase">المرحلة الأولى</small><h3 id="nextTitle">جاري تحميل المنهج…</h3><p id="nextMeta"></p></div><button class="primary-btn" id="nextBtn">ابدأ الدرس <span>←</span></button></div></div>
     <div class="toolbar"><div class="search-box"><span>⌕</span><input id="searchInput" placeholder="ابحث باسم الدرس أو المحاضر أو الدورة..."></div><select id="phaseFilter"><option value="all">كل المراحل</option></select><select id="typeFilter"><option value="all">كل التصنيفات</option><option>أساسي</option><option>استكمال مطلوب</option><option>تطبيق عملي</option></select><button id="hideDoneBtn" class="subtle-btn">إخفاء المنتهي</button><button id="resetLinuxBtn" class="subtle-btn danger">تصفير Linux</button></div>
-    <div class="legend"><span><i class="dot core"></i> أساسي</span><span><i class="dot complete"></i> استكمال مطلوب</span><span><i class="dot lab"></i> تطبيق عملي</span><span class="legend-note">اضغط على بطاقة الدرس لعرض الملاحظات والتطبيق المطلوب.</span></div>
+    <div class="legend"><span><i class="dot core"></i> أساسي</span><span><i class="dot complete"></i> استكمال مطلوب</span><span><i class="dot lab"></i> تطبيق عملي</span><span class="legend-note">كل العناصر النشطة مطلوبة. افتح الدرس لتظهر الملاحظة والتطبيق ودفتر ملاحظاتك.</span></div>
     <div id="linuxStages" class="stages-list"></div>
     <div class="finish-banner"><div class="finish-icon">✦</div><div><b>نهاية مسار Linux</b><p>عند إكمال جميع الدروس واللابات، انتقل إلى Security+ ثم افتح تبويب SOC للبدء في المرحلة التالية.</p></div><button class="outline-btn" data-goto="soc">عرض خطة SOC المستقبلية ←</button></div>
   </section>
   <section id="socPanel" class="panel">
-    <div class="section-heading"><div><div class="eyebrow purple">NEXT PHASE <span class="eyebrow-line"></span> BLUE TEAM</div><h2>المرحلة التالية: SOC Analyst L1 ثم L2</h2><p>هذا تبويب مرجعي محفوظ. لا تبدأه الآن؛ استخدمه بعد إكمال Linux وSecurity+ لتكمل بنفس التسلسل.</p></div><div class="track-tag future"><span class="lock-icon">◈</span> مرحلة مستقبلية</div></div>
+    <div class="section-heading"><div><div class="eyebrow purple">FIELD MANUAL / 02 <span class="eyebrow-line"></span> BLUE TEAM OPERATIONS</div><h2>المرحلة التالية: SOC Analyst L1 ثم L2</h2><p>هذا تبويب مرجعي محفوظ. لا تبدأه الآن؛ استخدمه بعد إكمال Linux وSecurity+ لتكمل بنفس التسلسل.</p></div><div class="track-tag future"><span class="lock-icon">◈</span> مرحلة مستقبلية</div></div>
     <div class="gate-card"><div class="gate-icon">⌑</div><div class="gate-copy"><b>بوابة الانتقال إلى SOC</b><p>علّم المتطلبات عند الانتهاء منها. ستتغير حالة الخطة إلى «جاهز للبدء» دون التأثير على تقدم Linux.</p><div class="gate-checks"><label><input type="checkbox" id="gateLinux"> <span>أنهيت Linux بالكامل</span></label><label><input type="checkbox" id="gateSecurity"> <span>أنهيت CompTIA Security+</span></label></div></div><div class="gate-state" id="gateState">لم يحن البدء بعد</div></div>
     <div class="pillars-grid" id="pillarsGrid"></div>
     <div class="soc-note"><b>كيف سنستخدم المحاور الأربعة؟</b><p>Log Analysis يجمع الأدلة، SIEM يبحث ويربطها، MITRE يصنف سلوك الهجوم، EDR يوضح ما جرى داخل الجهاز ويتيح الاستجابة، وHands-On SOC يجمع هذه الخطوات في تحقيق متكامل.</p></div>
@@ -52,7 +61,7 @@
     <div class="soc-footer"><div><b>قاعدة مهمة للمستقبل</b><p>ابدأ بـWazuh لبناء معمل محلي، ثم اختر التعمق في Microsoft Sentinel/KQL أو Splunk/SPL بحسب بيئة العمل. لا تحاول إتقان خمس منصات SIEM في وقت واحد.</p></div><a class="outline-btn" href="https://attack.mitre.org/" target="_blank" rel="noopener">MITRE ATT&CK ↗</a></div>
   </section>
   <section id="sourcesPanel" class="panel">
-    <div class="section-heading"><div><div class="eyebrow gold">SOURCE AUDIT <span class="eyebrow-line"></span> NO DUPLICATION</div><h2>مراجعة كل القوائم التي أرسلتها</h2><p>هنا ستجد كل مصدر، وما الذي دخل المنهج، وما الذي لم نستخدمه ولماذا؛ حتى لا تضيع أي دورة أو تعيد محتوى مكررًا.</p></div></div>
+    <div class="section-heading"><div><div class="eyebrow gold">FIELD NOTES / 03 <span class="eyebrow-line"></span> SOURCE REGISTER</div><h2>مراجعة كل القوائم التي أرسلتها</h2><p>هنا ستجد كل مصدر، وما الذي دخل المنهج، وما الذي لم نستخدمه ولماذا؛ حتى لا تضيع أي دورة أو تعيد محتوى مكررًا.</p></div></div>
     <div class="audit-summary" id="auditSummary"></div>
     <div class="audit-tools"><div class="search-box"><span>⌕</span><input id="sourceSearch" placeholder="ابحث عن محاضر أو دورة..."></div><select id="sourceStatus"><option value="all">كل القرارات</option><option value="مدمج">مدمج</option><option value="مستبعد">مستبعد</option><option value="مؤجل">مؤجل</option></select></div>
     <div id="sourceCards" class="source-list"></div>
