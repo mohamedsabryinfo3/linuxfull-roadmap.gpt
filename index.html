@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#eef1f6">
+  <meta name="description" content="خطة Linux فقط: مسار متسلسل من قوائم محمد الطناني وعبدالله النعيمي وSecurity Jordan، مع متابعة الدروس والمحاضرين والمدد.">
+  <title>مسار Linux – الخطة الدراسية</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <main class="wrap">
+    <header class="site-header">
+      <div class="heading">
+        <p class="eyebrow">LINUX LEARNING TRACK</p>
+        <h1>مسار <span>Linux</span></h1>
+        <p class="sub">خطة Linux فقط، مرتبة حسب تسلسل التعلم وليس حسب قوائم التشغيل. ستنتقل بين محمد الطناني وعبدالله النعيمي وSecurity Jordan عندما تكون المحاضرة التالية مكملة للمهارة التي تدرسها، مع تجنب تكرار الشرح.</p>
+      </div>
+      <section class="hero" aria-label="ملخص التقدم">
+        <div class="ring" id="ring" style="--p:0"><b id="pc">0%</b></div>
+        <div class="hero-text">
+          <div class="verdict" id="nextTitle">التالي: مقدمة وتاريخ Linux</div>
+          <div class="muted" id="progressSummary">0 من 62 درسًا أساسيًا مكتملًا</div>
+          <div class="hero-hint" id="nextMeta">محمد الطناني · الدرس 001 · 19:55</div>
+        </div>
+        <button class="btn primary" id="nextBtn" type="button">اذهب للدرس التالي</button>
+      </section>
+    </header>
+
+    <nav class="tabs" id="tabs" role="tablist" aria-label="أقسام الموقع">
+      <button role="tab" data-tab="path" aria-selected="true">المسار</button>
+      <button role="tab" data-tab="sources" aria-selected="false">الدورات والمحاضرون</button>
+      <button role="tab" data-tab="guide" aria-selected="false">دليل الدراسة</button>
+    </nav>
+
+    <section id="view-path" class="view">
+      <div class="toolbar">
+        <input id="searchInput" type="search" placeholder="ابحث عن درس أو محاضر أو أمر Linux" aria-label="ابحث في الدروس">
+      </div>
+      <div class="tools" id="typeFilters" aria-label="تصفية نوع الدرس">
+        <button class="chip" data-value="all" aria-pressed="true">كل الأنواع</button>
+        <button class="chip" data-value="required" aria-pressed="false">أساسي</button>
+        <button class="chip" data-value="support" aria-pressed="false">دعم ومراجعة</button>
+        <button class="chip" data-value="optional" aria-pressed="false">توسّع اختياري</button>
+      </div>
+      <div class="tools filter-row">
+        <label class="select-wrap"><span>المحاضر</span><select id="instructorFilter" aria-label="تصفية حسب المحاضر"><option value="all">كل المحاضرين</option></select></label>
+        <label class="select-wrap"><span>حالة الدرس</span><select id="statusFilter" aria-label="تصفية حسب حالة الإنجاز"><option value="all">كل الحالات</option><option value="todo">لم يكتمل</option><option value="done">مكتمل</option><option value="required">الأساسي فقط</option><option value="optional">الدعم والاختياري</option></select></label>
+        <button class="chip" id="hideDone" type="button" aria-pressed="false">إخفاء المكتمل</button>
+        <button class="btn secondary reset-small" id="resetBtn" type="button">تصفير التقدم</button>
+      </div>
+      <div class="tools course-filters" id="courseFilters" aria-label="تصفية حسب الدورة"></div>
+      <div class="curriculum-heading">
+        <div>
+          <p class="eyebrow">LINUX CURRICULUM</p>
+          <h2>الدروس بالترتيب المقترح</h2>
+          <p>كل بطاقة تعرض اسم الدورة والمحاضر ورقم الفيديو ومدته. افتح التفاصيل لمعرفة هدف الدرس والتطبيق المقترح.</p>
+        </div>
+        <span class="total-badge" id="requiredCount">62 درسًا أساسيًا</span>
+      </div>
+      <div id="phases" aria-live="polite"></div>
+    </section>
+
+    <section id="view-sources" class="view hidden">
+      <div class="page-intro">
+        <p class="eyebrow">COURSE LIBRARY</p>
+        <h2>الدورات والمحاضرون</h2>
+        <p class="muted">المصادر التي أرسلتها فقط. الدورات المتكررة موضوعة كمراجع لا كمسار إضافي مطلوب.</p>
+      </div>
+      <div id="sourceCards" class="source-grid"></div>
+      <div class="resource-section">
+        <h3>دورات ومصادر للمراجعة أو المؤجلة حاليًا</h3>
+        <p class="muted small-note">لا تدخل هذه العناصر في نسبة إنجاز مسار Linux، لأنها تكرر الأساسيات أو تخرج عن نطاق Linux الخالص.</p>
+        <div id="optionalResources"></div>
+      </div>
+    </section>
+
+    <section id="view-guide" class="view hidden">
+      <div class="page-intro">
+        <p class="eyebrow">HOW TO USE THIS TRACK</p>
+        <h2>طريقة الدراسة وتسجيل التقدم</h2>
+        <p class="muted">هذا الموقع مخصص لدراسة Linux حاليًا فقط. Security+ تظل ضمن دراستك المستقلة ولا تدخل في قائمة الدروس أو نسبة الإنجاز.</p>
+      </div>
+      <div class="note-card roadmap-actions">
+        <h3>حفظ التقدم ونقله بين الأجهزة</h3>
+        <p>يُحفظ الإنجاز تلقائيًا في هذا المتصفح. استخدم التصدير لإنشاء نسخة JSON، ثم استوردها على جهاز آخر.</p>
+        <div class="head-actions">
+          <button class="btn secondary" id="exportBtn" type="button">تصدير التقدم</button>
+          <label class="btn secondary import-label">استيراد التقدم<input id="importInput" type="file" accept="application/json"></label>
+        </div>
+      </div>
+      <div class="sequence-note">
+        <strong>لماذا يتنقل المسار بين المحاضرين؟</strong>
+        <p>لأن ترتيب الدراسة مبني على المهارة: نأخذ الأساس من الطناني، ثم نضع محاضرة عبدالله أو Security Jordan مباشرة بعده عندما تضيف تطبيقًا أو منظورًا مكملًا. لا تتبع كل Playlist وحدها ولا تعِد الموضوع نفسه من أكثر من محاضر دون حاجة.</p>
+      </div>
+      <div class="guide-list">
+        <article><b>1. الأساسي</b><p>الدروس الأساسية تدخل في نسبة الإنجاز. أكملها بالترتيب قبل التوسع في المحتوى الاختياري.</p></article>
+        <article><b>2. دعم ومراجعة</b><p>محاضرات قصيرة من قوائم أخرى تكمل الموضوع أو تعطي شرحًا بديلًا. شاهدها عندما تضيف فهمًا، ولا تكررها إذا أتقنت المهارة.</p></article>
+        <article><b>3. توسّع اختياري</b><p>موضوعات إدارة متقدمة مثل RAID وLVM وخدمات NFS وSamba وApache وNginx. مفيدة لفهم الخوادم، لكنها لا تعطل إكمال الأساس.</p></article>
+        <article><b>4. مدة الفيديو ووقت المذاكرة</b><p>المدة المعروضة هي مدة الفيديو عندما كانت متاحة. إذا لم تكن موثقة فسيظهر ذلك بوضوح، وقد يظهر بجانبها وقت مذاكرة تقديري منفصل.</p></article>
+        <article><b>5. حفظ تقدمك</b><p>التقدم يُحفظ محليًا في المتصفح. استخدم تصدير JSON لنقله إلى جهاز آخر ثم استورده هناك؛ لا يوجد تزامن تلقائي بين الأجهزة.</p></article>
+      </div>
+      <div class="note-card">
+        <h3>حدود هذه النسخة</h3>
+        <p>الموقع يحتوي على Linux Administration وLinux for CyberSecurity وBash فقط من القوائم التي أرسلتها. لم أضف أي مرحلة تخصصية لاحقة إلى هذه النسخة. نعود إلى بقية المسار بعد الانتهاء من Linux وSecurity+.</p>
+      </div>
+    </section>
+
+    <footer class="footer"><span>Linux Learning Track</span><span>Static website · GitHub + Vercel ready · التقدم محفوظ في هذا المتصفح</span></footer>
+  </main>
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+  <script src="curriculum.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
